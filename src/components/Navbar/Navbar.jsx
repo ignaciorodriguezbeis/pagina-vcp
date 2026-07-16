@@ -19,7 +19,7 @@ function Navbar() {
             </div>
             <CartWidget />
         </nav>
-    )
+    ) 
 }
 
 export default Navbar
