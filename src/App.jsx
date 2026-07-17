@@ -1,22 +1,19 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/Navbar/Navbar'
-
-import Footer from './components/Footer/Footer'
-import { CartProvider } from './context/CartContext'
+import NavBar from './components/Navbar/Navbar';
+import Inicio from './components/Inicio/Inicio';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <BrowserRouter>
-      <CartProvider>
-        <NavBar />
-        <Routes>
-         
-        </Routes>
-        <Footer />
-      </CartProvider>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

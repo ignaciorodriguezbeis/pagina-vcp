@@ -1,1 +1,7 @@
- 
+ nav {background-color: rgb(25, 135, 231);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
