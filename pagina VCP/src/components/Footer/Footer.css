@@ -1,12 +1,11 @@
 footer {
-    background-color: #2c2c2d;
-    color: #ffffff;
+    background-color: #4d4a4a;
+    padding: 20px;
     text-align: center;
-    padding: 16px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
 }
+
 
 footer div p {
     margin: 0;
