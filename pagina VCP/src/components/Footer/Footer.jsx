@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
     return (
         <footer>
-            <div class="footer-social">
+            <div className="footer-social">
                 <a href="https://www.facebook.com/" target="_blank">
                     <img src="./assets/img/facebook-icon.png" alt="Facebook"></img>
                 </a>

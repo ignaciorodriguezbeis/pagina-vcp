@@ -2,9 +2,16 @@ import { useState } from 'react';
 import './login.css';
 
 function Login() {
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    function closeLogin() {
+        setIsLoginOpen(false);
+        setError('');
+        setSuccess('');
+    }
 
     function closeRegister() {
         setIsRegisterOpen(false);
@@ -30,11 +37,31 @@ function Login() {
     return (
         <>
             <div className="login">
-                <button className="login-button" type="button">Iniciar sesión</button>
+                <button className="login-button" type="button" onClick={() => setIsLoginOpen(true)}>
+                    Iniciar sesión
+                </button>
                 <button className="register-button" type="button" onClick={() => setIsRegisterOpen(true)}>
                     Registrarse
                 </button>
             </div>
+
+            {isLoginOpen && (
+                <div className="login-overlay" role="presentation" onMouseDown={closeLogin}>
+                    <section className="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title" onMouseDown={(event) => event.stopPropagation()}>
+                        <button className="close-login" type="button" onClick={closeLogin} aria-label="Cerrar sesión">×</button>
+                        <h2 id="login-title">Iniciar sesión</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className="login-grid">
+                                <label>Email<input name="email" type="email" required /></label>
+                                <label>Contraseña<input name="password" type="password" required /></label>
+                            </div>
+                            {error && <p className="form-message error" role="alert">{error}</p>}
+                            {success && <p className="form-message success">{success}</p>}
+                            <button className="submit-login" type="submit">Iniciar sesión</button>
+                        </form>
+                    </section>
+                </div>
+            )}
 
             {isRegisterOpen && (
                 <div className="register-overlay" role="presentation" onMouseDown={closeRegister}>
