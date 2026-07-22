@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Login from './Login/login';
+import catalogo from '../Catalogo/catalogo';
+import hosteleria from '../Hosteleria/hosteleria';
+import gastronomia from '../Gastronomia/gastronomia';
+import espectaculos from '../Espectaculos/espectaculos';
+import paisajes from '../Paisajes/paisajes';
 
 function Navbar() {
     return (
@@ -13,8 +18,9 @@ function Navbar() {
             </section>
             <div className="navbar">
                 <Link to="/catalogo">Catálogo</Link>
-                <Link to="/catalogo">hosteleria</Link>
-                <Link to="/catalogo">gastronomia</Link>
+                <Link to="/hosteleria">hosteleria</Link>
+                <Link to="/gastronomia">gastronomia</Link>
+                <Link to="/espectaculos">espectáculos</Link>
                 <Link to="/paisajes">Paisajes</Link>
             </div>
 

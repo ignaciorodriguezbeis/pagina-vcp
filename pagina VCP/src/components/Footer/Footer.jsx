@@ -6,13 +6,13 @@ function Footer() {
         <footer>
             <div className="footer-social">
                 <a href="https://www.facebook.com/" target="_blank">
-                    <img src=".../assets/img/facebook-icon.png" alt="Facebook"></img>
+                    <img src="../../assets/facebook-icon.png" alt="Facebook"></img>
                 </a>
                 <a href="https://www.instagram.com/" target="_blank">
-                    <img src="  .../assets/img/instagram-icon.png" alt="Instagram"></img>
+                    <img src="../../assets/instagram-icon.png" alt="Instagram"></img>
                 </a>
                 <a href="https://web.whatsapp.com/" target="_blank">
-                    <img src=".../assets/img/whatsapp-icon.png" alt="WhatsApp"></img>
+                    <img src="../../assets/whatsapp-icon.png" alt="WhatsApp"></img>
                 </a>
             </div>
             <div>
