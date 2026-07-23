@@ -1,18 +1,21 @@
 import React from "react";
 import "./Footer.css";
+import facebook from '../../assets/img/facebook-icon.png';
+import instagram from '../../assets/img/instagram-icon.png';
+import whatsapp from '../../assets/img/whatsapp-icon.png';
 
 function Footer() {
     return (
         <footer>
             <div className="footer-social">
-                <a href="https://www.facebook.com/" target="_blank">
-                    <img src="../../assets/facebook-icon.png" alt="Facebook"></img>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+                        <img src={facebook} alt="Facebook" />
                 </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="../../assets/instagram-icon.png" alt="Instagram"></img>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+                        <img src={instagram} alt="Instagram" />
                 </a>
-                <a href="https://web.whatsapp.com/" target="_blank">
-                    <img src="../../assets/whatsapp-icon.png" alt="WhatsApp"></img>
+                    <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer">
+                        <img src={whatsapp} alt="WhatsApp" />
                 </a>
             </div>
             <div>

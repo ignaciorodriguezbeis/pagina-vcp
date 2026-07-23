@@ -1,5 +1,5 @@
  nav {
-    background-color: rgb(25, 135, 231);
+    background-color: rgb(44, 144, 231);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,8 +8,35 @@
     border-radius: 10px;
  }
 
+ nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+ }
+
  nav div {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
+ }
+
+ .logoname {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: linear-gradient(to right, #456196, #2a5298);
+ }
+
+ .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid white;
  }

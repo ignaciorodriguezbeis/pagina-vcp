@@ -1,5 +1,11 @@
 import React from "react";
 import "./Inicio.css"
+import inicio1 from '../../assets/img/embudo.png';
+import inicio2 from '../../assets/img/cucu_logo.jpg';
+import inicio3 from '../../assets/img/costa.png';
+import inicio4 from '../../assets/img/puente-urbano.png';
+import inicio5 from '../../assets/img/teatro.png';
+import inicio6 from '../../assets/img/puente-uruguai.png';
 
 
 
@@ -7,17 +13,70 @@ import "./Inicio.css"
 
 
 
- function Inicio() {
+function Inicio() {
     return (
-        <div className="inicio">
-            <h1>Bienvenidos a Villa Carlos Paz</h1>
-            <p>Villa Carlos Paz es una ciudad turística ubicada en la provincia de Córdoba, Argentina. Es conocida por su belleza natural, su clima agradable y su amplia oferta de actividades recreativas y culturales. La ciudad se encuentra a orillas del lago San Roque y está rodeada por las sierras de Córdoba, lo que la convierte en un destino ideal para los amantes de la naturaleza y el turismo al aire libre.</p>
-            <p>Entre las principales atracciones turísticas de Villa Carlos Paz se encuentran el Reloj Cu-Cú, el Teatro del Lago, el Puente Uruguay, el Parque Nacional Quebrada del Condorito y el Cerro de la Cruz. Además, la ciudad cuenta con una gran variedad de restaurantes, bares y tiendas que ofrecen productos locales y artesanías.</p>
-            <p>Villa Carlos Paz es un destino turístico muy popular durante todo el año, especialmente en verano, cuando la ciudad se llena de turistas que buscan disfrutar del sol, la playa y las actividades acuáticas en el lago San Roque. También es un lugar ideal para practicar deportes de aventura como el senderismo, la escalada y el parapente.</p>
-            <p>En resumen, Villa Carlos Paz es un destino turístico completo que ofrece una combinación de belleza natural, actividades recreativas y culturales, y una amplia oferta de servicios turísticos. Si estás buscando un lugar para relajarte, disfrutar de la naturaleza y conocer la cultura local, Villa Carlos Paz es una excelente opción.</p>
+        <div class="inicio">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide"><img src={inicio1} ></img></div>
+                    <div class="slide"><img src={inicio2} ></img></div>
+                    <div class="slide"><img src={inicio3} ></img></div>
+                    <div class="slide"><img src={inicio4} ></img></div>
+                    <div class="slide"><img src={inicio5} ></img></div>
+                    <div class="slide"><img src={inicio6} ></img></div>
+                </div>
+            </div>
+            <div class="inicio-text">
+                <h1>Bienvenidos a Villa Carlos Paz</h1>
+                <p> en este sitio web ofrecemos información actualizada sobre la ciudad.</p>
+                <p> ¿Venis aen pareja, con niños o en grupo? Estamos para ayudarte.</p>
+                <p>En esta página encontrarás consejos y todo lo necesario para planificar tu viaje y disfrutar al máximo de nuestra ciudad. </p>
+            </div>
+
+
+            <div class="inicio-image">
+                <h2>hostelerias</h2>
+                <img src="../../assets/inicio.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio2.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio5.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio7.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio8.jpg" alt="Imagen de Villa Carlos Paz"></img>
+            </div>
+
+
+            <div class="inicio-image">
+                <h2>gastronomia</h2>
+                <img src="../../assets/inicio.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio2.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio5.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio7.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio8.jpg" alt="Imagen de Villa Carlos Paz"></img>
+            </div>
+            <div class="inicio-image">
+                <h2>actividades</h2>
+                <img src="../../assets/inicio8.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio9.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio10.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio11.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio14.jpg" alt="Imagen de Villa Carlos Paz"></img>
+            </div>
+            <div class="inicio-image">
+                <h2>puintos de interes</h2>
+                <img src="../../assets/inicio3.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio4.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio6.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio12.jpg" alt="Imagen de Villa Carlos Paz"></img>
+                <img src="../../assets/inicio13.jpg" alt="Imagen de Villa Carlos Paz"></img>
+            </div>
         </div>
+
+
+
+
+
+
     )
-}   
+}
 
 
 export default Inicio;
