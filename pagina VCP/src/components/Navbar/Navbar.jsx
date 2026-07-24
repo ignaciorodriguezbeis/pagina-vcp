@@ -22,8 +22,8 @@ function Navbar() {
 
             </section>
             <div class="navbar">
-                <ul class="alojamientos-container">
-                    <li class="alojamientos-dropdown">
+                <ul class="list-container">
+                    <li class="list-header">
                         <Link to="/alojamientos">Alojamientos</Link>
                         <ul>
                             <li>
@@ -41,8 +41,8 @@ function Navbar() {
                         </ul>
                     </li>
                 </ul>
-                <ul class="actividades-container">
-                    <li class="actividades-dropdown">
+                <ul class="list-container">
+                    <li class="list-header">
                         <Link to="/actividades">Qué hacer</Link>
                         <ul>
                             <li>
@@ -64,8 +64,8 @@ function Navbar() {
                     </li>
                 </ul>
 
-                <ul class="gastronomia-container">
-                    <li class="gastronomia-dropdown">
+                <ul class="list-container">
+                    <li class="list-header">
                         <Link to="/gastronomia">Gastronomía</Link>
                         <ul>
                             <li>
@@ -86,11 +86,7 @@ function Navbar() {
                         </ul>
                     </li>
                 </ul>
-                <ul class="otros-container">
-                    <li class="otros-dropdown">
-                        <Link to="/otros" class="paisajes">otros</Link>
-                    </li>
-                </ul>
+                
 
             </div>
 
