@@ -16,14 +16,14 @@ function Navbar() {
         <nav >
             <section>
                 <div>
-                    <Link to="/"><img src={logo} alt="Logo" class="logo"></img></Link>
-                    <Link to="/" class="logoname"><span class="logoname-span">VCP</span> turismo</Link>
+                    <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
+                    <Link to="/" className="logoname"><span>VCP</span> turismo</Link>
                 </div>
 
             </section>
-            <div class="navbar">
-                <ul class="list-container">
-                    <li class="list-header">
+            <div className="navbar">
+                <ul className="list-container">
+                    <li className="list-header">
                         <Link to="/alojamientos">Alojamientos</Link>
                         <ul>
                             <li>
@@ -41,8 +41,8 @@ function Navbar() {
                         </ul>
                     </li>
                 </ul>
-                <ul class="list-container">
-                    <li class="list-header">
+                <ul className="list-container">
+                    <li className="list-header">
                         <Link to="/actividades">Qué hacer</Link>
                         <ul>
                             <li>
@@ -64,8 +64,8 @@ function Navbar() {
                     </li>
                 </ul>
 
-                <ul class="list-container">
-                    <li class="list-header">
+                <ul className="list-container">
+                    <li className="list-header">
                         <Link to="/gastronomia">Gastronomía</Link>
                         <ul>
                             <li>
@@ -84,14 +84,18 @@ function Navbar() {
                                 <Link to="/cervecerias">cervecerías</Link>
                             </li>
                         </ul>
+                    </li> 
+                </ul>
+                <ul className="list-container">
+                    <li className="list-header">
+                        <Link to="/otros">Otros</Link>
+                        
                     </li>
                 </ul>
-                
-
             </div>
 
-            <div class="login-container">
-                <Link to="/login" class="login">Anuncía tu negocio</Link>
+            <div className="login-container">
+                <Link to="/login" className="login">Anuncía tu negocio</Link>
             </div>
 
         </nav>

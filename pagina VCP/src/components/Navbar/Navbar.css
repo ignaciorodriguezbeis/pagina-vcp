@@ -8,45 +8,116 @@
     border-radius: 10px;
  }
 
- .navbar a {
-    color: rgb(53, 48, 48);
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: color 0.3s ease;
- }
-
  nav div {
     display: flex;
     align-items: center;
     gap: 5px;
  }
 
- .logoname {
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(36, 35, 35);
-    text-decoration: none;
-    padding: 5px 10px;
- }
+ /* LOGO */
 
- .logoname-span {
-    color: #328663;
- }
-
- .logo {
-    width: 60px;
-    height: 60px;
+ section img {
     border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid white;
+    height: 100px;
+    width: auto;
+    border: solid #35bb8e;
  }
 
- .login-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+ .logoname {
+    font-size: 24px;
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    font-weight: 500;
+    background-color: #8aeecd;
+    margin: 0px 10px;
+    padding: 10px;
+    border-radius: 10px;
  }
+
+ .logoname span {
+    color: #35bb8e;
+    font-size: 30px;
+    font-weight: 900;
+ }
+
+
+
+ /* nav list */
+ .navbar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+ }
+
+ .list-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+ }
+
+ .list-header {
+    position: relative;
+ }
+
+ .list-header > a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+ }
+
+ .list-header:hover > a {
+    background-color: rgba(53, 187, 142, 0.12);
+ }
+
+ .list-header > ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 10;
+ }
+
+ .list-header:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+ }
+
+ .list-header > ul li {
+    padding: 0;
+ }
+
+ .list-header > ul li a {
+    display: block;
+    padding: 10px 14px;
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+ }
+
+ .list-header > ul li a:hover {
+    background-color: rgba(53, 187, 142, 0.12);
+ }
+
+
+ /* LOGIN */
 
  .login {
     padding: 5px 10px;
@@ -58,32 +129,4 @@
     transition: background-color 0.3s ease;
     text-decoration: none;
     font-weight: 600;
- }
-
- .list-container {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    /* position: absolute; */
-
- }
- .list-container li  {
-   display: flex;
-
-   position:relative;
-   
- }
-
- .list-header {
-    position: relative;
-    list-style: none;
- }
- .list-header li {
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    list-style: none;
-   
  }
