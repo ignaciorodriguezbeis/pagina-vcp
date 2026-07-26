@@ -68,6 +68,64 @@ function Inicio() {
                             <p>tu marca acá anuncia con nosotros</p>
                         </div>
                     </a>
+                </div>
+                
+                <div>
+                    <h2>servisios destacados</h2>
+                    <p>Los espacios destacados corresponden a comercios anunciantes de CarlosPaz.com. </p>
+                    <div>
+                        <div>
+                            <p>hoteles</p>
+                            <span>destacado</span>
+                            <h3>Hotel Portal de las Sierras</h3>
+                            <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
+                            <h4>Desde $48.000 / noche</h4>
+                            <p>+54 3541 42-1000</p>
+                        </div>
+                        <div>
+                            <p>hoteles</p>
+                            <span>destacado</span>
+                            <h3>Hotel Portal de las Sierras</h3>
+                            <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
+                            <h4>Desde $48.000 / noche</h4>
+                            <p>+54 3541 42-1000</p>
+                        </div>
+                        <div>
+                            <p>hoteles</p>
+                            <span>destacado</span>
+                            <h3>Hotel Portal de las Sierras</h3>
+                            <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
+                            <h4>Desde $48.000 / noche</h4>
+                            <p>+54 3541 42-1000</p>
+                        </div>
+                        <div>
+                            <p>hoteles</p>
+                            <span>destacado</span>
+                            <h3>Hotel Portal de las Sierras</h3>
+                            <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
+                            <h4>Desde $48.000 / noche</h4>
+                            <p>+54 3541 42-1000</p>
+                        </div>
+                        <div>
+                            <p>hoteles</p>
+                            <span>destacado</span>
+                            <h3>Hotel Portal de las Sierras</h3>
+                            <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
+                            <h4>Desde $48.000 / noche</h4>
+                            <p>+54 3541 42-1000</p>
+                        </div>
+                        <div>
+                            <p>hoteles</p>
+                            <span>destacado</span>
+                            <h3>Hotel Portal de las Sierras</h3>
+                            <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
+                            <h4>Desde $48.000 / noche</h4>
+                            <p>+54 3541 42-1000</p>
+                        </div>
+
+                    </div>
+
+
                     <a to="/publicidad">
                         <div>
                             <h5>publicidad</h5>
@@ -75,13 +133,6 @@ function Inicio() {
                             <p>tu marca acá anuncia con nosotros</p>
                         </div>
                     </a>
-                    <div>
-                        <h2>servisios destacados</h2>
-                        <p>Los espacios destacados corresponden a comercios anunciantes de CarlosPaz.com. </p>
-
-                        {/* <link to="/promos"> Ver ofrertas</link> */}
-                    </div>
-
                 </div>
             </div>
 
