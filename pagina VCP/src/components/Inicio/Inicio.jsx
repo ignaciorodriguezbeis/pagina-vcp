@@ -6,6 +6,7 @@ import inicio3 from '../../assets/img/costa.png';
 import inicio4 from '../../assets/img/puente-urbano.png';
 import inicio5 from '../../assets/img/teatro.png';
 import inicio6 from '../../assets/img/puente-uruguai.png';
+import inicio7 from '../../assets/img/vcp-postal.webp'
 
 
 
@@ -15,62 +16,77 @@ import inicio6 from '../../assets/img/puente-uruguai.png';
 
 function Inicio() {
     return (
-        <div class="inicio">
-            <div class="slider-container">
-                <div class="slider">
-                    <div class="slide"><img src={inicio1} ></img></div>
-                    <div class="slide"><img src={inicio2} ></img></div>
-                    <div class="slide"><img src={inicio3} ></img></div>
-                    <div class="slide"><img src={inicio4} ></img></div>
-                    <div class="slide"><img src={inicio5} ></img></div>
-                    <div class="slide"><img src={inicio6} ></img></div>
+        <section>
+            <div className="inicio" style={{ backgroundImage: `url(${inicio7})` }}>
+                <div className="inicio-text">
+                    <div className="inicio-subtitle">Villa Carlos Paz - Córdoba</div>
+                    <h1>Bienvenidos a Villa Carlos Paz</h1>
+                    <p>Información actualizada sobre alojamiento, excursiones, espectáculos y gastronomía.</p>
+                    <p>Ya sea que vengas en pareja, con niños o en grupo, acá encontrás todo para planificar tu viaje.</p>
+                    <div className="button-group">
+                        <button type="button">Dónde alojarte</button>
+                        <button type="button">Qué hacer</button>
+                    </div>
                 </div>
             </div>
-            <div class="inicio-text">
-                <h1>Bienvenidos a Villa Carlos Paz</h1>
-                <p> en este sitio web ofrecemos información actualizada sobre la ciudad.</p>
-                <p> ¿Venis aen pareja, con niños o en grupo? Estamos para ayudarte.</p>
-                <p>En esta página encontrarás consejos y todo lo necesario para planificar tu viaje y disfrutar al máximo de nuestra ciudad. </p>
+
+            <div class="cards-container">
+
+                <h2>Planificá tu Viaje</h2>
+                <p>elegi una categoria para empezar</p>
+
+                <div class="card-plan">
+                    <div class="card">
+                        <img src={inicio1} />
+                        <h4>donde alojarte</h4>
+                        <p>Hoteles, cabañas, hostels y campings</p>
+                        <button>Ver más</button>
+                    </div>
+                    <div class="card">
+                        <img src={inicio6} />
+                        <h4>que hacer</h4>
+                        <p>Excursiones, espectáculos y aventura</p>
+                        <button>Ver más</button>
+                    </div>
+                    <div class="card">
+                        <img src={inicio3} />
+                        <h4>donde comer</h4>
+                        <p>Parrillas, cafés y cervecerías</p>
+                        <button>Ver más</button>
+                    </div>
+                    <div class="card">
+                        <img src={inicio4} />
+                        <h4>oferta y promociones</h4>
+                        <p>Descuentos verificados de la temporada</p>
+                        <button>Ver más</button>
+                    </div>
+
+                    <a to="/publicidad">
+                        <div>
+                            <h5>publicidad</h5>
+                            <h6>espacio publicitario</h6>
+                            <p>tu marca acá anuncia con nosotros</p>
+                        </div>
+                    </a>
+                    <a to="/publicidad">
+                        <div>
+                            <h5>publicidad</h5>
+                            <h6>espacio publicitario</h6>
+                            <p>tu marca acá anuncia con nosotros</p>
+                        </div>
+                    </a>
+                    <div>
+                        <h2>servisios destacados</h2>
+                        <p>Los espacios destacados corresponden a comercios anunciantes de CarlosPaz.com. </p>
+
+                        {/* <link to="/promos"> Ver ofrertas</link> */}
+                    </div>
+
+                </div>
             </div>
 
 
-            <div class="inicio-image">
-                <h2>hostelerias</h2>
-                <img src="../../assets/inicio.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio2.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio5.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio7.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio8.jpg" alt="Imagen de Villa Carlos Paz"></img>
-            </div>
-
-
-            <div class="inicio-image">
-                <h2>gastronomia</h2>
-                <img src="../../assets/inicio.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio2.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio5.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio7.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio8.jpg" alt="Imagen de Villa Carlos Paz"></img>
-            </div>
-            <div class="inicio-image">
-                <h2>actividades</h2>
-                <img src="../../assets/inicio8.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio9.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio10.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio11.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio14.jpg" alt="Imagen de Villa Carlos Paz"></img>
-            </div>
-            <div class="inicio-image">
-                <h2>puintos de interes</h2>
-                <img src="../../assets/inicio3.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio4.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio6.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio12.jpg" alt="Imagen de Villa Carlos Paz"></img>
-                <img src="../../assets/inicio13.jpg" alt="Imagen de Villa Carlos Paz"></img>
-            </div>
-        </div>
-
-
+        </section>
 
 
 
