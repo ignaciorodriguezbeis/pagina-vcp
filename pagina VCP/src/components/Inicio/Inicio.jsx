@@ -60,21 +60,23 @@ function Inicio() {
                         <p>Descuentos verificados de la temporada</p>
                         <button>Ver más</button>
                     </div>
-
-                    <a to="/publicidad">
-                        <div>
-                            <h5>publicidad</h5>
-                            <h6>espacio publicitario</h6>
-                            <p>tu marca acá anuncia con nosotros</p>
-                        </div>
-                    </a>
                 </div>
-                
-                <div>
-                    <h2>servisios destacados</h2>
-                    <p>Los espacios destacados corresponden a comercios anunciantes de CarlosPaz.com. </p>
+
+                <a class="publi1" to="/publicidad">
                     <div>
-                        <div>
+                        <h5>publicidad</h5>
+                        <h6>espacio publicitario</h6>
+                        <p>tu marca acá anuncia con nosotros</p>
+                    </div>
+                </a>
+
+
+                <div class="servs">
+                    <h2>servisios destacados</h2>
+                    <button>Ver Ofertas</button>
+                    <p>Los espacios destacados corresponden a comercios anunciantes de CarlosPaz.com. </p>
+                    <div class="card-servs">
+                        <div >
                             <p>hoteles</p>
                             <span>destacado</span>
                             <h3>Hotel Portal de las Sierras</h3>
@@ -125,15 +127,16 @@ function Inicio() {
 
                     </div>
 
-
-                    <a to="/publicidad">
-                        <div>
-                            <h5>publicidad</h5>
-                            <h6>espacio publicitario</h6>
-                            <p>tu marca acá anuncia con nosotros</p>
-                        </div>
-                    </a>
                 </div>
+
+                <a class="publi2" to="/publicidad">
+                    <div>
+                        <h5>publicidad</h5>
+                        <h6>espacio publicitario</h6>
+                        <p>tu marca acá anuncia con nosotros</p>
+                    </div>
+                </a>
+
             </div>
 
 

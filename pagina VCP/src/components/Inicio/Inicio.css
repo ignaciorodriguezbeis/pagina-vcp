@@ -77,28 +77,234 @@
 .cards-container {
     background-color: rgb(248, 250, 250);
     display: grid;
-    
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto auto auto 180px auto;
+    gap: 24px;
+    padding: 32px;
 }
-.cards-container h2 {
-    
-    display: flex;
-    flex-direction: row;
-    margin:15px 0 0 30px;
+
+.cards-container > h2 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin: 0;
+    font-size: 2.1rem;
 }
-.cards-container p {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 0 10px 30px;
+
+.cards-container > p {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    margin: 10px 0 0;
+    color: #555;
 }
 
 .card-plan {
-    display: flex;
-    align-items:end;
-    gap: 10px;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
 }
 
 .card {
-     border: solid rgb(127, 129, 129);
-     width: 20%;
-     height:300px;
+    background: #ffffff;
+    border: 1px solid rgb(200, 203, 207);
+    border-radius: 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 320px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card h4,
+.card p,
+.card button {
+    margin: 0;
+}
+
+.card h4 {
+    margin: 16px 18px 8px;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.card p {
+    margin: 0 18px 16px;
+    color: #666;
+    line-height: 1.55;
+}
+
+.card button {
+    margin: 0 18px 18px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    background: #0b77d1;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.publi1 {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    background: #ffffff;
+    border: 1px solid rgb(200, 203, 207);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    min-height: 170px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.publi1 h5,
+.publi1 h6,
+.publi1 p {
+    margin: 0;
+}
+
+.publi1 h5 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #0e4c78;
+}
+
+.publi1 h6 {
+    margin-top: 10px;
+    font-size: 1.35rem;
+}
+
+.publi1 p {
+    margin-top: 12px;
+    color: #666;
+}
+
+.servs {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto 1fr;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid rgb(200, 203, 207);
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.servs > h2 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.servs > button {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+    align-self: center;
+    border: none;
+    border-radius: 999px;
+    background: #0b77d1;
+    color: #fff;
+    padding: 10px 18px;
+    cursor: pointer;
+}
+
+.servs > p {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    margin: 0;
+    color: #555;
+}
+
+.card-servs {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card-servs > div {
+    background: #fafafa;
+    border: 1px solid rgb(220, 223, 226);
+    border-radius: 16px;
+    padding: 18px;
+    display: grid;
+    gap: 10px;
+}
+
+.card-servs > div p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.card-servs span {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eaf4ff;
+    color: #0b5c9e;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.card-servs h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.card-servs h4 {
+    margin: 0;
+    color: #0b77d1;
+}
+
+.publi2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 6;
+    background: #ffffff;
+    border: 1px solid rgb(200, 203, 207);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.publi2 h5,
+.publi2 h6,
+.publi2 p {
+    margin: 0;
+}
+
+.publi2 h5 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #0e4c78;
+}
+
+.publi2 h6 {
+    margin-top: 10px;
+    font-size: 1.35rem;
+}
+
+.publi2 p {
+    margin-top: 12px;
+    color: #666;
 }
