@@ -137,8 +137,40 @@ function Inicio() {
                     </div>
                 </a>
 
+                <div class="imprecindibles">
+                    <h2>Imprescindibles de Villa Carlos Paz</h2>
+                    <p>Lo que no te podés perder en tu visita</p>
+                    <div class="imprecindibles-container">
+                        <div class="card-impre">
+                            <img src="" alt="" />
+                            <h3>Reloj Cucú</h3>
+                            <p>El emblema de la ciudad: el único reloj cucú de estilo alpino.</p>
+                        </div>
+                        <div class="card-impre">
+                            <img src="" alt="" />
+                            <h3>Aerosilla al Cerro de la Cruz</h3>
+                            <p>Vistas de 360° del lago San Roque y todo el Valle de Punilla.</p>
+                        </div>
+                        <div class="card-impre">
+                            <img src="" alt="" />
+                            <h3>Costanera del Lago San Roque</h3>
+                            <p>Atardeceres, deportes náuticos y paseos junto al agua.</p>
+                        </div>
+                        <div class="card-impre">
+                            <img src="" alt="" />
+                            <h3>Villa Carlos Paz de noche</h3>
+                            <p>Teatros, gastronomía y el puente iluminado sobre el lago.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
+            <div class="negocio">
+                <h1>¿Tenés un negocio en Carlos Paz?</h1>
+                <p>Aparecé como destacado en tu categoría y ganá visibilidad frente a miles de turistas que planifican su viaje cada temporada.</p>
+                <button>Anunciá tu negocio</button>
+            </div>
 
         </section>
 
