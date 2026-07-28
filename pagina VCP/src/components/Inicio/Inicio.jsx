@@ -8,12 +8,6 @@ import inicio5 from '../../assets/img/teatro.png';
 import inicio6 from '../../assets/img/puente-uruguai.png';
 import inicio7 from '../../assets/img/vcp-postal.webp'
 
-
-
-
-
-
-
 function Inicio() {
     return (
         <section>
@@ -69,7 +63,6 @@ function Inicio() {
                         <p>tu marca acá anuncia con nosotros</p>
                     </div>
                 </a>
-
 
                 <div class="servs">
                     <h2>servisios destacados</h2>

@@ -1,0 +1,79 @@
+.campings-section {
+  padding: 2rem 1rem 3rem;
+  color: #1f2937;
+}
+
+.campings-hero {
+  background: linear-gradient(135deg, #166534, #65a30d);
+  color: white;
+  border-radius: 1rem;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.campings-hero__content h1 {
+  font-size: 2rem;
+  margin: 0.3rem 0 0.8rem;
+}
+
+.campings-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.campings-btn {
+  border: none;
+  background: white;
+  color: #1f2937;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.campings-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.campings-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.campings-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+}
+
+.campings-card ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.campings-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.campings-grid__item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .campings-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,14 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import './Navbar.css';
 import Login from './Login/login';
-import catalogo from '../Catalogo/catalogo';
+
+
+import alojamientos from '../Alojamientos/alojamiento';
+import gastronomia from '../Gastronomia/gastronomia';
+import actvidades from '../Actividades/actividades.jsx';
 
 import hosteleria from '../Alojamientos/hosteleria';
-import alojamientos from '../Alojamientos/alojamiento';
+import cabañaApart from  '../Alojamientos/cabañaApart.jsx';
+import campings  from '../Alojamientos/campings.jsx'
+import alquileres from '../Alojamientos/alquileres.jsx'
 
-import gastronomia from '../Gastronomia/gastronomia';
-import espectaculos from '../Espectaculos/espectaculos';
-import paisajes from '../Paisajes/paisajes';
+import excursion from '../Actividades/excursion.jsx';
+import espectaculos from '../Actividades/espectaculos.jsx';
+import aventura from '../Actividades/aventura.jsx';
+import deportes from '../Actividades/deportes.jsx';
+import infantiles from '../Actividades/infantiles.jsx';
+
+import restaurantes from '../Gastronomia/restaurantes.jsx';
+import bares from '../Gastronomia/bares.jsx';
+import heladerias from '../Gastronomia/heladerias.jsx';
+import cafeterias from '../Gastronomia/cafeterias.jsx';
+import cervecerias from '../Gastronomia/cervecerias.jsx';
+
 import logo from '../../assets/img/cucu_logo.jpg';
 
 function Navbar() {
@@ -24,13 +39,13 @@ function Navbar() {
             <div className="navbar">
                 <ul className="list-container">
                     <li className="list-header">
-                        <Link to="/alojamientos">Alojamientos</Link>
+                        <Link to="../alojamientos">Alojamientos</Link>
                         <ul>
                             <li>
                                 <Link to="/hosteleria">Hostelería</Link>
                             </li>
                             <li>
-                                <Link to="/cabaña-apart">cabañas y apartamentos</Link>
+                                <Link to="/cabañaApart">cabañas y apartamentos</Link>
                             </li>
                             <li>
                                 <Link to="/campings">campings</Link>
@@ -43,7 +58,7 @@ function Navbar() {
                 </ul>
                 <ul className="list-container">
                     <li className="list-header">
-                        <Link to="/actividades">Qué hacer</Link>
+                        <Link to="./actividades">Qué hacer</Link>
                         <ul>
                             <li>
                                 <Link to="/excursion">excursiones</Link>
