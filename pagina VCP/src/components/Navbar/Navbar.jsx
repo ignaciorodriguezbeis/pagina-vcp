@@ -34,7 +34,6 @@ function Navbar() {
                     <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
                     <Link to="/" className="logoname"><span>VCP</span> turismo</Link>
                 </div>
-
             </section>
             <div className="navbar">
                 <ul className="list-container">

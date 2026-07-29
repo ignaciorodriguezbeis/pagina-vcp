@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/Navbar/Navbar';
 import Inicio from './components/Inicio/Inicio';
 import Footer from './components/Footer/Footer';
@@ -29,10 +29,9 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
+    <HashRouter>
+      <NavBar></NavBar>
       <Routes>
-        <Route path="/" element={<Inicio />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/actividades" element={<Actividades />} />
         <Route path="/excursion" element={<Excursion />} />
@@ -56,9 +55,10 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Inicio />} />
+
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
