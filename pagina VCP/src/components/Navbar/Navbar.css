@@ -16,7 +16,11 @@
 
  /* LOGO */
 
- section img {
+  nav section div {
+   background: rgb(233, 236, 238);
+  }
+
+ nav section img {
     border-radius: 50%;
     height: 100px;
     width: auto;
