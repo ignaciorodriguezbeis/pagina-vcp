@@ -3,15 +3,16 @@ import './aventura.css';
 
 function Aventura() {
   return (
-    <section className="aventura-section">
-      <header className="aventura-hero">
-        <div className="aventura-hero__content">
-          <p className="aventura-kicker">Actividades</p>
-          <h1>Aventura</h1>
-          <p>Explorá experiencias al aire libre y actividades emocionantes para todos.</p>
-        </div>
-      </header>
-    </section>
+    <main className='aventura'>
+                <header >
+                    <p><a href="/inicio">inicio</a> &gt; aventura</p>
+                    <h1>aventura</h1>
+                    <p>Excursiones, espectáculos y aventura</p>
+                </header>
+                <body>
+    
+                </body>
+            </main>
   );
 }
 

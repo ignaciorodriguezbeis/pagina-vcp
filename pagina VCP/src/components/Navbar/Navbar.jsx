@@ -57,7 +57,7 @@ function Navbar() {
                 </ul>
                 <ul className="list-container">
                     <li className="list-header">
-                        <Link to="./actividades">Qué hacer</Link>
+                        <Link to="./actividades">Actividades</Link>
                         <ul>
                             <li>
                                 <Link to="/excursion">excursiones</Link>

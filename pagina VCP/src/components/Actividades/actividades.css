@@ -1,79 +1,52 @@
-.actividades-section {
-  padding: 2rem 1rem 3rem;
-  color: #1f2937;
+.actividades{
+     background: #f7f9fc;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.actividades-hero {
-  background: linear-gradient(135deg, #b45309, #f59e0b);
-  color: white;
-  border-radius: 1rem;
-  padding: 2.5rem 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+.actividades header {
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    position: relative;
+    color: white;
 }
 
-.actividades-hero__content h1 {
-  font-size: 2rem;
-  margin: 0.3rem 0 0.8rem;
+.actividades header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.205));
 }
 
-.actividades-kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  opacity: 0.9;
-  margin: 0;
+.actividades * {
+    position: relative;
+    z-index: 1;
 }
 
-.actividades-btn {
-  border: none;
-  background: white;
-  color: #1f2937;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 1rem;
+.actividades header p,
+.actividades header h1 {
+    margin: 0;
 }
 
-.actividades-content {
-  display: grid;
-  gap: 1rem;
+.actividades header p:first-child {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 }
 
-.actividades-card {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 1rem;
-  padding: 1.25rem;
+.actividades header p a {
+    text-decoration: none;
+    color: #fafafa;
 }
 
-.actividades-card h2 {
-  margin-top: 0;
-  margin-bottom: 0.7rem;
-}
-
-.actividades-card ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.actividades-grid {
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.actividades-grid__item {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  padding: 0.9rem;
-  font-weight: 500;
-}
-
-@media (max-width: 640px) {
-  .actividades-grid {
-    grid-template-columns: 1fr;
-  }
+.actividades header h1 {
+    font-size: 56px;
+    margin-bottom: 12px;
 }
