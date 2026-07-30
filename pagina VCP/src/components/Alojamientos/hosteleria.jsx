@@ -1,13 +1,22 @@
 import { Link } from 'react-router-dom';
 import './hosteleria.css';
+import hote1 from '../../assets/img/hotel-postal.webp'
 
-function hosteleria() {
+function hoteleria () {
     return (
-        <div>
-            <h1>Hostelería</h1>
-            <p>Bienvenido a la sección de hostelería de VCP Turismo. Aquí encontrarás información sobre los mejores hoteles, hostales y alojamientos en Villa Carlos Paz. Explora nuestras recomendaciones y encuentra el lugar perfecto para hospedarte durante tu visita a esta hermosa ciudad.</p>
-        </div>
+        <main className='hoteleria'>
+            <header style={{ backgroundImage: `url(${hote1})` }}>
+                <p><a href="/inicio">inicio</a> &gt; hoteleria</p>
+                <h1>Hoteleria Villa Carlos Paz</h1>
+                <p>hoteles para todos los gustos y actividades yD</p>
+            </header>
+        
+            <body>
+                    
+            </body>
+        </main>
+
     );
-}   
+}
 
 export default hosteleria;
