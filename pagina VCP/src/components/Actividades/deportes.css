@@ -1,0 +1,51 @@
+.deportes {
+    background: #f7f9fc;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deportes header {
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    position: relative;
+    color: white;
+}
+
+.deportes header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.205));
+}
+
+.deportes * {
+    position: relative;
+    z-index: 1;
+}
+
+.deportes header p,
+.deportes header h1 {
+    margin: 0;
+}
+
+.deportes header p:first-child {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.deportes header p a {
+    text-decoration: none;
+    color: #fafafa;
+}
+
+.deportes header h1 {
+    font-size: 56px;
+    margin-bottom: 12px;
+}

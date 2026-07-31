@@ -20,6 +20,6 @@ function Gastronomia() {
             </body>
         </main>
     );
-}
+} 
 
 export default Gastronomia;
