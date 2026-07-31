@@ -34,10 +34,10 @@
 }
 
 .aventura header p:first-child {
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
+    margin-bottom: 13px;
+    font-size: 15px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 3px;
 }
 
 .aventura header p a {
