@@ -1,20 +1,25 @@
 import React from 'react';
 import './infantiles.css';
 
+import Inicio from '../Inicio/Inicio';
+import Actividades from './actividades';
+
+import child1 from '../../assets/img/teatro.png'
+
 function Infantiles() {
   return (
-    <section className="infantiles-section">
-      <header className="infantiles-hero">
-        <div className="infantiles-hero__content">
-          <p className="infantiles-kicker">Actividades</p>
-          <h1>Infantiles</h1>
-          <p>Planificaciones y propuestas pensadas para disfrutar en familia.</p>
-        </div>
+    <main className='infantiles'>
+      <header style={{ backgroundImage: `url(${child1})` }}>
+        <p><a href="/inicio">inicio</a> &gt; <a href="Actividades">Actividades</a> &gt; Infantiles</p>
+        <h1>atracciones para niños en villa carlos paz</h1>
+        <p>futboll, padel, natacion y tenis</p>
       </header>
-    </section>
+      <body>
+
+      </body>
+    </main>
   );
 }
-
 
 
 export default Infantiles;

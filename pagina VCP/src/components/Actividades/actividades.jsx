@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './actividades.css';
+
 import Inicio from '../Inicio/Inicio';
+
 import activ1 from '../../assets/img/deportes.webp'
 
 function Actividades() {
@@ -11,9 +13,9 @@ function Actividades() {
                 <h1>Actividades</h1>
                 <p>Excursiones, espectáculos y aventura</p>
             </header>
-        
+
             <body>
-                    
+
             </body>
         </main>
 

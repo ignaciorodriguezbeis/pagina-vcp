@@ -1,20 +1,28 @@
 import React from 'react';
 import './heladerias.css';
 
+import Inicio from '../Inicio/Inicio';
+import Gastronomia from './gastronomia';
+
+import helader1 from '../../assets/img/helado.jpg';
+
 function Heladerias() {
   return (
-    <section className="heladerias-section">
-      <header className="heladerias-hero">
-        <div className="heladerias-hero__content">
-          <p className="heladerias-kicker">Gastronomía</p>
-          <h1>Heladerías</h1>
-          <p>Propuestas para disfrutar de postres y momentos entretenidos.</p>
-        </div>
+    <main className='heladerias'>
+      <header style={{ backgroundImage: `url(${helader1})` }}>
+        <p><a href="/inicio">Inicio</a> &gt; <a href="gastronomia">Gastronomia</a> &gt; heladerias </p>
+        <h1>Heladerias en Villa Carlos Paz</h1>
+        <p>Bienvenido a la sección de gastronomía de VCP Turismo. Aquí encontrarás información sobre los mejores restaurantes, bares y lugares para disfrutar de la deliciosa comida local en Villa Carlos Paz. Explora nuestras recomendaciones y descubre los sabores únicos que esta ciudad tiene para ofrecer.</p>
       </header>
-    </section>
+
+      <body>
+
+      </body>
+    </main>
   );
 }
 
 
+ 
 
 export default Heladerias;
