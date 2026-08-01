@@ -23,12 +23,19 @@ function Gastronomia() {
                         <h2>Restaurantes</h2>
                         <article>
                             <div>
-                                <h3>Comida local</h3>
-                                <p>Platos regionales, parrillas y propuestas para toda la familia.</p>
+                                <p>restaurante</p>
+                                <h3>la angelita</h3>
+                                <p>bufete de comida argentina</p>
+                                <span>grl.roca 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
+
                             <div>
-                                <h3>Ambientes acogedores</h3>
-                                <p>Espacios ideales para almorzar o cenar con vista y buena atención.</p>
+                                <p>restaurante</p>
+                                <h3>guaxaca</h3>
+                                <p>comida mexicana auténtica y bebidas típicas.</p>
+                                <span>av. san martin 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                         </article>
                     </div>
@@ -37,12 +44,18 @@ function Gastronomia() {
                         <h2>Bares</h2>
                         <article>
                             <div>
+                                <p>bar</p>
                                 <h3>Copas y tragos</h3>
                                 <p>Opciones para disfrutar de una noche relajada en la ciudad.</p>
+                                <span>costanera 3284</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                             <div>
+                                <p>bar</p>
                                 <h3>Vibración nocturna</h3>
                                 <p>Lugares animados con música y ambiente de verano.</p>
+                                <span>av. 9 de julio 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                         </article>
                     </div>
@@ -51,13 +64,20 @@ function Gastronomia() {
                         <h2>Heladerías</h2>
                         <article>
                             <div>
-                                <h3>Postres y cafés</h3>
-                                <p>Perfectos para disfrutar un rato de descanso entre paseo y paseo.</p>
+                                <p>heladeria</p>
+                                <h3>Helados artesanales</h3>
+                                <p>Deliciosos sabores y opciones para toda la familia.</p>
+                                <span>av. 9 de julio 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                             <div>
+                                <p>heladeria</p>
                                 <h3>Opciones rápidas</h3>
                                 <p>Ideal para comer algo rico sin perder tiempo en el recorrido.</p>
+                                <span>av. san martin 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
+
                         </article>
                     </div>
 
@@ -65,12 +85,18 @@ function Gastronomia() {
                         <h2>cafeteria y panaderia</h2>
                         <article>
                             <div>
-                                <h3>Comida local</h3>
+                                <p>cafeteria / pasteleria</p>
+                                <h3>cande</h3>
                                 <p>Platos regionales, parrillas y propuestas para toda la familia.</p>
+                                <span>av. 9 de julio 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                             <div>
-                                <h3>Ambientes acogedores</h3>
+                                <p>panaderia / cafeteria</p>
+                                <h3>Panadería del sol</h3>
                                 <p>Espacios ideales para almorzar o cenar con vista y buena atención.</p>
+                                <span>av. san martin 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                         </article>
                     </div>
@@ -79,12 +105,18 @@ function Gastronomia() {
                         <h2>cerveceria</h2>
                         <article>
                             <div>
+                                <p>cerveceria</p>
                                 <h3>Comida local</h3>
                                 <p>Platos regionales, parrillas y propuestas para toda la familia.</p>
+                                <span>av. 9 de julio 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                             <div>
+                                <p>cerveceria</p>
                                 <h3>Ambientes acogedores</h3>
                                 <p>Espacios ideales para almorzar o cenar con vista y buena atención.</p>
+                                <span>av. san martin 1234</span>
+                                <p>+54 3541 42-1000</p>
                             </div>
                         </article>
                     </div>

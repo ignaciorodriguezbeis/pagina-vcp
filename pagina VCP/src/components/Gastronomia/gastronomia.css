@@ -58,7 +58,7 @@
     gap: 20px;
 }
 
-.gastronomia main  p {
+.gastronomia main p {
     margin: 0;
     color: #4b5563;
     font-size: 16px;
@@ -72,8 +72,9 @@
     flex-direction: column;
     gap: 24px;
     grid-row: 2/6;
-    grid-column:1/6 ;
+    grid-column: 1/6;
 }
+
 .gastPubli1 {
     padding: 5px;
     grid-row: 6/7;
@@ -94,37 +95,55 @@
 .subgastronomia {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: start;
+    padding: 15px;
 }
 
 .subgastronomia h2 {
-    margin: 0;
-    font-size: 24px;
-    color: #111827;
+    font-size: 26px;
+    color: black;
 }
 
 .subgastronomia article {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: solid rgb(160, 159, 158);
+    border-radius: 20px;
+    padding: 20px 70px 20px 20px;
 }
 
 .subgastronomia article div {
     background: #ffffff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #b7b7b8;
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: initial;
+}
+
+.subgastronomia article div:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
 }
 
 .subgastronomia article h3 {
-    margin: 5px 0 10px;
-    color: #111827;
+    font-weight: 800;
+    font-size: 18px;
+    margin: 5px;
 }
 
 .subgastronomia article p {
-    margin: 0;
-    color: #4b5563;
+    color: lab(44, -6.78, -7.9);
+    padding: 5px;
+    font-size: 14px;
+}
+
+.subgastronomia article div span {
+    color: lab(48.54, -27.42, -18.46);
+
 }
 
 @media (max-width: 768px) {

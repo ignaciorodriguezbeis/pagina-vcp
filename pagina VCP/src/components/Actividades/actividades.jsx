@@ -22,12 +22,16 @@ function Actividades() {
                         <h2>Excursiones</h2>
                         <article>
                             <div>
-                                <h3>Valle de Punilla</h3>
-                                <p>Recorridos guiados con paisajes, miradores y paradas gastronómicas.</p>
+                                <p>Excursiones</p>
+                                <h3>Aerosilla al Cerro de la Cruz</h3>
+                                <p>Ascenso panorámico con la mejor vista del lago y la ciudad. Apto todo público.</p>
+                                <span>Entradas desde $9.500</span>
                             </div>
                             <div>
-                                <h3>Rutas serranas</h3>
-                                <p>Escapadas ideales para disfrutar de la naturaleza y los valles.</p>
+                                <p>Excursiones</p>
+                                <h3>Paseo en Catamarán por el Lago</h3>
+                                <p>Recorrido guiado de 1 hora por el lago San Roque con salidas cada 45 minutos.</p>
+                                <span>Desde $8.000</span>
                             </div>
                         </article>
                     </div>
@@ -36,12 +40,16 @@ function Actividades() {
                         <h2>Espectáculos</h2>
                         <article>
                             <div>
-                                <h3>Teatros y shows</h3>
-                                <p>Eventos culturales y musicales durante toda la temporada.</p>
+                                <p>Espectáculos</p>
+                                <h3>strabagansa</h3>
+                                <p>Las grandes figuras del espectáculo argentino en las salas del centro.</p>
+                                <span>Entradas desde $18.000</span>
                             </div>
                             <div>
-                                <h3>Fiestas y eventos</h3>
-                                <p>Programación especial para disfrutar en familia o con amigos.</p>
+                                <p>Espectáculos</p>
+                                <h3>flor de V</h3>
+                                <p>Las grandes figuras del espectáculo argentino en las salas del centro.</p>
+                                <span>Entradas desde $15.000</span>
                             </div>
                         </article>
                     </div>
@@ -50,12 +58,16 @@ function Actividades() {
                         <h2>Aventura</h2>
                         <article>
                             <div>
-                                <h3>Parapente</h3>
-                                <p>Vuelos sobre los cerros con vistas espectaculares del paisaje.</p>
+                                <p>Aventura</p>
+                                <h3>Vuelo en Parapente</h3>
+                                <p>Vuelo biplaza sobre las sierras con instructor certificado. Fotos incluidas.</p>
+                                <span>Desde $25.000</span>
                             </div>
                             <div>
-                                <h3>Deportes náuticos</h3>
+                                <p>Aventura</p>
+                                <h3>Treking a la Cruz</h3>
                                 <p>Kayaks, motos de agua y actividades en el lago San Roque.</p>
+                                <span>Desde $12.000</span>
                             </div>
                         </article>
                     </div>
@@ -64,12 +76,16 @@ function Actividades() {
                         <h2>deportes</h2>
                         <article>
                             <div>
-                                <h3>Parapente</h3>
+                                <p>Deportes</p>
+                                <h3>futboll 5</h3>
                                 <p>Vuelos sobre los cerros con vistas espectaculares del paisaje.</p>
+                                <span>Desde $10.000</span>
                             </div>
                             <div>
-                                <h3>Deportes náuticos</h3>
+                                <p>Deportes</p>
+                                <h3>canotaje</h3>
                                 <p>Kayaks, motos de agua y actividades en el lago San Roque.</p>
+                                <span>Desde $15.000</span>
                             </div>
                         </article>
                     </div>
@@ -78,12 +94,16 @@ function Actividades() {
                         <h2>para niños</h2>
                         <article>
                             <div>
-                                <h3>Parapente</h3>
+                                <p>Infantil</p>
+                                <h3>parque de diversiones</h3>
                                 <p>Vuelos sobre los cerros con vistas espectaculares del paisaje.</p>
+                                <span>Desde $10.000</span>
                             </div>
                             <div>
-                                <h3>Deportes náuticos</h3>
+                                <p>Infantil</p>
+                                <h3>parque acuático</h3>
                                 <p>Kayaks, motos de agua y actividades en el lago San Roque.</p>
+                                <span>Desde $12.000</span>
                             </div>
                         </article>
                     </div>

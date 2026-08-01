@@ -124,12 +124,13 @@
   justify-content: left;
   text-align: initial;
 }
-.alojamiento article div:hover{
- box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
+
+.alojamiento article div:hover {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
 }
 
 .subalojamientos article div p {
-  color:lab(44, -6.78, -7.9);
+  color: lab(44, -6.78, -7.9);
   padding: 5px;
   font-size: 14px;
 }
@@ -142,5 +143,5 @@
 
 .subalojamientos article div span {
   color: lab(48.54, -27.42, -18.46);
-  
+
 }
