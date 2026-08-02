@@ -9,17 +9,17 @@ import alqui1 from '../../assets/img/lagocentro.jpg';
 
 function Alquileres() {
   return (
-    <main className='alquileres'>
+    <body className='alquileres'>
       <header style={{ backgroundImage: `url(${alqui1})` }}>
         <p><a href="/inicio">inicio</a> &gt; <a href="/alojamiento">alojamiento</a> &gt; alquileres</p>
         <h1>alquileres</h1>
         <p></p>
       </header>
 
-      <body>
+      <main>
 
-      </body>
-    </main>
+      </main>
+    </body>
   );
 }
 

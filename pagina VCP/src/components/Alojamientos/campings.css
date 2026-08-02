@@ -1,5 +1,5 @@
 .campings {
-    background: #f7f9fc;
+    background: #dde2e9;
     color: #1f2937;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -23,7 +23,7 @@
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.205));
 }
 
-.campings * {
+.campings header * {
     position: relative;
     z-index: 1;
 }
@@ -48,4 +48,11 @@
 .campings header h1 {
     font-size: 56px;
     margin-bottom: 12px;
+}
+
+
+/* MAIN */
+
+.campings main {
+    padding: 20px;
 }

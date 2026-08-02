@@ -12,18 +12,18 @@ function CabañaApart() {
 
 
   return (
-    <main className='cabañaApart'>
+    <body className='cabañaApart'>
       <header style={{ backgroundImage: `url(${cabapr1})` }}>
         <p><a href="/inicio">inicio</a> &gt; <a href="/alojamiento">alojamiento</a> &gt; cabañas y apartamentos</p>
         <h1>cabañas y apartamentos</h1>
         <p></p>
       </header>
 
-      <body>
+      <main>
 
-      </body>
+      </main>
 
-    </main>
+    </body>
   );
 }
 
