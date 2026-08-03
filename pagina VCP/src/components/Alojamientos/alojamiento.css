@@ -64,88 +64,105 @@
   background: #fafafa;
   border-radius: 0 0 20px 20px;
   padding: 20px;
+
+  p {
+    grid-row: 1/2;
+    grid-column: 1/7;
+    padding: 20px;
+    color: gray;
+    font-size: 12px;
+  }
+
+  section {
+    padding: 5px;
+    grid-row: 2/ 6;
+    grid-column: 1/6;
+    background: #fafafa;
+  }
 }
 
-.alojamiento main p {
-  grid-row: 1/2;
-  grid-column: 1/7;
-  padding: 20px;
-  color: gray;
-  font-size: 12px;
-}
-
-.alojamiento main section {
-  padding: 5px;
-  grid-row: 2/ 6;
-  grid-column: 1/6;
-  background: #fafafa;
-
-}
-
-.alojPubli1 {
-  padding: 5px;
-  grid-row: 6/7;
-  grid-column: 1/6;
-  border: solid rgb(160, 159, 158);
-  border-radius: 20px;
-}
-
-.alojPubli2 {
-  padding: 5ps;
-  grid-row: 2/7;
-  grid-column: 6/7;
-  border: solid rgb(160, 159, 158);
-  border-radius: 20px;
-}
 
 .subalojamientos {
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 15px;
+
+  h2 {
+    font-size: 26px;
+    color: black;
+  }
+
+  article {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    div {
+      background: #ffffff;
+      border: 1px solid #b7b7b8;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      text-align: initial;
+
+      p {
+        color: lab(44, -6.78, -7.9);
+        padding: 5px;
+        font-size: 14px;
+      }
+
+      h3 {
+        font-weight: 800;
+        font-size: 18px;
+        margin: 5px;
+      }
+
+      span {
+        color: lab(48.54, -27.42, -18.46);
+
+      }
+    }
+  }
 }
 
-.subalojamientos h2 {
-  font-size: 26px;
-  color: black;
-
-}
-
-.subalojamientos article {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.subalojamientos article div {
-  background: #ffffff;
-  border: 1px solid #b7b7b8;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+.alojPubli1 {
+  padding: 10px;
+  grid-row: 6/7;
+  grid-column: 1/6;
+  border: solid rgb(160, 159, 158);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  text-align: initial;
+  align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.alojPubli2 {
+  padding: 10px;
+  grid-row: 2/7;
+  grid-column: 6/7;
+  border: solid rgb(160, 159, 158);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .alojamiento article div:hover {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
-}
-
-.subalojamientos article div p {
-  color: lab(44, -6.78, -7.9);
-  padding: 5px;
-  font-size: 14px;
-}
-
-.subalojamientos article div h3 {
-  font-weight: 800;
-  font-size: 18px;
-  margin: 5px;
-}
-
-.subalojamientos article div span {
-  color: lab(48.54, -27.42, -18.46);
-
 }
