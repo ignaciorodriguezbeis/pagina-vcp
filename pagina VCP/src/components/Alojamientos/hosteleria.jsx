@@ -38,6 +38,22 @@ const hoteles = [
         precio: 'Desde $7,200 por noche',
         imagen: hote1,
     },
+    {
+        titulo: 'Hotel Mirador del Lago',
+        descripcion: 'Con una ubicación privilegiada, este hotel ofrece habitaciones con balcón privado y vistas al lago San Roque.',
+        direccion: 'Av. del Lago 6789, Villa Carlos Paz',
+        telefono: '+54 3541 42-4000',
+        precio: 'Desde $5,800 por noche',
+        imagen: hote2,
+    },
+    {
+        titulo: 'Hotel Vista del Lago',
+        descripcion: 'Ubicado a orillas del lago San Roque, este hotel ofrece vistas panorámicas y actividades acuáticas para toda la familia.',
+        direccion: 'Av. del Lago 1111, Villa Carlos Paz',
+        telefono: '+54 3541 42-5000',
+        precio: 'Desde $6,200 por noche',
+        imagen: hote3,
+    }
 ];
 
 function Hoteleria() {

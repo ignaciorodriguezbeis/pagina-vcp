@@ -1,44 +1,54 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './alquileres.css';
-
-import Inicio from '../Inicio/Inicio';
-import Alojamiento from './alojamiento';
-
 import alqui1 from '../../assets/img/lagocentro.jpg';
+
+const alquileres = [
+  {
+    titulo: 'Casa en Barrio San Martín',
+    descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
+    direccion: 'Barrio San Martín, Villa Carlos Paz',
+    telefono: '+54 3541 42-6666',
+    precio: 'Desde $18,000 por noche',
+    imagen: alqui1,
+  },
+  {
+    titulo: 'Departamento céntrico',
+    descripcion: 'Departamento cómodo y bien ubicado para estadías cortas o largas.',
+    direccion: 'Avenida Libertad 1234, Villa Carlos Paz',
+    telefono: '+54 3541 42-7777',
+    precio: 'Desde $15,000 por noche',
+    imagen: alqui1,
+  },
+];
 
 function Alquileres() {
   return (
-    <body className='alquileres'>
+    <div className='alquileres'>
       <header style={{ backgroundImage: `url(${alqui1})` }}>
-        <p><a href="/inicio">inicio</a> &gt; <a href="/alojamiento">alojamiento</a> &gt; alquileres</p>
-        <h1>alquileres</h1>
+        <p>
+          <Link to="/inicio">inicio</Link> &gt; <Link to="/alojamientos">alojamiento</Link> &gt; alquileres
+        </p>
+        <h1>Alquileres</h1>
         <p>opciones temporarias para vacaciones o estadías largas</p>
       </header>
 
       <main>
         <h2>alquileres temporarios</h2>
-        <section>
-          <div>
-            <h3>Casa en Barrio San Martín</h3>
-            <p>Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.</p>
-            <h4>dirección: Barrio San Martín, Villa Carlos Paz</h4>
-            <p>teléfono: +54 3541 42-6666</p>
-            <h5>precio: Desde $18,000 por noche</h5>
-            <img src={alqui1} alt="Casa en Barrio San Martín" />
-          </div>
-
-          <div>
-            <h3>Departamento céntrico</h3>
-            <p>Departamento cómodo y bien ubicado para estadías cortas o largas.</p>
-            <h4>dirección: Avenida Libertad 1234, Villa Carlos Paz</h4>
-            <p>teléfono: +54 3541 42-7777</p>
-            <h5>precio: Desde $15,000 por noche</h5>
-            <img src={alqui1} alt="Departamento céntrico" />
-          </div>
+        <section className="alquileres-grid">
+          {alquileres.map((alquiler) => (
+            <article className="alquiler-card" key={alquiler.titulo}>
+              <img src={alquiler.imagen} alt={alquiler.titulo} />
+              <h3>{alquiler.titulo}</h3>
+              <p>{alquiler.descripcion}</p>
+              <h4>dirección: {alquiler.direccion}</h4>
+              <p>teléfono: {alquiler.telefono}</p>
+              <h5>precio: {alquiler.precio}</h5>
+            </article>
+          ))}
         </section>
 
-        <a className="alquiPubli1" to="/publicidad">
+        <a className="alquiPubli1" href="/publicidad">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
@@ -46,7 +56,7 @@ function Alquileres() {
           </div>
         </a>
 
-        <a className="alquiPubli2" to="/publicidad">
+        <div className="alquiPubli2">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
@@ -57,9 +67,9 @@ function Alquileres() {
             <h6>espacio publicitario</h6>
             <p>tu marca acá anuncia con nosotros</p>
           </div>
-        </a>
+        </div>
       </main>
-    </body>
+    </div>
   );
 }
 

@@ -1,44 +1,54 @@
-import { Form, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './campings.css';
-
-import Inicio from '../Inicio/Inicio';
-import Alojamiento from './alojamiento';
-
 import camp1 from '../../assets/img/camping.webp';
+
+const campings = [
+  {
+    titulo: 'Camping Municipal San Roque',
+    descripcion: 'Excelente ubicación junto al lago con servicios básicos, duchas y acceso a la costa.',
+    direccion: 'Av. del Lago, Villa Carlos Paz',
+    telefono: '+54 3541 42-4444',
+    precio: 'Desde $6,000 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping Los Pinos',
+    descripcion: 'Espacios amplios para carpas y casas rodantes con sombra y parrilla compartida.',
+    direccion: 'Camino de los Pinos, Villa Carlos Paz',
+    telefono: '+54 3541 42-5555',
+    precio: 'Desde $7,500 por persona',
+    imagen: camp1,
+  },
+];
 
 function Campings() {
   return (
-    <body className='campings'>
+    <div className='campings'>
       <header style={{ backgroundImage: `url(${camp1})` }}>
-        <p><a href="/inicio">inicio</a> &gt; <a href="/alojamiento">alojamiento</a> &gt; campings</p>
+        <p>
+          <Link to="/inicio">inicio</Link> &gt; <Link to="/alojamientos">alojamiento</Link> &gt; campings
+        </p>
         <h1>Campings</h1>
-        <p>todos los campings de villa carlos paz</p>
+        <p>todos los campings de Villa Carlos Paz</p>
       </header>
 
       <main>
         <h2>campings recomendados</h2>
-        <section>
-          <div>
-            <h3>Camping Municipal San Roque</h3>
-            <p>Excelente ubicación junto al lago con servicios básicos, duchas y acceso a la costa.</p>
-            <h4>dirección: Av. del Lago, Villa Carlos Paz</h4>
-            <p>teléfono: +54 3541 42-4444</p>
-            <h5>precio: Desde $6,000 por persona</h5>
-            <img src={camp1} alt="Camping Municipal San Roque" />
-          </div>
-
-          <div>
-            <h3>Camping Los Pinos</h3>
-            <p>Espacios amplios para carpas y casas rodantes con sombra y parrilla compartida.</p>
-            <h4>dirección: Camino de los Pinos, Villa Carlos Paz</h4>
-            <p>teléfono: +54 3541 42-5555</p>
-            <h5>precio: Desde $7,500 por persona</h5>
-            <img src={camp1} alt="Camping Los Pinos" />
-          </div>
+        <section className="campings-grid">
+          {campings.map((camping) => (
+            <article className="camping-card" key={camping.titulo}>
+              <img src={camping.imagen} alt={camping.titulo} />
+              <h3>{camping.titulo}</h3>
+              <p>{camping.descripcion}</p>
+              <h4>dirección: {camping.direccion}</h4>
+              <p>teléfono: {camping.telefono}</p>
+              <h5>precio: {camping.precio}</h5>
+            </article>
+          ))}
         </section>
 
-        <a className="campPubli1" to="/publicidad">
+        <a className="campPubli1" href="/publicidad">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
@@ -46,7 +56,7 @@ function Campings() {
           </div>
         </a>
 
-        <a className="campPubli2" to="/publicidad">
+        <div className="campPubli2">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
@@ -57,9 +67,9 @@ function Campings() {
             <h6>espacio publicitario</h6>
             <p>tu marca acá anuncia con nosotros</p>
           </div>
-        </a>
+        </div>
       </main>
-    </body>
+    </div>
   );
 }
 
