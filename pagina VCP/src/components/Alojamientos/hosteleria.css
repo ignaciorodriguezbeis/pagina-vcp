@@ -2,6 +2,7 @@
     background: #dde2e9;
     color: #1f2937;
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 
 .hoteleria header {
@@ -20,7 +21,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.205));
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25));
 }
 
 .hoteleria header * {
@@ -46,48 +47,137 @@
 }
 
 .hoteleria header h1 {
-    font-size: 56px;
+    font-size: clamp(2rem, 4vw, 3.5rem);
     margin-bottom: 12px;
 }
 
-/* MAIN */
 .hoteleria main {
-    padding: 20px;
+    padding: 24px 20px 40px;
+}
 
-    section {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        row-gap: 20px;
-        column-gap: 16px;
+.hoteleria main h2 {
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
 
-        div {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            gap: 8px;
-            border-radius: 8px;
-            background: #fafafa;
-            border: 1px solid #a5a5a5;
+.hoteleria .hoteleria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
 
-            img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                border-radius: 8px 8px 0 0;
-            }
+.hoteleria .hotel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 12px;
+    background: #fafafa;
+    border: 1px solid #c7ccd3;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
 
-            h3 {
-                font-size: 18px;
-                font-weight: bold;
-                margin: 0;
-                padding: 0 8px;
-            }
+.hoteleria .hotel-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
 
-            p {
-                font-size: 14px;
-                margin: 0;
-                padding: 0 8px;
-            }
-        }
+.hoteleria .hotel-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 12px;
+}
+
+.hoteleria .hotel-card p,
+.hoteleria .hotel-card h4,
+.hoteleria .hotel-card h5 {
+    margin: 0;
+    padding: 0 12px;
+}
+
+.hoteleria .hotel-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.hoteleria .hotel-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.hoteleria .hotel-card h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f766e;
+    padding-bottom: 12px;
+}
+
+.hoteleria .hostPubli1,
+.hoteleria .hostPubli2 {
+    display: block;
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(90deg, #0f766e, #2563eb);
+}
+
+.hoteleria .hostPubli2 {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hoteleria .hostPubli2 > div {
+    flex: 1;
+    min-width: 220px;
+}
+
+.hoteleria .hostPubli1 h5,
+.hoteleria .hostPubli2 h5 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.hoteleria .hostPubli1 h6,
+.hoteleria .hostPubli2 h6 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+
+.hoteleria .hostPubli1 p,
+.hoteleria .hostPubli2 p {
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .hoteleria .hoteleria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .hoteleria header {
+        padding: 24px 16px;
+    }
+
+    .hoteleria main {
+        padding: 16px;
+    }
+
+    .hoteleria .hoteleria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hoteleria .hostPubli2 {
+        flex-direction: column;
     }
 }
