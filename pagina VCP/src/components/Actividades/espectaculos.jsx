@@ -39,7 +39,7 @@ function Espectaculos() {
       <main>
 
         <h2>Espectaculos</h2>
-        
+
         <section className="espectaculos-grid">
           {espectaculos.map((espectaculo) => (
             <article className="espectaculo-card" key={espectaculo.titulo}>
@@ -54,6 +54,28 @@ function Espectaculos() {
           ))}
 
         </section>
+
+        <a className="especPubli1" to="/publicidad">
+          <div>
+            <h5>publicidad</h5>
+            <h6>espacio publicitario</h6>
+            <p>tu marca acá anuncia con nosotros</p>
+          </div>
+        </a>
+
+        <a className="especPubli2" to="/publicidad">
+          <div>
+            <h5>publicidad</h5>
+            <h6>espacio publicitario</h6>
+            <p>tu marca acá anuncia con nosotros</p>
+          </div>
+
+          <div>
+            <h5>publicidad</h5>
+            <h6>espacio publicitario</h6>
+            <p>tu marca acá anuncia con nosotros</p>
+          </div>
+        </a>
       </main>
     </body>
 

@@ -72,7 +72,7 @@ function Actividades() {
                         </article>
                     </div>
 
-                     <div className='subactividad'>
+                    <div className='subactividad'>
                         <h2>deportes</h2>
                         <article>
                             <div>
@@ -90,7 +90,7 @@ function Actividades() {
                         </article>
                     </div>
 
-                     <div className='subactividad'>
+                    <div className='subactividad'>
                         <h2>para niños</h2>
                         <article>
                             <div>
