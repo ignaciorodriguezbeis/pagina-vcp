@@ -64,7 +64,7 @@ function CabañaApart() {
           </div>
         </a>
 
-        <div className="cabañaPubli2">
+        <a className="cabañaPubli2">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
@@ -75,7 +75,7 @@ function CabañaApart() {
             <h6>espacio publicitario</h6>
             <p>tu marca acá anuncia con nosotros</p>
           </div>
-        </div>
+        </a>
       </main>
     </div>
   );
