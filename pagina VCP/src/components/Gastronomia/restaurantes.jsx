@@ -15,6 +15,7 @@ const restaurantes = [
     horario: "Lunes a Domingo: 12:00 PM - 10:00 PM",
     telefono: "123-456-7890",
     direccion: "Calle Principal 123, Villa Carlos Paz",
+    delivery: "Disponible",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const restaurantes = [
     horario: "Lunes a Domingo: 11:00 AM - 11:00 PM",
     telefono: "987-654-3210",
     direccion: "Avenida Secundaria 456, Villa Carlos Paz",
+    delivery: "No disponible",
   },
   {
     id: 3,
@@ -33,7 +35,48 @@ const restaurantes = [
     horario: "Lunes a Domingo: 1:00 PM - 9:00 PM",
     telefono: "555-123-4567",
     direccion: "Plaza Central 789, Villa Carlos Paz",
+    delivery: "Disponible",
 
+  },
+  {
+    id: 4,
+    nombre: "Restaurante 4",
+    descripcion: "Descripción del restaurante 4",
+    imagen: "ruta/a/la/imagen4.jpg",
+    horario: "Lunes a Domingo: 10:00 AM - 8:00 PM",
+    telefono: "444-987-6543",
+    direccion: "Calle del Sol 321, Villa Carlos Paz",
+    delivery: "No disponible",
+  },
+  {
+    id: 5,
+    nombre: "Restaurante 5",
+    descripcion: "Descripción del restaurante 5",
+    imagen: "ruta/a/la/imagen5.jpg",
+    horario: "Lunes a Domingo: 11:00 AM - 9:00 PM",
+    telefono: "333-222-1111",
+    direccion: "Avenida Principal 555, Villa Carlos Paz",
+    delivery: "Disponible",
+  },
+  {
+    id: 6,
+    nombre: "Restaurante 6",
+    descripcion: "Descripción del restaurante 6",
+    imagen: "ruta/a/la/imagen6.jpg",
+    horario: "Lunes a Domingo: 12:00 PM - 10:00 PM",
+    telefono: "222-333-4444",
+    direccion: "Calle Secundaria 666, Villa Carlos Paz",
+    delivery: "No disponible",
+  },
+  {
+    id: 7,
+    nombre: "Restaurante 7",
+    descripcion: "Descripción del restaurante 7",
+    imagen: "ruta/a/la/imagen7.jpg",
+    horario: "Lunes a Domingo: 1:00 PM - 9:00 PM",
+    telefono: "111-222-3333",
+    direccion: "Plaza del Sol 777, Villa Carlos Paz",
+    delivery: "Disponible",
   }
 ];
 
@@ -57,6 +100,7 @@ function Restaurantes() {
               <p><strong>Horario:</strong> {restaurante.horario}</p>
               <p><strong>Teléfono:</strong> {restaurante.telefono}</p>
               <p><strong>Dirección:</strong> {restaurante.direccion}</p>
+              <p><strong>Delivery:</strong> {restaurante.delivery}</p>
             </div>
           ))}
         </section>
