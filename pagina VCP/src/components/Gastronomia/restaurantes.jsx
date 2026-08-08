@@ -105,7 +105,7 @@ function Restaurantes() {
           ))}
         </section>
 
-        <a className="cabañaPubli1" href="/publicidad">
+        <a className="restaurantePubli1" href="/publicidad">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
@@ -113,7 +113,7 @@ function Restaurantes() {
           </div>
         </a>
 
-        <a className="cabañaPubli2">
+        <a className="restaurantePubli2">
           <div>
             <h5>publicidad</h5>
             <h6>espacio publicitario</h6>
