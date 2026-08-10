@@ -61,7 +61,7 @@ const bares = [
 
 function Bares() {
   return (
-    <body className='restaurantes'>
+    <body className='bares'>
       <header style={{ backgroundImage: `url(${bar1})` }}>
         <p><a href="/inicio">Inicio</a> &gt; <a href="gastronomia">Gastronomia</a> &gt; Bares </p>
         <h1>Bares de Villa Carlos Paz</h1>
@@ -69,12 +69,12 @@ function Bares() {
       </header>
 
       <main>
-        <section>
+        <section className="bares-container">
           {bares.map((bar) => (
-            <div key={bar.id}>
+            <div key={bar.id} className="bar-card">
+              <img src={bar.imagen} alt={bar.nombre} />
               <h2>{bar.nombre}</h2>
               <p>{bar.descripcion}</p>
-              <img src={bar.imagen} alt={bar.nombre} />
               <p><strong>Horario:</strong> {bar.horario}</p>
               <p><strong>Teléfono:</strong> {bar.telefono}</p>
               <p><strong>Dirección:</strong> {bar.direccion}</p>

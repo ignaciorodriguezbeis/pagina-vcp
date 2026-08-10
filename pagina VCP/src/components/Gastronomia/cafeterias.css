@@ -1,31 +1,35 @@
 .cafeterias {
-    background: #dde2e9;
+    background: linear-gradient(180deg, #fdf7ed 0%, #fef3c7 100%);
     color: #1f2937;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
 }
 
 .cafeterias header {
-    min-height: 320px;
+    min-height: 360px;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
+    padding: 56px 24px;
     position: relative;
-    color: white;
+    color: #fff;
 }
 
 .cafeterias header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.205));
+    background: linear-gradient(90deg, rgba(120, 53, 15, 0.82), rgba(146, 64, 14, 0.42));
 }
 
-.cafeterias * {
+.cafeterias header > * {
     position: relative;
     z-index: 1;
+    max-width: 980px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .cafeterias header p,
@@ -34,18 +38,145 @@
 }
 
 .cafeterias header p:first-child {
-    margin-bottom: 13px;
-    font-size: 15px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 0.24rem;
 }
 
 .cafeterias header p a {
     text-decoration: none;
-    color: #fafafa;
+    color: #fff7ed;
+}
+
+.cafeterias header p a:hover {
+    text-decoration: underline;
 }
 
 .cafeterias header h1 {
-    font-size: 56px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
     margin-bottom: 12px;
+}
+
+.cafeterias header > p:last-child {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 760px;
+}
+
+.cafeterias main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 36px 24px 56px;
+}
+
+.cafeterias .cafeterias-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.cafeterias .cafeteria-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(120, 53, 15, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cafeterias .cafeteria-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(120, 53, 15, 0.16);
+}
+
+.cafeterias .cafeteria-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.cafeterias .cafeteria-card h2 {
+    margin: 18px 18px 8px;
+    font-size: 1.25rem;
+    color: #7c2d12;
+}
+
+.cafeterias .cafeteria-card p {
+    margin: 0 18px 10px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.cafeterias .cafeteria-card p strong {
+    color: #0f172a;
+}
+
+.cafeterias .cafePubli1,
+.cafeterias .cafePubli2 {
+    display: block;
+    margin-top: 28px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(90deg, #b45309, #ea580c);
+    box-shadow: 0 12px 24px rgba(234, 88, 12, 0.2);
+}
+
+.cafeterias .cafePubli2 {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cafeterias .cafePubli2 > div {
+    flex: 1;
+    min-width: 220px;
+}
+
+.cafeterias .cafePubli1 h5,
+.cafeterias .cafePubli2 h5 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.cafeterias .cafePubli1 h6,
+.cafeterias .cafePubli2 h6 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+
+.cafeterias .cafePubli1 p,
+.cafeterias .cafePubli2 p {
+    margin: 0;
+    color: #fff7ed;
+}
+
+@media (max-width: 900px) {
+    .cafeterias .cafeterias-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .cafeterias header {
+        min-height: 300px;
+        padding: 32px 16px;
+    }
+
+    .cafeterias main {
+        padding: 24px 16px 40px;
+    }
+
+    .cafeterias .cafeterias-list {
+        grid-template-columns: 1fr;
+    }
+
+    .cafeterias .cafePubli2 {
+        flex-direction: column;
+    }
 }
