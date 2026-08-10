@@ -6,19 +6,106 @@ import Gastronomia from './gastronomia';
 
 import bar1 from '../../assets/img/barCosta.jpg'
 
+const bares = [
+  {
+    id: 1,
+    nombre: "Bar 1",
+    descripcion: "Descripción del bar 1",
+    imagen: "ruta/a/la/imagen1.jpg",
+    horario: "Lunes a Domingo: 12:00 PM - 10:00 PM",
+    telefono: "123-456-7890",
+    direccion: "Calle Principal 123, Villa Carlos Paz",
+    delivery: "Disponible",
+  },
+  {
+    id: 2,
+    nombre: "Bar 2",
+    descripcion: "Descripción del bar 2",
+    imagen: "ruta/a/la/imagen2.jpg",
+    horario: "Lunes a Domingo: 11:00 AM - 11:00 PM",
+    telefono: "987-654-3210",
+    direccion: "Avenida Secundaria 456, Villa Carlos Paz",
+    delivery: "No disponible",
+  },
+  {
+    id: 3,
+    nombre: "Bar 3",
+    descripcion: "Descripción del bar 3",
+    imagen: "ruta/a/la/imagen3.jpg",
+    horario: "Lunes a Domingo: 1:00 PM - 9:00 PM",
+    telefono: "555-123-4567",
+    direccion: "Plaza Central 789, Villa Carlos Paz",
+    delivery: "Disponible",
+  },
+  {
+    id: 4,
+    nombre: "Bar 4",
+    descripcion: "Descripción del bar 4",
+    imagen: "ruta/a/la/imagen4.jpg",
+    horario: "Lunes a Domingo: 10:00 AM - 8:00 PM",
+    telefono: "444-987-6543",
+    direccion: "Calle del Sol 321, Villa Carlos Paz",
+    delivery: "No disponible",
+  },
+  {
+    id: 5,
+    nombre: "Bar 5",
+    descripcion: "Descripción del bar 5",
+    imagen: "ruta/a/la/imagen5.jpg",
+    horario: "Lunes a Domingo: 11:00 AM - 9:00 PM",
+    telefono: "333-222-1111",
+    direccion: "Avenida Principal 987, Villa Carlos Paz",
+    delivery: "Disponible",
+  }
+];
+
 function Bares() {
   return (
-    <main className='restaurantes'>
+    <body className='restaurantes'>
       <header style={{ backgroundImage: `url(${bar1})` }}>
         <p><a href="/inicio">Inicio</a> &gt; <a href="gastronomia">Gastronomia</a> &gt; Bares </p>
         <h1>Bares de Villa Carlos Paz</h1>
         <p>Bienvenido a la sección de gastronomía de VCP Turismo. Aquí encontrarás información sobre los mejores restaurantes, bares y lugares para disfrutar de la deliciosa comida local en Villa Carlos Paz. Explora nuestras recomendaciones y descubre los sabores únicos que esta ciudad tiene para ofrecer.</p>
       </header>
 
-      <body>
+      <main>
+        <section>
+          {bares.map((bar) => (
+            <div key={bar.id}>
+              <h2>{bar.nombre}</h2>
+              <p>{bar.descripcion}</p>
+              <img src={bar.imagen} alt={bar.nombre} />
+              <p><strong>Horario:</strong> {bar.horario}</p>
+              <p><strong>Teléfono:</strong> {bar.telefono}</p>
+              <p><strong>Dirección:</strong> {bar.direccion}</p>
+              <p><strong>Delivery:</strong> {bar.delivery}</p>
+            </div>
+          ))}
+        </section>
 
-      </body>
-    </main>
+        <a className="barPubli1" href="/publicidad">
+          <div>
+            <h5>publicidad</h5>
+            <h6>espacio publicitario</h6>
+            <p>tu marca acá anuncia con nosotros</p>
+          </div>
+        </a>
+
+        <a className="barPubli2">
+          <div>
+            <h5>publicidad</h5>
+            <h6>espacio publicitario</h6>
+            <p>tu marca acá anuncia con nosotros</p>
+          </div>
+          <div>
+            <h5>publicidad</h5>
+            <h6>espacio publicitario</h6>
+            <p>tu marca acá anuncia con nosotros</p>
+          </div>
+        </a>
+
+      </main>
+    </body>
   );
 }
 
