@@ -1,182 +1,195 @@
 .cafeterias {
-    background: linear-gradient(180deg, #fdf7ed 0%, #fef3c7 100%);
-    color: #1f2937;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
+  background: #dde2e9;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .cafeterias header {
-    min-height: 360px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 56px 24px;
-    position: relative;
-    color: #fff;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+  color: white;
 }
 
 .cafeterias header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(120, 53, 15, 0.82), rgba(146, 64, 14, 0.42));
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.35));
 }
 
 .cafeterias header > * {
-    position: relative;
-    z-index: 1;
-    max-width: 980px;
-    margin: 0 auto;
-    width: 100%;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0;
 }
 
 .cafeterias header p,
 .cafeterias header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .cafeterias header p:first-child {
-    margin-bottom: 14px;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.24rem;
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 .cafeterias header p a {
-    text-decoration: none;
-    color: #fff7ed;
-}
-
-.cafeterias header p a:hover {
-    text-decoration: underline;
+  text-decoration: none;
+  color: #fafafa;
 }
 
 .cafeterias header h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    margin-bottom: 12px;
-}
-
-.cafeterias header > p:last-child {
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 760px;
+  font-size: 42px;
+  margin-bottom: 12px;
 }
 
 .cafeterias main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 36px 24px 56px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  background: #fafafa;
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+}
+
+.cafeterias main > h2 {
+  grid-column: 1 / 7;
+  margin: 0;
+  padding: 20px;
+  font-size: 26px;
+  color: black;
 }
 
 .cafeterias .cafeterias-list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 5px;
 }
 
 .cafeterias .cafeteria-card {
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(120, 53, 15, 0.1);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff;
+  border: 1px solid #b7b7b8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
 }
 
 .cafeterias .cafeteria-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 40px rgba(120, 53, 15, 0.16);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
 }
 
 .cafeterias .cafeteria-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
 
 .cafeterias .cafeteria-card h2 {
-    margin: 18px 18px 8px;
-    font-size: 1.25rem;
-    color: #7c2d12;
+  margin: 18px 18px 8px;
+  font-size: 18px;
+  color: #0f172a;
 }
 
 .cafeterias .cafeteria-card p {
-    margin: 0 18px 10px;
-    color: #475569;
-    line-height: 1.6;
-}
-
-.cafeterias .cafeteria-card p strong {
-    color: #0f172a;
+  margin: 0 18px 10px;
+  color: #475569;
+  line-height: 1.6;
 }
 
 .cafeterias .cafePubli1,
 .cafeterias .cafePubli2 {
-    display: block;
-    margin-top: 28px;
-    padding: 20px 22px;
-    border-radius: 16px;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(90deg, #b45309, #ea580c);
-    box-shadow: 0 12px 24px rgba(234, 88, 12, 0.2);
+  border: solid rgb(160, 159, 158);
+  border-radius: 20px;
+  padding: 10px;
+  color: #1f2937;
+  text-decoration: none;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cafeterias .cafePubli1 {
+  grid-column: 1 / 6;
+  grid-row: 6 / 7;
 }
 
 .cafeterias .cafePubli2 {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+  grid-column: 6 / 7;
+  grid-row: 2 / 7;
+  text-align: center;
 }
 
 .cafeterias .cafePubli2 > div {
-    flex: 1;
-    min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .cafeterias .cafePubli1 h5,
 .cafeterias .cafePubli2 h5 {
-    margin: 0 0 6px;
-    font-size: 1rem;
-    text-transform: uppercase;
+  margin: 0 0 6px;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .cafeterias .cafePubli1 h6,
 .cafeterias .cafePubli2 h6 {
-    margin: 0 0 6px;
-    font-size: 1rem;
+  margin: 0 0 6px;
+  font-size: 1rem;
 }
 
 .cafeterias .cafePubli1 p,
 .cafeterias .cafePubli2 p {
-    margin: 0;
-    color: #fff7ed;
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 900px) {
-    .cafeterias .cafeterias-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+@media (max-width: 1024px) {
+  .cafeterias .cafeterias-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cafeterias .cafePubli1,
+  .cafeterias .cafePubli2 {
+    grid-column: 1 / 7;
+  }
 }
 
 @media (max-width: 640px) {
-    .cafeterias header {
-        min-height: 300px;
-        padding: 32px 16px;
-    }
+  .cafeterias header {
+    padding: 24px 16px;
+  }
 
-    .cafeterias main {
-        padding: 24px 16px 40px;
-    }
+  .cafeterias main {
+    padding: 16px;
+  }
 
-    .cafeterias .cafeterias-list {
-        grid-template-columns: 1fr;
-    }
+  .cafeterias .cafeterias-list {
+    grid-column: 1 / 7;
+    grid-template-columns: 1fr;
+  }
 
-    .cafeterias .cafePubli2 {
-        flex-direction: column;
-    }
+  .cafeterias .cafePubli1,
+  .cafeterias .cafePubli2 {
+    grid-column: 1 / 7;
+  }
 }

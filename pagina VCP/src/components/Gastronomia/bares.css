@@ -1,182 +1,199 @@
 .bares {
-    background: linear-gradient(180deg, #f5f7fa 0%, #eef2f7 100%);
-    color: #1f2937;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
+  background: #dde2e9;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .bares header {
-    min-height: 360px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 56px 24px;
-    position: relative;
-    color: #fff;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+  color: white;
 }
 
 .bares header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.35));
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.35));
 }
 
 .bares header > * {
-    position: relative;
-    z-index: 1;
-    max-width: 980px;
-    margin: 0 auto;
-    width: 100%;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0;
 }
 
 .bares header p,
 .bares header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .bares header p:first-child {
-    margin-bottom: 14px;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.24rem;
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 .bares header p a {
-    text-decoration: none;
-    color: #f8fafc;
-}
-
-.bares header p a:hover {
-    text-decoration: underline;
+  text-decoration: none;
+  color: #fafafa;
 }
 
 .bares header h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    margin-bottom: 12px;
-}
-
-.bares header > p:last-child {
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 760px;
+  font-size: 42px;
+  margin-bottom: 12px;
 }
 
 .bares main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 36px 24px 56px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  background: #fafafa;
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+}
+
+.bares main > h2 {
+  grid-column: 1 / 7;
+  margin: 0;
+  padding: 20px;
+  font-size: 26px;
+  color: black;
 }
 
 .bares .bares-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 5px;
 }
 
 .bares .bar-card {
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff;
+  border: 1px solid #b7b7b8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
 }
 
 .bares .bar-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
 }
 
 .bares .bar-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
 
 .bares .bar-card h2 {
-    margin: 18px 18px 8px;
-    font-size: 1.25rem;
-    color: #0f172a;
+  margin: 18px 18px 8px;
+  font-size: 18px;
+  color: #0f172a;
 }
 
 .bares .bar-card p {
-    margin: 0 18px 10px;
-    color: #475569;
-    line-height: 1.6;
+  margin: 0 18px 10px;
+  color: #475569;
+  line-height: 1.6;
 }
 
 .bares .bar-card p strong {
-    color: #0f172a;
+  color: #0f172a;
 }
 
 .bares .barPubli1,
 .bares .barPubli2 {
-    display: block;
-    margin-top: 28px;
-    padding: 20px 22px;
-    border-radius: 16px;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(90deg, #0f766e, #2563eb);
-    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.2);
+  border: solid rgb(160, 159, 158);
+  border-radius: 20px;
+  padding: 10px;
+  color: #1f2937;
+  text-decoration: none;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bares .barPubli1 {
+  grid-column: 1 / 6;
+  grid-row: 6 / 7;
 }
 
 .bares .barPubli2 {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+  grid-column: 6 / 7;
+  grid-row: 2 / 7;
+  text-align: center;
 }
 
 .bares .barPubli2 > div {
-    flex: 1;
-    min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .bares .barPubli1 h5,
 .bares .barPubli2 h5 {
-    margin: 0 0 6px;
-    font-size: 1rem;
-    text-transform: uppercase;
+  margin: 0 0 6px;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .bares .barPubli1 h6,
 .bares .barPubli2 h6 {
-    margin: 0 0 6px;
-    font-size: 1rem;
+  margin: 0 0 6px;
+  font-size: 1rem;
 }
 
 .bares .barPubli1 p,
 .bares .barPubli2 p {
-    margin: 0;
-    color: #f8fafc;
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 900px) {
-    .bares .bares-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+@media (max-width: 1024px) {
+  .bares .bares-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bares .barPubli1,
+  .bares .barPubli2 {
+    grid-column: 1 / 7;
+  }
 }
 
 @media (max-width: 640px) {
-    .bares header {
-        min-height: 300px;
-        padding: 32px 16px;
-    }
+  .bares header {
+    padding: 24px 16px;
+  }
 
-    .bares main {
-        padding: 24px 16px 40px;
-    }
+  .bares main {
+    padding: 16px;
+  }
 
-    .bares .bares-container {
-        grid-template-columns: 1fr;
-    }
+  .bares .bares-container {
+    grid-column: 1 / 7;
+    grid-template-columns: 1fr;
+  }
 
-    .bares .barPubli2 {
-        flex-direction: column;
-    }
+  .bares .barPubli1,
+  .bares .barPubli2 {
+    grid-column: 1 / 7;
+  }
 }

@@ -58,7 +58,7 @@ const hoteles = [
 
 function Hoteleria() {
     return (
-        <div className='hoteleria'>
+        <body className='hoteleria'>
             <header style={{ backgroundImage: `url(${hote1})` }}>
                 <p>
                     <Link to="/inicio">inicio</Link> &gt; <Link to="/alojamientos">alojamiento</Link> &gt; hoteleria
@@ -69,7 +69,7 @@ function Hoteleria() {
 
             <main>
                 <h2>catálogo de hoteles</h2>
-                <section className="hoteleria-grid">
+                <section>
                     {hoteles.map((hotel) => (
                         <article className="hotel-card" key={hotel.titulo}>
                             <img src={hotel.imagen} alt={hotel.titulo} />
@@ -104,7 +104,7 @@ function Hoteleria() {
                     </div>
                 </div>
             </main>
-        </div>
+        </body>
     );
 }
 

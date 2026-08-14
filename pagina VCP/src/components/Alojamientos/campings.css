@@ -1,176 +1,210 @@
 .campings {
-    background: #dde2e9;
-    color: #1f2937;
-    font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
+  background: #dde2e9;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .campings header {
-    min-height: 320px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 50px;
-    position: relative;
-    color: white;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+  color: white;
 }
 
 .campings header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25));
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.35));
 }
 
 .campings header * {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
 }
 
 .campings header p,
 .campings header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .campings header p:first-child {
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
-.campings header p a {
-    text-decoration: none;
-    color: #fafafa;
+.campings header a {
+  text-decoration: none;
+  color: #fafafa;
 }
 
 .campings header h1 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    margin-bottom: 12px;
+  font-size: 42px;
+  margin-bottom: 12px;
 }
 
 .campings main {
-    padding: 24px 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  background: #fafafa;
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
 }
 
-.campings main h2 {
-    margin: 0 0 20px;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+.campings main > h2 {
+  grid-column: 1 / 7;
+  margin: 0;
+  padding: 20px;
+  font-size: 26px;
+  color: black;
 }
 
 .campings .campings-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 5px;
 }
 
 .campings .camping-card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    border-radius: 12px;
-    background: #fafafa;
-    border: 1px solid #c7ccd3;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #b7b7b8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.campings .camping-card:hover {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
 }
 
 .campings .camping-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
 
 .campings .camping-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0;
-    padding: 0 12px;
+  margin: 5px 12px 0;
+  font-weight: 800;
+  font-size: 18px;
 }
 
 .campings .camping-card p,
 .campings .camping-card h4,
 .campings .camping-card h5 {
-    margin: 0;
-    padding: 0 12px;
+  margin: 0;
+  padding: 0 12px;
 }
 
-.campings .camping-card p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
+.campings .camping-card p,
 .campings .camping-card h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
+  color: lab(44, -6.78, -7.9);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .campings .camping-card h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #0f766e;
-    padding-bottom: 12px;
+  color: lab(48.54, -27.42, -18.46);
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 12px;
 }
 
 .campings .campPubli1,
 .campings .campPubli2 {
-    display: block;
-    margin-top: 24px;
-    padding: 16px;
-    border-radius: 12px;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(90deg, #0f766e, #2563eb);
+  border: solid rgb(160, 159, 158);
+  border-radius: 20px;
+  padding: 10px;
+  color: #1f2937;
+  text-decoration: none;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.campings .campPubli1 {
+  grid-column: 1 / 6;
+  grid-row: 6 / 7;
 }
 
 .campings .campPubli2 {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+  grid-column: 6 / 7;
+  grid-row: 2 / 7;
+  text-align: center;
 }
 
 .campings .campPubli2 > div {
-    flex: 1;
-    min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .campings .campPubli1 h5,
 .campings .campPubli2 h5 {
-    margin: 0 0 6px;
-    font-size: 1rem;
-    text-transform: uppercase;
+  margin: 0 0 6px;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .campings .campPubli1 h6,
 .campings .campPubli2 h6 {
-    margin: 0 0 6px;
-    font-size: 1rem;
+  margin: 0 0 6px;
+  font-size: 1rem;
 }
 
 .campings .campPubli1 p,
 .campings .campPubli2 p {
-    margin: 0;
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+  .campings .campings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .campings .campPubli1,
+  .campings .campPubli2 {
+    grid-column: 1 / 7;
+  }
 }
 
 @media (max-width: 640px) {
-    .campings header {
-        padding: 24px 16px;
-    }
+  .campings header {
+    padding: 24px 16px;
+  }
 
-    .campings main {
-        padding: 16px;
-    }
+  .campings main {
+    padding: 16px;
+  }
 
-    .campings .campings-grid {
-        grid-template-columns: 1fr;
-    }
+  .campings .campings-grid {
+    grid-column: 1 / 7;
+    grid-template-columns: 1fr;
+  }
 
-    .campings .campPubli2 {
-        flex-direction: column;
-    }
+  .campings .campPubli1,
+  .campings .campPubli2 {
+    grid-column: 1 / 7;
+  }
 }

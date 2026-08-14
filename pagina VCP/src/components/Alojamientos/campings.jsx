@@ -20,6 +20,14 @@ const campings = [
     precio: 'Desde $7,500 por persona',
     imagen: camp1,
   },
+  {
+    titulo: 'Camping La Estancia',
+    descripcion: 'Ubicado en un entorno natural, ofrece actividades recreativas y servicios de camping completos.',
+    direccion: 'Ruta 38, Villa Carlos Paz',
+    telefono: '+54 3541 42-6666',
+    precio: 'Desde $8,000 por persona',
+    imagen: camp1,
+  },
 ];
 
 function Campings() {
