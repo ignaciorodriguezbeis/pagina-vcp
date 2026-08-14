@@ -71,7 +71,7 @@ function Hoteleria() {
                 <h2>catálogo de hoteles</h2>
                 <section>
                     {hoteles.map((hotel) => (
-                        <article className="hotel-card" key={hotel.titulo}>
+                        <article key={hotel.titulo}>
                             <img src={hotel.imagen} alt={hotel.titulo} />
                             <h3>{hotel.titulo}</h3>
                             <p>{hotel.descripcion}</p>
@@ -90,7 +90,7 @@ function Hoteleria() {
                     </div>
                 </a>
 
-                <div className="hostPubli2">
+                <a className="hostPubli2" href="/publicidad">
                     <div>
                         <h5>publicidad</h5>
                         <h6>espacio publicitario</h6>
@@ -102,7 +102,7 @@ function Hoteleria() {
                         <h6>espacio publicitario</h6>
                         <p>tu marca acá anuncia con nosotros</p>
                     </div>
-                </div>
+                </a>
             </main>
         </body>
     );
