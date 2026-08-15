@@ -28,6 +28,63 @@ const campings = [
     precio: 'Desde $8,000 por persona',
     imagen: camp1,
   },
+  {
+    titulo: 'Camping El Bosque',
+    descripcion: 'Ideal para familias, con áreas de juegos, senderos y acceso a la naturaleza.',
+    direccion: 'Camino del Bosque, Villa Carlos Paz',
+    telefono: '+54 3541 42-7777',
+    precio: 'Desde $7,200 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping La Cumbre',
+    descripcion: 'Ofrece vistas panorámicas y servicios de camping de alta calidad en un entorno tranquilo.',
+    direccion: 'Calle de la Cumbre, Villa Carlos Paz',
+    telefono: '+54 3541 42-8888',
+    precio: 'Desde $8,500 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping Municipal San Roque',
+    descripcion: 'Excelente ubicación junto al lago con servicios básicos, duchas y acceso a la costa.',
+    direccion: 'Av. del Lago, Villa Carlos Paz',
+    telefono: '+54 3541 42-4444',
+    precio: 'Desde $6,000 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping Los Pinos',
+    descripcion: 'Espacios amplios para carpas y casas rodantes con sombra y parrilla compartida.',
+    direccion: 'Camino de los Pinos, Villa Carlos Paz',
+    telefono: '+54 3541 42-5555',
+    precio: 'Desde $7,500 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping La Estancia',
+    descripcion: 'Ubicado en un entorno natural, ofrece actividades recreativas y servicios de camping completos.',
+    direccion: 'Ruta 38, Villa Carlos Paz',
+    telefono: '+54 3541 42-6666',
+    precio: 'Desde $8,000 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping El Bosque',
+    descripcion: 'Ideal para familias, con áreas de juegos, senderos y acceso a la naturaleza.',
+    direccion: 'Camino del Bosque, Villa Carlos Paz',
+    telefono: '+54 3541 42-7777',
+    precio: 'Desde $7,200 por persona',
+    imagen: camp1,
+  },
+  {
+    titulo: 'Camping La Cumbre',
+    descripcion: 'Ofrece vistas panorámicas y servicios de camping de alta calidad en un entorno tranquilo.',
+    direccion: 'Calle de la Cumbre, Villa Carlos Paz',
+    telefono: '+54 3541 42-8888',
+    precio: 'Desde $8,500 por persona',
+    imagen: camp1,
+  },
+  
 ];
 
 function Campings() {
