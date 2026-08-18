@@ -1,6 +1,6 @@
-import { Form, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Login from './Login/login';
 
 
 import alojamientos from '../Alojamientos/alojamiento';
@@ -27,6 +27,24 @@ import cervecerias from '../Gastronomia/cervecerias.jsx';
 import logo from '../../assets/img/cucu_logo.jpg';
 
 function Navbar() {
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [hasLoginError, setHasLoginError] = useState(false);
+
+    const handleLoginSubmit = (event) => {
+        event.preventDefault();
+        const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const isFormValid = isEmailValid && password.trim() !== '';
+
+        setHasLoginError(!isFormValid);
+    };
+
+    const closeLogin = () => {
+        setIsLoginOpen(false);
+        setHasLoginError(false);
+    };
+
     return (
         <nav >
             <section>
@@ -109,9 +127,59 @@ function Navbar() {
             </div>
 
             <div className="login-container">
-                <Link to="/login" className="login">Anuncía tu negocio</Link>
+                <button type="button" className="login" onClick={() => setIsLoginOpen(true)}>
+                    Login
+                </button>
             </div>
 
+            {isLoginOpen && (
+                <div className="login-modal" role="presentation" onClick={closeLogin}>
+                    <section
+                        className="login-modal__content"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="login-title"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <button type="button" className="login-modal__close" onClick={closeLogin} aria-label="Cerrar">
+                            &times;
+                        </button>
+                        <h2 id="login-title">Iniciar sesión</h2>
+                        <p>Ingresá tus datos para continuar.</p>
+                        <form onSubmit={handleLoginSubmit} noValidate>
+                            <label htmlFor="login-email">Email</label>
+                            <input
+                                id="login-email"
+                                type="email"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                                className={hasLoginError ? 'login-modal__input--error' : ''}
+                                placeholder="tuemail@ejemplo.com"
+                            />
+
+                            <label htmlFor="login-password">Contraseña</label>
+                            <input
+                                id="login-password"
+                                type="password"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                                className={hasLoginError ? 'login-modal__input--error' : ''}
+                                placeholder="Tu contraseña"
+                            />
+
+                            {hasLoginError && (
+                                <small className="login-modal__error" role="alert">
+                                    La dirección de email o la contraseña son incorrectas.
+                                </small>
+                            )}
+                            <button type="submit" className="login-modal__submit">Iniciar sesión</button>
+                        </form>
+                        <Link to="/login" className="login-modal__register" onClick={closeLogin}>
+                            Registrarse
+                        </Link>
+                    </section>
+                </div>
+            )}
         </nav>
     )
 }
