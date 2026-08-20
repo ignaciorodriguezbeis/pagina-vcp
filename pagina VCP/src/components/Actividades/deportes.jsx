@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './deportes.css';
 
 import Inicio from '../Inicio/Inicio';
@@ -49,7 +49,7 @@ function Deportes() {
   return (
     <body className='deportes'>
       <header style={{ backgroundImage: `url(${deport1})` }}>
-        <p><a href="/inicio">inicio</a> &gt; <a href="Actividades">Actividades</a> &gt; Deportes</p>
+        <p><Link to="/inicio">Inicio</Link> &gt; <Link to="/actividades">Actividades</Link> &gt; Deportes</p>
         <h1>Deportes y donde preacticarlos en villa carlos paz</h1>
         <p>futboll, padel, natacion y tenis</p>
       </header>
