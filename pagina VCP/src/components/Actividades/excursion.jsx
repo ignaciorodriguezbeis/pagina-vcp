@@ -1,8 +1,5 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './excursion.css';
-
-import Inicio from '../Inicio/Inicio';
-import Actividades from './actividades';
 
 import excur1 from '../../assets/img/embudo.png'
 
@@ -25,13 +22,85 @@ const excursiones = [
     imagen: excur1,
     horarios: 'Lunes a Domingo: 10:00 AM - 5:00 PM',
   },
+  {
+    titulo: 'Parque Temático de Aventura',
+    descripcion: 'Diversión para toda la familia con tirolesas, puentes colgantes y actividades al aire libre.',
+    direccion: 'Ruta 14, Villa Carlos Paz',
+    telefono: '+54 3541 42-3333',
+    precio: 'Entradas desde $7.500',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 9:00 AM - 7:00 PM',
+  },
+  {
+    titulo: 'Tour en Bicicleta por el Centro Histórico',
+    descripcion: 'Recorrido guiado en bicicleta por los principales sitios históricos de Villa Carlos Paz.',
+    direccion: 'Centro Histórico, Villa Carlos Paz',
+    telefono: '+54 3541 42-4444',
+    precio: 'Desde $6.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 8:00 AM - 4:00 PM',
+  },
+  {
+    titulo: 'Visita Guiada al Parque Nacional',
+    descripcion: 'Recorrido informativo por las principales zonas del parque nacional con guía especializado.',
+    direccion: 'Parque Nacional, Villa Carlos Paz',
+    telefono: '+54 3541 42-5555',
+    precio: 'Desde $5.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 9:00 AM - 5:00 PM',
+  },
+  {
+    titulo: 'Tour en Motos por el Centro Histórico',
+    descripcion: 'Recorrido guiado en motos por los principales sitios históricos de Villa Carlos Paz.',
+    direccion: 'Centro Histórico, Villa Carlos Paz',
+    telefono: '+54 3541 42-6666',
+    precio: 'Desde $8.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 9:00 AM - 4:00 PM',
+  },
+  {
+    titulo: 'Tour en Patineta por el Centro Histórico',
+    descripcion: 'Recorrido guiado en patineta por los principales sitios históricos de Villa Carlos Paz.',
+    direccion: 'Centro Histórico, Villa Carlos Paz',
+    telefono: '+54 3541 42-7777',
+    precio: 'Desde $6.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 8:00 AM - 4:00 PM',
+  },
+  {
+    titulo: 'Tour en Skate por el Centro Histórico',
+    descripcion: 'Recorrido guiado en skate por los principales sitios históricos de Villa Carlos Paz.',
+    direccion: 'Centro Histórico, Villa Carlos Paz',
+    telefono: '+54 3541 42-8888',
+    precio: 'Desde $6.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 8:00 AM - 4:00 PM',
+  },
+  {
+    titulo: 'Tour en Ruta por el Centro Histórico',
+    descripcion: 'Recorrido guiado en ruta por los principales sitios históricos de Villa Carlos Paz.',
+    direccion: 'Centro Histórico, Villa Carlos Paz',
+    telefono: '+54 3541 42-9999',
+    precio: 'Desde $5.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 9:00 AM - 4:00 PM',
+  },
+  {
+    titulo: 'Tour en Bicicleta por el Centro Histórico',
+    descripcion: 'Recorrido guiado en bicicleta por los principales sitios históricos de Villa Carlos Paz.',
+    direccion: 'Centro Histórico, Villa Carlos Paz',
+    telefono: '+54 3541 42-0000',
+    precio: 'Desde $5.000',
+    imagen: excur1,
+    horarios: 'Lunes a Domingo: 8:00 AM - 4:00 PM',
+  },
 ];
 
 function Excursion() {
   return (
     <body className='excursion'>
       <header style={{ backgroundImage: `url(${excur1})` }}>
-        <p><a href="/inicio">Inicio</a> &gt; <a href="Actividades">Actividades</a> &gt; Excursion </p>
+        <p><Link to="/inicio">Inicio</Link> &gt; <Link to="/actividades">Actividades</Link> &gt; Excursion </p>
         <h1>Excursion en Villa Carlos Paz</h1>
         <p>Bienvenido a la sección de gastronomía de VCP Turismo. Aquí encontrarás información sobre los mejores restaurantes, bares y lugares para disfrutar de la deliciosa comida local en Villa Carlos Paz. Explora nuestras recomendaciones y descubre los sabores únicos que esta ciudad tiene para ofrecer.</p>
       </header>
