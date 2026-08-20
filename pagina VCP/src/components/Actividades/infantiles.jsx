@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './infantiles.css';
 
 import Inicio from '../Inicio/Inicio';
@@ -49,7 +49,7 @@ function Infantiles() {
   return (
     <body className='infantiles'>
       <header style={{ backgroundImage: `url(${child1})` }}>
-        <p><a href="/inicio">inicio</a> &gt; <a href="Actividades">Actividades</a> &gt; Infantiles</p>
+        <p><Link to="/inicio">Inicio</Link> &gt; <Link to="/actividades">Actividades</Link> &gt; Infantiles</p>
         <h1>atracciones para niños en villa carlos paz</h1>
         <p>futboll, padel, natacion y tenis</p>
       </header>
