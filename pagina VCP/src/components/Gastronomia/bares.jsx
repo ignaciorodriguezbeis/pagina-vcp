@@ -63,7 +63,7 @@ function Bares() {
   return (
     <body className='bares'>
       <header style={{ backgroundImage: `url(${bar1})` }}>
-        <p><Link to="/inicio">Inicio</Link> &gt; <Link to="/actividades">Gastronomia</Link> &gt; Bares </p>
+        <p><Link to="/inicio">Inicio</Link> &gt; <Link to="/gastronomia">Gastronomia</Link> &gt; Bares </p>
         <h1>Bares de Villa Carlos Paz</h1>
         <p>Bienvenido a la sección de gastronomía de VCP Turismo. Aquí encontrarás información sobre los mejores restaurantes, bares y lugares para disfrutar de la deliciosa comida local en Villa Carlos Paz. Explora nuestras recomendaciones y descubre los sabores únicos que esta ciudad tiene para ofrecer.</p>
       </header>

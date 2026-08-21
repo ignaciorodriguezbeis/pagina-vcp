@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './cafeterias.css';
 
 import Inicio from '../Inicio/Inicio';
@@ -53,7 +53,7 @@ function Cafeterias() {
   return (
     <body className='cafeterias'>
       <header style={{ backgroundImage: `url(${cafe1})` }}>
-        <p><a href="/inicio">Inicio</a> &gt; <a href="gastronomia">Gastronomia</a> &gt; Cafeterias </p>
+        <p><Link to="/inicio">Inicio</Link> &gt; <Link to="/gastronomia">Gastronomia</Link> &gt; Cafeterias </p>
         <h1>Cafeterias y panaderias en Villa Carlos Paz</h1>
         <p>Bienvenido a la sección de gastronomía de VCP Turismo. Aquí encontrarás información sobre los mejores restaurantes, bares y lugares para disfrutar de la deliciosa comida local en Villa Carlos Paz. Explora nuestras recomendaciones y descubre los sabores únicos que esta ciudad tiene para ofrecer.</p>
       </header>
