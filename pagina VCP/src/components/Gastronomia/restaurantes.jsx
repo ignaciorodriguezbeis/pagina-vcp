@@ -8,7 +8,6 @@ import rest1 from '../../assets/img/restaurante.webp'
 
 const restaurantes = [
   {
-    id: 1,
     nombre: "Restaurante 1",
     descripcion: "Descripción del restaurante 1",
     imagen: "ruta/a/la/imagen1.jpg",
@@ -18,7 +17,6 @@ const restaurantes = [
     delivery: "Disponible",
   },
   {
-    id: 2,
     nombre: "Restaurante 2",
     descripcion: "Descripción del restaurante 2",
     imagen: "ruta/a/la/imagen2.jpg",
@@ -28,7 +26,6 @@ const restaurantes = [
     delivery: "No disponible",
   },
   {
-    id: 3,
     nombre: "Restaurante 3",
     descripcion: "Descripción del restaurante 3",
     imagen: "ruta/a/la/imagen3.jpg",
@@ -39,7 +36,6 @@ const restaurantes = [
 
   },
   {
-    id: 4,
     nombre: "Restaurante 4",
     descripcion: "Descripción del restaurante 4",
     imagen: "ruta/a/la/imagen4.jpg",
@@ -59,7 +55,6 @@ const restaurantes = [
     delivery: "Disponible",
   },
   {
-    id: 6,
     nombre: "Restaurante 6",
     descripcion: "Descripción del restaurante 6",
     imagen: "ruta/a/la/imagen6.jpg",
@@ -69,13 +64,21 @@ const restaurantes = [
     delivery: "No disponible",
   },
   {
-    id: 7,
     nombre: "Restaurante 7",
     descripcion: "Descripción del restaurante 7",
     imagen: "ruta/a/la/imagen7.jpg",
     horario: "Lunes a Domingo: 1:00 PM - 9:00 PM",
     telefono: "111-222-3333",
     direccion: "Plaza del Sol 777, Villa Carlos Paz",
+    delivery: "Disponible",
+  },
+  {
+nombre: "Restaurante 8",
+  descripcion: "Descripción del restaurante 7",
+    imagen: "ruta/a/la/imagen7.jpg",
+    horario: "Lunes a Domingo: 1:00 PM - 9:00 PM",
+    telefono: "111-222-3333",
+    direccion: "Plaza del Sol 1232, Villa Carlos Paz",
     delivery: "Disponible",
   }
 ];
