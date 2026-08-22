@@ -8,7 +8,6 @@ import bar1 from '../../assets/img/barCosta.jpg'
 
 const bares = [
   {
-    id: 1,
     nombre: "Bar 1",
     descripcion: "Descripción del bar 1",
     imagen: "ruta/a/la/imagen1.jpg",
@@ -18,7 +17,6 @@ const bares = [
     delivery: "Disponible",
   },
   {
-    id: 2,
     nombre: "Bar 2",
     descripcion: "Descripción del bar 2",
     imagen: "ruta/a/la/imagen2.jpg",
@@ -28,7 +26,6 @@ const bares = [
     delivery: "No disponible",
   },
   {
-    id: 3,
     nombre: "Bar 3",
     descripcion: "Descripción del bar 3",
     imagen: "ruta/a/la/imagen3.jpg",
@@ -38,7 +35,6 @@ const bares = [
     delivery: "Disponible",
   },
   {
-    id: 4,
     nombre: "Bar 4",
     descripcion: "Descripción del bar 4",
     imagen: "ruta/a/la/imagen4.jpg",
@@ -48,13 +44,30 @@ const bares = [
     delivery: "No disponible",
   },
   {
-    id: 5,
     nombre: "Bar 5",
     descripcion: "Descripción del bar 5",
     imagen: "ruta/a/la/imagen5.jpg",
     horario: "Lunes a Domingo: 11:00 AM - 9:00 PM",
     telefono: "333-222-1111",
-    direccion: "Avenida Principal 987, Villa Carlos Paz",
+    direccion: "Avenida Principal 9187, Villa Carlos Paz",
+    delivery: "Disponible",
+  },
+  {
+    nombre: "Bar 6",
+    descripcion: "Descripción del bar 6",
+    imagen: "ruta/a/la/imagen5.jpg",
+    horario: "Lunes a Domingo: 11:00 AM - 9:00 PM",
+    telefono: "333-222-1111",
+    direccion: "Avenida Principal 9831, Villa Carlos Paz",
+    delivery: "Disponible",
+  },
+  {
+    nombre: "Bar 7",
+    descripcion: "Descripción del bar 7",
+    imagen: "ruta/a/la/imagen5.jpg",
+    horario: "Lunes a Domingo: 11:00 AM - 9:00 PM",
+    telefono: "333-222-1111",
+    direccion: "Avenida Principal 3434, Villa Carlos Paz",
     delivery: "Disponible",
   }
 ];
