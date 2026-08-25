@@ -49,7 +49,7 @@ function Alojamiento() {
                     <div className='subalojamientos'>
                         <h2>hoteles</h2>
                         <article>
-                            <button>&lt;</button>
+                            <button className='slider-button-prev slider-button'>&lt;</button>
                             <div className='slider'>
                                 <div>
                                     <p>hotel</p>
@@ -91,7 +91,7 @@ function Alojamiento() {
                                     <p>+54 3541 374628</p>
                                 </div>d
                             </div>
-                            <button>&gt;</button>
+                            <button className='slider-button-next slider-button'>&gt;</button>
                         </article>
                     </div>
 
