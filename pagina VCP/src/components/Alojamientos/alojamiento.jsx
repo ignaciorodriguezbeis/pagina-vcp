@@ -3,6 +3,8 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import "./alojamiento.css";
+import { hoteles } from './hosteleria';
+
 import portal1 from '../../assets/img/hotel-ventana.png'
 
 function AlojamientoSlider({ children }) {
@@ -49,49 +51,18 @@ function Alojamiento() {
                     <div className='subalojamientos'>
                         <h2>hoteles</h2>
                         <article>
-                            <button className='slider-button-prev slider-button'>&lt;</button>
-                            <div className='slider'>
-                                <div>
-                                    <p>hotel</p>
-                                    <h3>Hotel Portal de las Sierras</h3>
-                                    <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
-                                    <span>Desde $48.000 / noche</span>
-                                    <p>+54 3541 42-1000</p>
-                                </div>
-
-                                <div>
-                                    <p>hotel</p>
-                                    <h3>Hotel Portal de las Sierras</h3>
-                                    <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
-                                    <span>Desde $48.000 / noche</span>
-                                    <p>+54 3541 42-1000</p>
-                                </div>
-
-                                <div>
-                                    <p>hotel</p>
-                                    <h3>hotel alfin</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis cum autem eligendi qui rerum officia facere doloribus animi totam ratione, libero est magnam quae, aperiam nobis sequi vero voluptates in.</p>
-                                    <span>desde $50.000 / noche</span>
-                                    <p>+54 3541 2763767</p>
-                                </div>
-
-                                <div>
-                                    <p>hotel</p>
-                                    <h3>hotel el portal</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti nihil aliquam, fugiat voluptatem totam aliquid, excepturi, rerum beatae modi quis assumenda minus! Et, ut! Iure laudantium alias officia dolor dolores!</p>
-                                    <span>desde 35.000 / noche</span>
-                                    <p>+54 3541 4596394</p>
-                                </div>
-
-                                <div>
-                                    <p>hotel</p>
-                                    <h3>hotel pangolin</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe maxime libero quia velit! Perspiciatis, perferendis. Expedita ipsum labore suscipit ipsa. Numquam enim provident expedita harum veritatis facilis laborum sed ad.</p>
-                                    <span>desde 70.000 / noche</span>
-                                    <p>+54 3541 374628</p>
-                                </div>d
-                            </div>
-                            <button className='slider-button-next slider-button'>&gt;</button>
+                            <AlojamientoSlider>
+                                {hoteles.map((hotel, index) => (
+                                    <article key={`${hotel.titulo}-${index}`}>
+                                        <img src={hotel.imagen} alt={hotel.titulo} />
+                                        <h3>{hotel.titulo}</h3>
+                                        <p>{hotel.descripcion}</p>
+                                        <h4>dirección: {hotel.direccion}</h4>
+                                        <p>teléfono: {hotel.telefono}</p>
+                                        <h5>precio: {hotel.precio}</h5>
+                                    </article>
+                                ))}
+                            </AlojamientoSlider>
                         </article>
                     </div>
 

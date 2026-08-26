@@ -5,7 +5,7 @@ import hote1 from '../../assets/img/hotel-postal.webp';
 import hote2 from '../../assets/img/vcp-postal.webp';
 import hote3 from '../../assets/img/hotel-ventana.png';
 
-const hoteles = [
+export const hoteles = [
     {
         titulo: 'Hotel Postal',
         descripcion: 'Hotel clásico en el centro con habitaciones amplias, desayuno incluido y excelente acceso a comercios y actividades del pueblo.',
