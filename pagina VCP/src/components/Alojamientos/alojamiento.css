@@ -85,7 +85,9 @@
 .subalojamientos {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
   padding: 15px;
 
   h2 {
@@ -97,16 +99,24 @@
     display: flex;
     flex-direction: row;
     gap: 16px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 
     .slider {
       position: relative;
       width: 100%;
+      min-width: 0;
       display: flex;
       align-items: center;
     }
 
     .slider-track {
       width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      display: flex;
+      gap: 16px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scrollbar-width: thin;
@@ -115,7 +125,8 @@
       scroll-behavior: smooth;
 
       >article {
-        flex: 0 0 clamp(260px, 31vw, 360px);
+        flex: 0 0 calc((100% - 32px) / 3);
+        box-sizing: border-box;
         min-height: 220px;
         scroll-snap-align: start;
         background: #ffffff;
@@ -152,6 +163,7 @@
 
     .slider-button {
       position: absolute;
+      top: 50%;
       z-index: 2;
       width: 38px;
       height: 38px;
@@ -161,6 +173,7 @@
       color: #ffffff;
       font-size: 30px;
       line-height: 1;
+      transform: translateY(-50%);
       cursor: pointer;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 
@@ -170,12 +183,12 @@
     }
 
     .slider-button-prev {
-      left: -10px;
+      left: 8px;
 
     }
 
     .slider-button-next {
-      right: -10px;
+      right: 8px;
     }
 
     >div {
@@ -268,5 +281,9 @@
 
   .subalojamientos .slider-track div {
     flex-basis: calc(100vw - 70px);
+  }
+
+  .subalojamientos .slider-track > article {
+    flex-basis: calc(100% - 8px);
   }
 }
