@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './cabañaApart.css';
 import cabapr1 from '../../assets/img/cabañaeder.webp';
 
-const cabañas = [
+export const cabañas = [
   {
     titulo: 'Cabaña Los Aromos',
     descripcion: 'Amplia cabaña con parilla, quincho y vista a las sierras para disfrutar en familia.',

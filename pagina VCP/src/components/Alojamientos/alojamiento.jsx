@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import "./alojamiento.css";
 import { hoteles } from './hosteleria';
+import { alquileres } from './alquileres';
+import { cabañaApart } from './cabañaApart'
 
 import portal1 from '../../assets/img/hotel-ventana.png'
 
@@ -69,40 +71,36 @@ function Alojamiento() {
                     <div className='subalojamientos'>
                         <h2>cabañas y apartamentos</h2>
                         <article>
-                            <div>
-                                <p>cabaña</p>
-                                <h3>Cabañas Los Aromos</h3>
-                                <p>Complejo de cabañas equipadas en zona Villa del Lago, ideal para familias.</p>
-                                <span>Desde $48.000 / noche</span>
-                                <p>+54 3541 42-1000</p>
-                            </div>
-                            <div>
-                                <p>apartamento</p>
-                                <h3>Hotel Portal de las Sierras</h3>
-                                <p>Hotel 3 estrellas frente al lago, con pileta climatizada y desayuno buffet incluido.</p>
-                                <span>Desde $48.000 / noche</span>
-                                <p>+54 3541 42-1000</p>
-                            </div>
+                           <AlojamientoSlider>
+                                {cabañaparts.map((cabañaApart, index) => (
+                                    <article key={`${cabañaApart.titulo}-${index}`}>
+                                        <img src={cabañaApart.imagen} alt={cabañaApart.titulo} />
+                                        <h3>{cabañaApart.titulo}</h3>
+                                        <p>{cabañaApart.descripcion}</p>
+                                        <h4>dirección: {cabañaApart.direccion}</h4>
+                                        <p>teléfono: {cabañaApart.telefono}</p>
+                                        <h5>precio: {cabañaApart.precio}</h5>
+                                    </article>
+                                ))}
+                            </AlojamientoSlider>
                         </article>
                     </div>
 
                     <div className='subalojamientos'>
                         <h2>alquileres temporarios</h2>
                         <article>
-                            <div>
-                                <p>casa</p>
-                                <h3>santa fe 1771</h3>
-                                <p>Habitaciones compartidas y privadas a pasos del centro, con terraza y parrilla.</p>
-                                <span>Desde $12.000 / persona</span>
-                                <p>+54 3541 42-1000</p>
-                            </div>
-                            <div>
-                                <p>complejo</p>
-                                <h3>miralejos</h3>
-                                <p>Habitaciones compartidas y privadas a pasos del centro, con terraza y parrilla.</p>
-                                <span>Desde $12.000 / persona</span>
-                                <p>+54 3541 42-1000</p>
-                            </div>
+                            <AlojamientoSlider>
+                                {alquileres.map((alquileres, index) => (
+                                    <article key={`${alquileres.titulo}-${index}`}>
+                                        <img src={alquileres.imagen} alt={alquileres.titulo} />
+                                        <h3>{alquileres.titulo}</h3>
+                                        <p>{alquileres.descripcion}</p>
+                                        <h4>dirección: {alquileres.direccion}</h4>
+                                        <p>teléfono: {alquileres.telefono}</p>
+                                        <h5>precio: {alquileres.precio}</h5>
+                                    </article>
+                                ))}
+                            </AlojamientoSlider>
                         </article>
                     </div>
 

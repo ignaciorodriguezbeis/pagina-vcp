@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './alquileres.css';
 import alqui1 from '../../assets/img/lagocentro.jpg';
 
-const alquileres = [
+export const alquileres = [
   {
     titulo: 'Casa en Barrio San Martín',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
@@ -29,7 +29,7 @@ const alquileres = [
     imagen: alqui1,
   },
   {
-    titulo: 'Casa en Barrio San Martín',
+    titulo: 'Casa en Barrio San Martín 2',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
     telefono: '+54 3541 42-6666',
@@ -53,7 +53,7 @@ const alquileres = [
     imagen: alqui1,
   },
   {
-    titulo: 'Casa en Barrio San Martín',
+    titulo: 'Casa en Barrio San Martín 3',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
     telefono: '+54 3541 42-6666',
