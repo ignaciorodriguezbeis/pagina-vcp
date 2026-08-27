@@ -116,6 +116,7 @@ export const alquileres = [
     precio: 'Desde $18,000 por noche',
     imagen: alqui1,
   },
+  
 ];
 
 function Alquileres() {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import "./alojamiento.css";
 import { hoteles } from './hosteleria';
 import { alquileres } from './alquileres';
-import { cabañaApart } from './cabañaApart';
+import { cabañas } from './cabañaApart';
 import { campings } from './campings';
 
 import portal1 from '../../assets/img/hotel-ventana.png'
@@ -23,13 +23,13 @@ function AlojamientoSlider({ children }) {
     return (
         <div className='slider'>
             <button className='slider-button slider-button-prev' type='button' aria-label='Ver alojamientos anteriores' onClick={() => move(-1)}>
-                &#8249;
+                &lt;
             </button>
             <article ref={trackRef} className='slider-track'>
                 {children}
             </article>
             <button className='slider-button slider-button-next' type='button' aria-label='Ver más alojamientos' onClick={() => move(1)}>
-                &#8250;
+                &gt;
             </button>
         </div>
     );
@@ -73,14 +73,14 @@ function Alojamiento() {
                         <h2>cabañas y apartamentos</h2>
                         <article>
                             <AlojamientoSlider>
-                                {alquileres.map((cabañaApart, index) => (
-                                    <article key={`${cabañaApart.titulo}-${index}`}>
-                                        <img src={cabañaApart.imagen} alt={cabañaApart.titulo} />
-                                        <h3>{cabañaApart.titulo}</h3>
-                                        <p>{cabañaApart.descripcion}</p>
-                                        <h4>dirección: {cabañaApart.direccion}</h4>
-                                        <p>teléfono: {cabañaApart.telefono}</p>
-                                        <h5>precio: {cabañaApart.precio}</h5>
+                                {cabañas.map((cabañas, index) => (
+                                    <article key={`${cabañas.titulo}-${index}`}>
+                                        <img src={cabañas.imagen} alt={cabañas.titulo} />
+                                        <h3>{cabañas.titulo}</h3>
+                                        <p>{cabañas.descripcion}</p>
+                                        <h4>dirección: {cabañas.direccion}</h4>
+                                        <p>teléfono: {cabañas.telefono}</p>
+                                        <h5>precio: {cabañas.precio}</h5>
                                     </article>
                                 ))}
                             </AlojamientoSlider>
