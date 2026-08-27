@@ -8,8 +8,8 @@ import gastronomia from '../Gastronomia/gastronomia';
 import actvidades from '../Actividades/actividades.jsx';
 
 import hosteleria from '../Alojamientos/hosteleria';
-import cabañaApart from  '../Alojamientos/cabañaApart.jsx';
-import campings  from '../Alojamientos/campings.jsx'
+import cabañaApart from '../Alojamientos/cabañaApart.jsx';
+import campings from '../Alojamientos/campings.jsx'
 import alquileres from '../Alojamientos/alquileres.jsx'
 
 import excursion from '../Actividades/excursion.jsx';
@@ -62,14 +62,12 @@ function Navbar() {
                                 <Link to="/hosteleria">Hostelería</Link>
                             </li>
                             <li>
-                                <Link to="/cabañaApart">cabañas y apartamentos</Link>
+                                <Link to="/alquileres">alquileres temporarios</Link>
                             </li>
                             <li>
                                 <Link to="/campings">campings</Link>
                             </li>
-                            <li>
-                                <Link to="/alquileres">alquileres temporarios</Link>
-                            </li>
+                            
                         </ul>
                     </li>
                 </ul>
@@ -116,12 +114,12 @@ function Navbar() {
                                 <Link to="/cervecerias">cervecerías</Link>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
                 </ul>
                 <ul className="list-container">
                     <li className="list-header">
                         <Link to="/otros">Otros</Link>
-                        
+
                     </li>
                 </ul>
             </div>
