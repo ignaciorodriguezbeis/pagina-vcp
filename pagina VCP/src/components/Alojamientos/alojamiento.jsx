@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import "./alojamiento.css";
 import { hoteles } from './hosteleria';
 import { alquileres } from './alquileres';
-import { cabañaApart } from './cabañaApart'
+import { cabañaApart } from './cabañaApart';
+import { campings } from './campings';
 
 import portal1 from '../../assets/img/hotel-ventana.png'
 
@@ -71,8 +72,8 @@ function Alojamiento() {
                     <div className='subalojamientos'>
                         <h2>cabañas y apartamentos</h2>
                         <article>
-                           <AlojamientoSlider>
-                                {cabañaparts.map((cabañaApart, index) => (
+                            <AlojamientoSlider>
+                                {alquileres.map((cabañaApart, index) => (
                                     <article key={`${cabañaApart.titulo}-${index}`}>
                                         <img src={cabañaApart.imagen} alt={cabañaApart.titulo} />
                                         <h3>{cabañaApart.titulo}</h3>
@@ -107,14 +108,18 @@ function Alojamiento() {
                     <div className='subalojamientos'>
                         <h2>camping</h2>
                         <article>
-                            <div >
-                                <p>Campings</p>
-                                <span></span>
-                                <h3>Camping Municipal San Roque</h3>
-                                <p>Acampe junto al lago con proveeduría, sanitarios y bajada de lanchas.</p>
-                                <span>Desde $6.000 / persona</span>
-                                <p>+54 3541 42-1000</p>
-                            </div>
+                            <AlojamientoSlider>
+                                {campings.map((campings, index) => (
+                                    <article key={`${campings.titulo}-${index}`}>
+                                        <img src={campings.imagen} alt={campings.titulo} />
+                                        <h3>{campings.titulo}</h3>
+                                        <p>{campings.descripcion}</p>
+                                        <h4>dirección: {campings.direccion}</h4>
+                                        <p>teléfono: {campings.telefono}</p>
+                                        <h5>precio: {campings.precio}</h5>
+                                    </article>
+                                ))}
+                            </AlojamientoSlider>
                         </article>
                     </div>
 

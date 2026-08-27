@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './campings.css';
 import camp1 from '../../assets/img/camping.webp';
 
-const campings = [
+export const campings = [
   {
     titulo: 'Camping Municipal San Roque',
     descripcion: 'Excelente ubicación junto al lago con servicios básicos, duchas y acceso a la costa.',
@@ -84,7 +84,7 @@ const campings = [
     precio: 'Desde $8,500 por persona',
     imagen: camp1,
   },
-  
+
 ];
 
 function Campings() {
