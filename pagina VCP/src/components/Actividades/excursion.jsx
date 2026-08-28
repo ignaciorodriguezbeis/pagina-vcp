@@ -3,7 +3,7 @@ import './excursion.css';
 
 import excur1 from '../../assets/img/embudo.png'
 
-const excursiones = [
+export const excursiones = [
   {
     titulo: 'Aerosilla al Cerro de la Cruz',
     descripcion: 'Ascenso panorámico con la mejor vista del lago y la ciudad. Apto todo público.',

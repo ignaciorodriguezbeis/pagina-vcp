@@ -6,7 +6,7 @@ import Actividades from './actividades';
 
 import child1 from '../../assets/img/teatro.png'
 
-const infantiles = [
+export const infantiles = [
   {
     titulo: 'Parque Infantil Villa Carlos Paz',
     descripcion: 'Un espacio seguro y divertido para que los niños disfruten de juegos, actividades y entretenimiento.',

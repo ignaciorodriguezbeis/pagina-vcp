@@ -1,15 +1,49 @@
+
 import { Link } from 'react-router-dom';
 import './actividades.css';
 
 import Inicio from '../Inicio/Inicio';
+import Aventura from './aventura';
+import Deportes from './deportes';
+import Espectaculos from './espectaculos';
+import Excursion from './excursion';
+import Infantiles from './infantiles';
 
 import activ1 from '../../assets/img/deportes.webp'
+
+
+function ActividadesSlider({ children }) {
+    const trackRef = useRef(null);
+
+    const move = (direction) => {
+        trackRef.current?.scrollBy({
+            left: direction * trackRef.current.clientWidth,
+            behavior: 'smooth'
+        });
+    };
+
+    return (
+        <div className='slider'>
+            <button className='slider-button slider-button-prev' type='button' aria-label='Ver actividades anteriores' onClick={() => move(-1)}>
+                &lt;
+            </button>
+            <article ref={trackRef} className='slider-track'>
+                {children}
+            </article>
+            <button className='slider-button slider-button-next' type='button' aria-label='Ver más actividades' onClick={() => move(1)}>
+                &gt;
+            </button>
+        </div>
+    );
+}
+
 
 function Actividades() {
     return (
         <body className='actividades'>
             <header style={{ backgroundImage: `url(${activ1})` }}>
                 <p><a href="/inicio">inicio</a> &gt; Actividades</p>
+
                 <h1>Actividades</h1>
                 <p>Excursiones, espectáculos y aventura</p>
             </header>
@@ -21,19 +55,19 @@ function Actividades() {
                     <div className='subactividad'>
                         <h2>Excursiones</h2>
                         <article>
-                            <div>
-                                <p>Excursiones</p>
-                                <h3>Aerosilla al Cerro de la Cruz</h3>
-                                <p>Ascenso panorámico con la mejor vista del lago y la ciudad. Apto todo público.</p>
-                                <span>Entradas desde $9.500</span>
-                            </div>
-                            <div>
-                                <p>Excursiones</p>
-                                <h3>Paseo en Catamarán por el Lago</h3>
-                                <p>Recorrido guiado de 1 hora por el lago San Roque con salidas cada 45 minutos.</p>
-                                <span>Desde $8.000</span>
-                            </div>
-                        </article>
+                                                    <AlojamientoSlider>
+                                                        {Excursion.map((Excursion, index) => (
+                                                            <article key={`${Excursion.titulo}-${index}`}>
+                                                                <img src={Excursion.imagen} alt={hotel.titulo} />
+                                                                <h3>{Excursion.titulo}</h3>
+                                                                <p>{Excursion.descripcion}</p>
+                                                                <h4>dirección: {Excursion.direccion}</h4>
+                                                                <p>teléfono: {Excursion.telefono}</p>
+                                                                <h5>precio: {Excursion.precio}</h5>
+                                                            </article>
+                                                        ))}
+                                                    </AlojamientoSlider>
+                                                </article>
                     </div>
 
                     <div className='subactividad'>

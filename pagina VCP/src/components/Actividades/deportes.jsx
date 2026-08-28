@@ -6,7 +6,7 @@ import Actividades from './actividades';
 
 import deport1 from '../../assets/img/deportes.webp'
 
-const deportes = [
+export const deportes = [
   {
     titulo: 'Club de Fútbol Villa Carlos Paz',
     descripcion: 'Participa en entrenamientos y partidos de fútbol en un entorno seguro y divertido para todas las edades.',

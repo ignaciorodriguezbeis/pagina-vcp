@@ -6,7 +6,7 @@ import Actividades from './actividades';
 
 import avent1 from '../../assets/img/aventura.jpg'
 
-const actividades = [
+export const actividades = [
   {
     titulo: 'Parque de Aventura',
     descripcion: 'Disfruta de emocionantes actividades al aire libre, como tirolesa, escalada y senderismo en un entorno natural impresionante.',

@@ -6,7 +6,7 @@ import Actividades from './actividades';
 
 import espec1 from '../../assets/img/teatro.png'
 
-const espectaculos = [
+export const espectaculos = [
   {
     titulo: 'Teatro Municipal',
     descripcion: 'Espacio cultural con funciones de teatro, danza y música en vivo.',
