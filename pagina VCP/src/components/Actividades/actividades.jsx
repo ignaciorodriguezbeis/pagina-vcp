@@ -1,15 +1,22 @@
 
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+
 import './actividades.css';
 
 import Inicio from '../Inicio/Inicio';
-import Aventura from './aventura';
-import Deportes from './deportes';
-import Espectaculos from './espectaculos';
-import Excursion from './excursion';
-import Infantiles from './infantiles';
+import {Aventura} from './aventura';
+import {deportes} from './deportes';
+import {Espectaculos} from './espectaculos';
+import {Excursion} from './excursion';
+import {infantiles} from './infantiles';
 
 import activ1 from '../../assets/img/deportes.webp'
+import avent1 from '../../assets/img/aventura.jpg';
+import deport1 from '../../assets/img/deportes.webp';
+import espec1 from '../../assets/img/teatro.png';
+import excur1 from '../../assets/img/embudo.png';
+import child1 from '../../assets/img/teatro.png';
 
 
 function ActividadesSlider({ children }) {
@@ -55,90 +62,90 @@ function Actividades() {
                     <div className='subactividad'>
                         <h2>Excursiones</h2>
                         <article>
-                                                    <AlojamientoSlider>
-                                                        {Excursion.map((Excursion, index) => (
-                                                            <article key={`${Excursion.titulo}-${index}`}>
-                                                                <img src={Excursion.imagen} alt={hotel.titulo} />
-                                                                <h3>{Excursion.titulo}</h3>
-                                                                <p>{Excursion.descripcion}</p>
-                                                                <h4>dirección: {Excursion.direccion}</h4>
-                                                                <p>teléfono: {Excursion.telefono}</p>
-                                                                <h5>precio: {Excursion.precio}</h5>
-                                                            </article>
-                                                        ))}
-                                                    </AlojamientoSlider>
-                                                </article>
+                            <actividadesSlider>
+                                {Excursion.map((Excursion, index) => (
+                                    <article key={`${Excursion.titulo}-${index}`}>
+                                        <img src={Excursion.imagen} alt={hotel.titulo} />
+                                        <h3>{Excursion.titulo}</h3>
+                                        <p>{Excursion.descripcion}</p>
+                                        <h4>dirección: {Excursion.direccion}</h4>
+                                        <p>teléfono: {Excursion.telefono}</p>
+                                        <h5>precio: {Excursion.precio}</h5>
+                                    </article>
+                                ))}
+                            </actividadesSlider>
+                        </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>Espectáculos</h2>
                         <article>
-                            <div>
-                                <p>Espectáculos</p>
-                                <h3>strabagansa</h3>
-                                <p>Las grandes figuras del espectáculo argentino en las salas del centro.</p>
-                                <span>Entradas desde $18.000</span>
-                            </div>
-                            <div>
-                                <p>Espectáculos</p>
-                                <h3>flor de V</h3>
-                                <p>Las grandes figuras del espectáculo argentino en las salas del centro.</p>
-                                <span>Entradas desde $15.000</span>
-                            </div>
+                            <actividadesSlider>
+                                {espectaculos.map((espectaculos, index) => (
+                                    <article key={`${espectaculos.titulo}-${index}`}>
+                                        <img src={espectaculos.imagen} alt={hotel.titulo} />
+                                        <h3>{espectaculos.titulo}</h3>
+                                        <p>{espectaculos.descripcion}</p>
+                                        <h4>dirección: {espectaculos.direccion}</h4>
+                                        <p>teléfono: {espectaculos.telefono}</p>
+                                        <h5>precio: {espectaculos.precio}</h5>
+                                    </article>
+                                ))}
+                            </actividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>Aventura</h2>
                         <article>
-                            <div>
-                                <p>Aventura</p>
-                                <h3>Vuelo en Parapente</h3>
-                                <p>Vuelo biplaza sobre las sierras con instructor certificado. Fotos incluidas.</p>
-                                <span>Desde $25.000</span>
-                            </div>
-                            <div>
-                                <p>Aventura</p>
-                                <h3>Treking a la Cruz</h3>
-                                <p>Kayaks, motos de agua y actividades en el lago San Roque.</p>
-                                <span>Desde $12.000</span>
-                            </div>
+                            <actividadesSlider>
+                                {Aventura.map((Aventura, index) => (
+                                    <article key={`${Aventura.titulo}-${index}`}>
+                                        <img src={Aventura.imagen} alt={hotel.titulo} />
+                                        <h3>{Aventura.titulo}</h3>
+                                        <p>{Aventura.descripcion}</p>
+                                        <h4>dirección: {Aventura.direccion}</h4>
+                                        <p>teléfono: {Aventura.telefono}</p>
+                                        <h5>precio: {Aventura.precio}</h5>
+                                    </article>
+                                ))}
+                            </actividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>deportes</h2>
                         <article>
-                            <div>
-                                <p>Deportes</p>
-                                <h3>futboll 5</h3>
-                                <p>Vuelos sobre los cerros con vistas espectaculares del paisaje.</p>
-                                <span>Desde $10.000</span>
-                            </div>
-                            <div>
-                                <p>Deportes</p>
-                                <h3>canotaje</h3>
-                                <p>Kayaks, motos de agua y actividades en el lago San Roque.</p>
-                                <span>Desde $15.000</span>
-                            </div>
+                            <actividadesSlider>
+                                {deportes.map((deportes, index) => (
+                                    <article key={`${deportes.titulo}-${index}`}>
+                                        <img src={deportes.imagen} alt={hotel.titulo} />
+                                        <h3>{deportes.titulo}</h3>
+                                        <p>{deportes.descripcion}</p>
+                                        <h4>dirección: {deportes.direccion}</h4>
+                                        <p>teléfono: {deportes.telefono}</p>
+                                        <h5>precio: {deportes.precio}</h5>
+                                    </article>
+                                ))}
+                            </actividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>para niños</h2>
                         <article>
-                            <div>
-                                <p>Infantil</p>
-                                <h3>parque de diversiones</h3>
-                                <p>Vuelos sobre los cerros con vistas espectaculares del paisaje.</p>
-                                <span>Desde $10.000</span>
-                            </div>
-                            <div>
-                                <p>Infantil</p>
-                                <h3>parque acuático</h3>
-                                <p>Kayaks, motos de agua y actividades en el lago San Roque.</p>
-                                <span>Desde $12.000</span>
-                            </div>
+                            <actividadesSlider>
+                                {infantiles.map((infantiles, index) => (
+                                    <article key={`${infantiles.titulo}-${index}`}>
+                                        <img src={infantiles.imagen} alt={hotel.titulo} />
+                                        <h3>{infantiles.titulo}</h3>
+                                        <p>{infantiles.descripcion}</p>
+                                        <h4>dirección: {infantiles.direccion}</h4>
+                                        <p>teléfono: {infantiles.telefono}</p>
+                                        <h5>precio: {infantiles.precio}</h5>
+                                    </article>
+                                ))}
+                            </actividadesSlider>
                         </article>
                     </div>
                 </section>
