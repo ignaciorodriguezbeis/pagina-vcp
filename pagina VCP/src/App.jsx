@@ -12,7 +12,6 @@ import Infantiles from './components/Actividades/infantiles';
 
 import Alojamiento from './components/Alojamientos/alojamiento';
 import Hosteleria from './components/Alojamientos/hosteleria';
-import CabañaApart from './components/Alojamientos/cabañaApart';
 import Campings from './components/Alojamientos/campings';
 import Alquileres from './components/Alojamientos/alquileres';
 
@@ -42,10 +41,9 @@ function App() {
 
         <Route path="/alojamientos" element={<Alojamiento />} />
         <Route path="/hosteleria" element={<Hosteleria />} />
-        <Route path="/cabañaApart" element={<CabañaApart />} />
+        
         <Route path="/campings" element={<Campings />} />
         <Route path="/alquileres" element={<Alquileres />} />
-
         <Route path="/gastronomia" element={<Gastronomia />} />
         <Route path="/restaurantes" element={<Restaurantes />} />
         <Route path="/bares" element={<Bares />} />

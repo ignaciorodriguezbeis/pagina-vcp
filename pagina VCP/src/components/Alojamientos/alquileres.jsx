@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 
 import './alquileres.css';
 import alqui1 from '../../assets/img/lagocentro.jpg';
+ import cabapr1 from '../../assets/img/cabañaeder.webp';
 
 export const alquileres = [
   {
+    clase: 'casa',
     titulo: 'Casa en Barrio San Martín',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
@@ -13,6 +15,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase : 'departamento',
     titulo: 'Departamento céntrico',
     descripcion: 'Departamento cómodo y bien ubicado para estadías cortas o largas.',
     direccion: 'Avenida Libertad 1234, Villa Carlos Paz',
@@ -21,6 +24,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'cabaña',
     titulo: 'Cabaña en las Sierras',
     descripcion: 'Cabaña rústica con vista a las sierras, ideal para escapadas de fin de semana.',
     direccion: 'Camino a las Sierras 5678, Villa Carlos Paz',
@@ -29,6 +33,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase: 'casa',
     titulo: 'Casa en Barrio San Martín 2',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
@@ -37,6 +42,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'departamento',
     titulo: 'Departamento céntrico',
     descripcion: 'Departamento cómodo y bien ubicado para estadías cortas o largas.',
     direccion: 'Avenida Libertad 1234, Villa Carlos Paz',
@@ -45,6 +51,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'cabaña',
     titulo: 'Cabaña en las Sierras',
     descripcion: 'Cabaña rústica con vista a las sierras, ideal para escapadas de fin de semana.',
     direccion: 'Camino a las Sierras 5678, Villa Carlos Paz',
@@ -53,6 +60,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'casa',
     titulo: 'Casa en Barrio San Martín 3',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
@@ -61,6 +69,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'casa',
     titulo: 'Casa en Barrio San Martín',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
@@ -69,6 +78,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'departamento',
     titulo: 'Departamento céntrico',
     descripcion: 'Departamento cómodo y bien ubicado para estadías cortas o largas.',
     direccion: 'Avenida Libertad 1234, Villa Carlos Paz',
@@ -77,6 +87,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'cabaña',
     titulo: 'Cabaña en las Sierras',
     descripcion: 'Cabaña rústica con vista a las sierras, ideal para escapadas de fin de semana.',
     direccion: 'Camino a las Sierras 5678, Villa Carlos Paz',
@@ -85,6 +96,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'casa',
     titulo: 'Casa en Barrio San Martín',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
@@ -93,6 +105,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'departamento',
     titulo: 'Departamento céntrico',
     descripcion: 'Departamento cómodo y bien ubicado para estadías cortas o largas.',
     direccion: 'Avenida Libertad 1234, Villa Carlos Paz',
@@ -101,6 +114,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'cabaña',
     titulo: 'Cabaña en las Sierras',
     descripcion: 'Cabaña rústica con vista a las sierras, ideal para escapadas de fin de semana.',
     direccion: 'Camino a las Sierras 5678, Villa Carlos Paz',
@@ -109,12 +123,121 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    clase:'casa',
     titulo: 'Casa en Barrio San Martín',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
     direccion: 'Barrio San Martín, Villa Carlos Paz',
     telefono: '+54 3541 42-6666',
     precio: 'Desde $18,000 por noche',
     imagen: alqui1,
+  },
+   {
+    clase:'cabaña',
+    titulo: 'Cabaña Los Aromos',
+    descripcion: 'Amplia cabaña con parilla, quincho y vista a las sierras para disfrutar en familia.',
+    direccion: 'Villa del Lago, Villa Carlos Paz',
+    telefono: '+54 3541 42-1111',
+    precio: 'Desde $45,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'departamento',
+    titulo: 'Apartamento Vista al Lago',
+    descripcion: 'Departamento moderno con terraza, cocina equipada y excelente ubicación urbana.',
+    direccion: 'Av. Costanera 2345, Villa Carlos Paz',
+    telefono: '+54 3541 42-2222',
+    precio: 'Desde $38,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña El Bosque',
+    descripcion: 'Ideal para escapadas de fin de semana con pileta, parrilla y ambiente tranquilo.',
+    direccion: 'Camino del Sol, Villa Carlos Paz',
+    telefono: '+54 3541 42-3333',
+    precio: 'Desde $50,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña Los Aromos',
+    descripcion: 'Amplia cabaña con parilla, quincho y vista a las sierras para disfrutar en familia.',
+    direccion: 'Villa del Lago, Villa Carlos Paz',
+    telefono: '+54 3541 42-1111',
+    precio: 'Desde $45,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'departamento',
+    titulo: 'Apartamentos Vista al Lago',
+    descripcion: 'Departamento moderno con terraza, cocina equipada y excelente ubicación urbana.',
+    direccion: 'Av. Costanera 2345, Villa Carlos Paz',
+    telefono: '+54 3541 42-2222',
+    precio: 'Desde $38,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña El Bosque',
+    descripcion: 'Ideal para escapadas de fin de semana con pileta, parrilla y ambiente tranquilo.',
+    direccion: 'Camino del Sol, Villa Carlos Paz',
+    telefono: '+54 3541 42-3333',
+    precio: 'Desde $50,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña Los Aromos',
+    descripcion: 'Amplia cabaña con parilla, quincho y vista a las sierras para disfrutar en familia.',
+    direccion: 'Villa del Lago, Villa Carlos Paz',
+    telefono: '+54 3541 42-1111',
+    precio: 'Desde $45,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'departamento',
+    titulo: 'Apartamento Vista al Lago',
+    descripcion: 'Departamento moderno con terraza, cocina equipada y excelente ubicación urbana.',
+    direccion: 'Av. Costanera 2345, Villa Carlos Paz',
+    telefono: '+54 3541 42-2222',
+    precio: 'Desde $38,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña El Bosque',
+    descripcion: 'Ideal para escapadas de fin de semana con pileta, parrilla y ambiente tranquilo.',
+    direccion: 'Camino del Sol, Villa Carlos Paz',
+    telefono: '+54 3541 42-3333',
+    precio: 'Desde $50,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña Los Aromos',
+    descripcion: 'Amplia cabaña con parilla, quincho y vista a las sierras para disfrutar en familia.',
+    direccion: 'Villa del Lago, Villa Carlos Paz',
+    telefono: '+54 3541 42-1111',
+    precio: 'Desde $45,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'departamento',
+    titulo: 'Apartamento Vista al Lago',
+    descripcion: 'Departamento moderno con terraza, cocina equipada y excelente ubicación urbana.',
+    direccion: 'Av. Costanera 2345, Villa Carlos Paz',
+    telefono: '+54 3541 42-2222',
+    precio: 'Desde $38,000 por noche',
+    imagen: cabapr1,
+  },
+  {
+    clase:'cabaña',
+    titulo: 'Cabaña El Bosque',
+    descripcion: 'Ideal para escapadas de fin de semana con pileta, parrilla y ambiente tranquilo.',
+    direccion: 'Camino del Sol, Villa Carlos Paz',
+    telefono: '+54 3541 42-3333',
+    precio: 'Desde $50,000 por noche',
+    imagen: cabapr1,
   },
   
 ];
@@ -136,6 +259,7 @@ function Alquileres() {
           {alquileres.map((alquiler) => (
             <article className="alquiler-card" key={alquiler.titulo}>
               <img src={alquiler.imagen} alt={alquiler.titulo} />
+              <h4>{alquiler.clase}</h4>
               <h3>{alquiler.titulo}</h3>
               <p>{alquiler.descripcion}</p>
               <h4>dirección: {alquiler.direccion}</h4>

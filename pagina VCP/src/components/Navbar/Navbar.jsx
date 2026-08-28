@@ -8,9 +8,8 @@ import gastronomia from '../Gastronomia/gastronomia';
 import actvidades from '../Actividades/actividades.jsx';
 
 import hosteleria from '../Alojamientos/hosteleria';
-import cabañaApart from '../Alojamientos/cabañaApart.jsx';
-import campings from '../Alojamientos/campings.jsx'
-import alquileres from '../Alojamientos/alquileres.jsx'
+import campings from '../Alojamientos/campings.jsx';
+import alquileres from '../Alojamientos/alquileres.jsx';
 
 import excursion from '../Actividades/excursion.jsx';
 import espectaculos from '../Actividades/espectaculos.jsx';

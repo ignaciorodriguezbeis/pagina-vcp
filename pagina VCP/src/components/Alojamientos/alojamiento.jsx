@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import "./alojamiento.css";
 import { hoteles } from './hosteleria';
 import { alquileres } from './alquileres';
-import { cabañas } from './cabañaApart';
 import { campings } from './campings';
 
 import portal1 from '../../assets/img/hotel-ventana.png'
@@ -63,24 +62,6 @@ function Alojamiento() {
                                         <h4>dirección: {hotel.direccion}</h4>
                                         <p>teléfono: {hotel.telefono}</p>
                                         <h5>precio: {hotel.precio}</h5>
-                                    </article>
-                                ))}
-                            </AlojamientoSlider>
-                        </article>
-                    </div>
-
-                    <div className='subalojamientos'>
-                        <h2>cabañas y apartamentos</h2>
-                        <article>
-                            <AlojamientoSlider>
-                                {cabañas.map((cabañas, index) => (
-                                    <article key={`${cabañas.titulo}-${index}`}>
-                                        <img src={cabañas.imagen} alt={cabañas.titulo} />
-                                        <h3>{cabañas.titulo}</h3>
-                                        <p>{cabañas.descripcion}</p>
-                                        <h4>dirección: {cabañas.direccion}</h4>
-                                        <p>teléfono: {cabañas.telefono}</p>
-                                        <h5>precio: {cabañas.precio}</h5>
                                     </article>
                                 ))}
                             </AlojamientoSlider>
