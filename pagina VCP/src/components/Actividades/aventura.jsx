@@ -6,7 +6,7 @@ import Actividades from './actividades';
 
 import avent1 from '../../assets/img/aventura.jpg'
 
-export const Aventura = [
+export const aventuras = [
   {
     titulo: 'Parque de Aventura',
     descripcion: 'Disfruta de emocionantes actividades al aire libre, como tirolesa, escalada y senderismo en un entorno natural impresionante.',
@@ -146,15 +146,15 @@ function Aventura() {
       <main>
         <h2>actividades de aventura</h2>
         <section className="aventura-grid">
-          {actividades.map((Aventura) => (
-            <article className="Aventura-card" key={Aventura.titulo}>
-              <img src={Aventura.imagen} alt={Aventura.titulo} />
-              <h3>{Aventura.titulo}</h3>
-              <p>{Aventura.descripcion}</p>
-              <p>horarios: {Aventura.horarios}</p>
-              <h4>dirección: {Aventura.direccion}</h4>
-              <p>teléfono: {Aventura.telefono}</p>
-              <h5>precio: {Aventura.precio}</h5>
+          {aventuras.map((aventura) => (
+            <article className="aventura-card" key={aventura.titulo}>
+              <img src={aventura.imagen} alt={aventura.titulo} />
+              <h3>{aventura.titulo}</h3>
+              <p>{aventura.descripcion}</p>
+              <p>horarios: {aventura.horarios}</p>
+              <h4>dirección: {aventura.direccion}</h4>
+              <p>teléfono: {aventura.telefono}</p>
+              <h5>precio: {aventura.precio}</h5>
             </article>
           ))}
         </section>

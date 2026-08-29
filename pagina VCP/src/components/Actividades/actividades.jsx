@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import './actividades.css';
 
 import Inicio from '../Inicio/Inicio';
-import {Aventura} from './aventura';
-import {deportes} from './deportes';
-import {Espectaculos} from './espectaculos';
-import {Excursion} from './excursion';
-import {infantiles} from './infantiles';
+import { aventuras } from './aventura';
+import { deportes } from './deportes';
+import { espectaculos } from './espectaculos';
+import { excursiones } from './excursion';
+import { infantiles } from './infantiles';
 
 import activ1 from '../../assets/img/deportes.webp'
 import avent1 from '../../assets/img/aventura.jpg';
@@ -62,90 +62,90 @@ function Actividades() {
                     <div className='subactividad'>
                         <h2>Excursiones</h2>
                         <article>
-                            <actividadesSlider>
-                                {Excursion.map((Excursion, index) => (
-                                    <article key={`${Excursion.titulo}-${index}`}>
-                                        <img src={Excursion.imagen} alt={hotel.titulo} />
-                                        <h3>{Excursion.titulo}</h3>
-                                        <p>{Excursion.descripcion}</p>
-                                        <h4>dirección: {Excursion.direccion}</h4>
-                                        <p>teléfono: {Excursion.telefono}</p>
-                                        <h5>precio: {Excursion.precio}</h5>
+                            <ActividadesSlider>
+                                {excursiones.map((excursion, index) => (
+                                    <article key={`${excursion.titulo}-${index}`}>
+                                        <img src={excursion.imagen} alt={excursion.titulo} />
+                                        <h3>{excursion.titulo}</h3>
+                                        <p>{excursion.descripcion}</p>
+                                        <h4>dirección: {excursion.direccion}</h4>
+                                        <p>teléfono: {excursion.telefono}</p>
+                                        <h5>precio: {excursion.precio}</h5>
                                     </article>
                                 ))}
-                            </actividadesSlider>
+                            </ActividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>Espectáculos</h2>
                         <article>
-                            <actividadesSlider>
-                                {espectaculos.map((espectaculos, index) => (
-                                    <article key={`${espectaculos.titulo}-${index}`}>
-                                        <img src={espectaculos.imagen} alt={hotel.titulo} />
-                                        <h3>{espectaculos.titulo}</h3>
-                                        <p>{espectaculos.descripcion}</p>
-                                        <h4>dirección: {espectaculos.direccion}</h4>
-                                        <p>teléfono: {espectaculos.telefono}</p>
-                                        <h5>precio: {espectaculos.precio}</h5>
+                            <ActividadesSlider>
+                                {espectaculos.map((espectaculo, index) => (
+                                    <article key={`${espectaculo.titulo}-${index}`}>
+                                        <img src={espectaculo.imagen} alt={espectaculo.titulo} />
+                                        <h3>{espectaculo.titulo}</h3>
+                                        <p>{espectaculo.descripcion}</p>
+                                        <h4>dirección: {espectaculo.direccion}</h4>
+                                        <p>teléfono: {espectaculo.telefono}</p>
+                                        <h5>precio: {espectaculo.precio}</h5>
                                     </article>
                                 ))}
-                            </actividadesSlider>
+                            </ActividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>Aventura</h2>
                         <article>
-                            <actividadesSlider>
-                                {Aventura.map((Aventura, index) => (
-                                    <article key={`${Aventura.titulo}-${index}`}>
-                                        <img src={Aventura.imagen} alt={hotel.titulo} />
-                                        <h3>{Aventura.titulo}</h3>
-                                        <p>{Aventura.descripcion}</p>
-                                        <h4>dirección: {Aventura.direccion}</h4>
-                                        <p>teléfono: {Aventura.telefono}</p>
-                                        <h5>precio: {Aventura.precio}</h5>
+                            <ActividadesSlider>
+                                {aventuras.map((aventura, index) => (
+                                    <article key={`${aventura.titulo}-${index}`}>
+                                        <img src={aventura.imagen} alt={aventura.titulo} />
+                                        <h3>{aventura.titulo}</h3>
+                                        <p>{aventura.descripcion}</p>
+                                        <h4>dirección: {aventura.direccion}</h4>
+                                        <p>teléfono: {aventura.telefono}</p>
+                                        <h5>precio: {aventura.precio}</h5>
                                     </article>
                                 ))}
-                            </actividadesSlider>
+                            </ActividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>deportes</h2>
                         <article>
-                            <actividadesSlider>
-                                {deportes.map((deportes, index) => (
-                                    <article key={`${deportes.titulo}-${index}`}>
-                                        <img src={deportes.imagen} alt={hotel.titulo} />
-                                        <h3>{deportes.titulo}</h3>
-                                        <p>{deportes.descripcion}</p>
-                                        <h4>dirección: {deportes.direccion}</h4>
-                                        <p>teléfono: {deportes.telefono}</p>
-                                        <h5>precio: {deportes.precio}</h5>
+                            <ActividadesSlider>
+                                {deportes.map((deporte, index) => (
+                                    <article key={`${deporte.titulo}-${index}`}>
+                                        <img src={deporte.imagen} alt={deporte.titulo} />
+                                        <h3>{deporte.titulo}</h3>
+                                        <p>{deporte.descripcion}</p>
+                                        <h4>dirección: {deporte.direccion}</h4>
+                                        <p>teléfono: {deporte.telefono}</p>
+                                        <h5>precio: {deporte.precio}</h5>
                                     </article>
                                 ))}
-                            </actividadesSlider>
+                            </ActividadesSlider>
                         </article>
                     </div>
 
                     <div className='subactividad'>
                         <h2>para niños</h2>
                         <article>
-                            <actividadesSlider>
-                                {infantiles.map((infantiles, index) => (
-                                    <article key={`${infantiles.titulo}-${index}`}>
-                                        <img src={infantiles.imagen} alt={hotel.titulo} />
-                                        <h3>{infantiles.titulo}</h3>
-                                        <p>{infantiles.descripcion}</p>
-                                        <h4>dirección: {infantiles.direccion}</h4>
-                                        <p>teléfono: {infantiles.telefono}</p>
-                                        <h5>precio: {infantiles.precio}</h5>
+                            <ActividadesSlider>
+                                {infantiles.map((infantil, index) => (
+                                    <article key={`${infantil.titulo}-${index}`}>
+                                        <img src={infantil.imagen} alt={infantil.titulo} />
+                                        <h3>{infantil.titulo}</h3>
+                                        <p>{infantil.descripcion}</p>
+                                        <h4>dirección: {infantil.direccion}</h4>
+                                        <p>teléfono: {infantil.telefono}</p>
+                                        <h5>precio: {infantil.precio}</h5>
                                     </article>
                                 ))}
-                            </actividadesSlider>
+                            </ActividadesSlider>
                         </article>
                     </div>
                 </section>
