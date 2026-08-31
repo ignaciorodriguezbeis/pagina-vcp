@@ -1,20 +1,13 @@
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 
 import './gastronomia.css';
 
-import Inicio from '../Inicio/Inicio';
 import { bares } from './bares';
-import { cafe } from './cafeterias';
-import { cerveza } from './cervecerias';
-import { heladeria } from './heladerias';
+import { cafeterias } from './cafeterias';
+import { cervecerias } from './cervecerias';
+import { heladerias } from './heladerias';
 import { restaurantes } from './restaurantes';
 
-import bar1 from '../../assets/img/barCosta.jpg';
-import cafe1 from '../../assets/img/cafePan.jpg';
-import bear1 from '../../assets/img/bear.webp';
-import helader1 from '../../assets/img/helado.jpg';
-import rest1 from '../../assets/img/restaurante.webp';
 import gast1 from '../../assets/img/gastronomia.jpg';
 
 
@@ -48,12 +41,12 @@ function Gastronomia() {
     return (
         <body className='gastronomia'>
             <header style={{ backgroundImage: `url(${gast1})` }}>
-                <p><a href="/inicio">inicio</a> &gt; Gastronomia </p>
-                <h1>Gastronomia de Villa Carlos Paz</h1>
-                <p>Bienvenido a la sección de gastronomía de VCP Turismo. Aquí encontrarás información sobre los mejores restaurantes, bares y lugares para disfrutar de la deliciosa comida local en Villa Carlos Paz. Explora nuestras recomendaciones y descubre los sabores únicos que esta ciudad tiene para ofrecer.</p>
+                <p><a href="/inicio">inicio</a> &gt; Gastronomia</p>
+                <h1>Gastronomía de Villa Carlos Paz</h1>
+                <p>Descubrí los mejores lugares para comer, tomar y disfrutar de la vida en Villa Carlos Paz.</p>
             </header>
 
-            <main >
+            <main>
                 <p>Descubrí los mejores lugares para comer en Villa Carlos Paz, desde restaurantes tradicionales hasta opciones casuales para pasar el día.</p>
 
                 <section>
@@ -61,14 +54,14 @@ function Gastronomia() {
                         <h2>Restaurantes</h2>
                         <article>
                             <GastronomiaSlider>
-                                {restaurantes.map((restaurantes, index) => (
-                                    <article key={`${restaurantes.titulo}-${index}`}>
-                                        <img src={restaurantes.imagen} alt={restaurantes.titulo} />
-                                        <h3>{restaurantes.titulo}</h3>
-                                        <p>{restaurantes.descripcion}</p>
-                                        <h4>dirección: {restaurantes.direccion}</h4>
-                                        <p>teléfono: {restaurantes.telefono}</p>
-                                        <h5>precio: {restaurantes.precio}</h5>
+                                {restaurantes.map((restaurante, index) => (
+                                    <article key={`${restaurante.titulo}-${index}`}>
+                                        <img src={restaurante.imagen} alt={restaurante.titulo} />
+                                        <h3>{restaurante.titulo}</h3>
+                                        <p>{restaurante.descripcion}</p>
+                                        <h4>dirección: {restaurante.direccion}</h4>
+                                        <p>teléfono: {restaurante.telefono}</p>
+                                        <h5>precio: {restaurante.precio}</h5>
                                     </article>
                                 ))}
                             </GastronomiaSlider>
@@ -79,14 +72,14 @@ function Gastronomia() {
                         <h2>Bares</h2>
                         <article>
                             <GastronomiaSlider>
-                                {bares.map((bares, index) => (
-                                    <article key={`${bares.titulo}-${index}`}>
-                                        <img src={bares.imagen} alt={bares.titulo} />
-                                        <h3>{bares.titulo}</h3>
-                                        <p>{bares.descripcion}</p>
-                                        <h4>dirección: {bares.direccion}</h4>
-                                        <p>teléfono: {bares.telefono}</p>
-                                        <h5>precio: {bares.precio}</h5>
+                                {bares.map((bar, index) => (
+                                    <article key={`${bar.titulo}-${index}`}>
+                                        <img src={bar.imagen} alt={bar.titulo} />
+                                        <h3>{bar.titulo}</h3>
+                                        <p>{bar.descripcion}</p>
+                                        <h4>dirección: {bar.direccion}</h4>
+                                        <p>teléfono: {bar.telefono}</p>
+                                        <h5>precio: {bar.precio}</h5>
                                     </article>
                                 ))}
                             </GastronomiaSlider>
@@ -96,15 +89,15 @@ function Gastronomia() {
                     <div className='subgastronomia'>
                         <h2>Heladerías</h2>
                         <article>
-                           <GastronomiaSlider>
-                                {Heladerias.map((heladerias, index) => (
-                                    <article key={`${heladerias.titulo}-${index}`}>
-                                        <img src={heladerias.imagen} alt={heladerias.titulo} />
-                                        <h3>{heladerias.titulo}</h3>
-                                        <p>{heladerias.descripcion}</p>
-                                        <h4>dirección: {heladerias.direccion}</h4>
-                                        <p>teléfono: {heladerias.telefono}</p>
-                                        <h5>precio: {heladerias.precio}</h5>
+                            <GastronomiaSlider>
+                                {heladerias.map((heladeria, index) => (
+                                    <article key={`${heladeria.titulo}-${index}`}>
+                                        <img src={heladeria.imagen} alt={heladeria.titulo} />
+                                        <h3>{heladeria.titulo}</h3>
+                                        <p>{heladeria.descripcion}</p>
+                                        <h4>dirección: {heladeria.direccion}</h4>
+                                        <p>teléfono: {heladeria.telefono}</p>
+                                        <h5>precio: {heladeria.precio}</h5>
                                     </article>
                                 ))}
                             </GastronomiaSlider>
@@ -112,17 +105,17 @@ function Gastronomia() {
                     </div>
 
                     <div className='subgastronomia'>
-                        <h2>cafeteria y panaderia</h2>
+                        <h2>Cafeterías y panaderías</h2>
                         <article>
-                           <GastronomiaSlider>
-                                {Cafeterias.map((cafe, index) => (
-                                    <article key={`${cafe.titulo}-${index}`}>
-                                        <img src={cafe.imagen} alt={cafe.titulo} />
-                                        <h3>{cafe.titulo}</h3>
-                                        <p>{cafe.descripcion}</p>
-                                        <h4>dirección: {cafe.direccion}</h4>
-                                        <p>teléfono: {cafe.telefono}</p>
-                                        <h5>precio: {cafe.precio}</h5>
+                            <GastronomiaSlider>
+                                {cafeterias.map((cafeteria, index) => (
+                                    <article key={`${cafeteria.titulo}-${index}`}>
+                                        <img src={cafeteria.imagen} alt={cafeteria.titulo} />
+                                        <h3>{cafeteria.titulo}</h3>
+                                        <p>{cafeteria.descripcion}</p>
+                                        <h4>dirección: {cafeteria.direccion}</h4>
+                                        <p>teléfono: {cafeteria.telefono}</p>
+                                        <h5>precio: {cafeteria.precio}</h5>
                                     </article>
                                 ))}
                             </GastronomiaSlider>
@@ -130,23 +123,24 @@ function Gastronomia() {
                     </div>
 
                     <div className='subgastronomia'>
-                        <h2>cerveceria</h2>
+                        <h2>Cervecerías</h2>
                         <article>
-                             <GastronomiaSlider>
-                                {Cervecerias.map((cerveza, index) => (
-                                    <article key={`${cerveza.titulo}-${index}`}>
-                                        <img src={cerveza.imagen} alt={cerveza.titulo} />
-                                        <h3>{cerveza.titulo}</h3>
-                                        <p>{cerveza.descripcion}</p>
-                                        <h4>dirección: {cerveza.direccion}</h4>
-                                        <p>teléfono: {cerveza.telefono}</p>
-                                        <h5>precio: {cerveza.precio}</h5>
+                            <GastronomiaSlider>
+                                {cervecerias.map((cerveceria, index) => (
+                                    <article key={`${cerveceria.titulo}-${index}`}>
+                                        <img src={cerveceria.imagen} alt={cerveceria.titulo} />
+                                        <h3>{cerveceria.titulo}</h3>
+                                        <p>{cerveceria.descripcion}</p>
+                                        <h4>dirección: {cerveceria.direccion}</h4>
+                                        <p>teléfono: {cerveceria.telefono}</p>
+                                        <h5>precio: {cerveceria.precio}</h5>
                                     </article>
                                 ))}
                             </GastronomiaSlider>
                         </article>
                     </div>
                 </section>
+
                 <a className="gastPubli1" to="/publicidad">
                     <div>
                         <h5>publicidad</h5>
