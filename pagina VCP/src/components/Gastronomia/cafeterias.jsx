@@ -6,7 +6,7 @@ import Gastronomia from './gastronomia';
 
 import cafe1 from '../../assets/img/cafePan.jpg';
 
-const cafeterias = [
+export const cafeterias = [
   {
     id: 1,
     nombre: "Cafetería 1",

@@ -7,7 +7,7 @@ import Gastronomia from './gastronomia';
 
 import helader1 from '../../assets/img/helado.jpg';
 
-const heladerias = [
+export const heladerias = [
   {
     id: 1,
     nombre: "Heladería 1",

@@ -6,7 +6,7 @@ import Gastronomia from './gastronomia';
 
 import bar1 from '../../assets/img/barCosta.jpg'
 
-const bares = [
+export const bares = [
   {
     nombre: "Bar 1",
     descripcion: "Descripción del bar 1",

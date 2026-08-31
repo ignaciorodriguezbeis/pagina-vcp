@@ -6,7 +6,7 @@ import Gastronomia from './gastronomia';
 
 import bear1 from '../../assets/img/bear.webp';
 
-const cervecerias = [
+export const cervecerias = [
   {
     id: 1,
     nombre: "Cervecería 1",

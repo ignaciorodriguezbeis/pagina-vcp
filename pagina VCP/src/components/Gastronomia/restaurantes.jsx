@@ -6,7 +6,7 @@ import Gastronomia from './gastronomia';
 
 import rest1 from '../../assets/img/restaurante.webp'
 
-const restaurantes = [
+export const restaurantes = [
   {
     nombre: "Restaurante 1",
     descripcion: "Descripción del restaurante 1",
