@@ -24,35 +24,35 @@ function Footer() {
                 </div>
 
                 <div className="footer-columns">
-                    
+
                     <div className="footer-column">
-                        <h3>Alojamiento</h3>
+                        <h3><Link className="footer-link" to="/alojamientos">Alojamiento</Link></h3>
                         <ul>
-                            <li>Hosteleria</li>
-                            <li>Alquileres Temporarios</li>
-                            <li>Campings</li>
+                            <li><Link className="footer-link" to="/hosteleria">Hosteleria</Link></li>
+                            <li><Link className="footer-link" to="/alquileres">Alquileres Temporarios</Link></li>
+                            <li><Link className="footer-link" to="/campings">Campings</Link></li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h3>Actividades</h3>
+                        <h3><Link className="footer-link" to="/actividades">Actividades</Link></h3>
                         <ul>
-                            <li>Excursiones</li>
-                            <li>Espectáculos</li>
-                            <li>Aventura</li>
-                            <li>Deportes</li>
-                            <li>para niños</li>
+                            <li><Link className="footer-link" to="/excursion">Excursiones</Link></li>
+                            <li><Link className="footer-link" to="/espectaculos">Espectáculos</Link></li>
+                            <li><Link className="footer-link" to="/aventura">Aventura</Link></li>
+                            <li><Link className="footer-link" to="/deportes">Deportes</Link></li>
+                            <li><Link className="footer-link" to="/infantil">para niños</Link></li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h3>Gastronomía</h3>
+                        <h3><Link className="footer-link" to="/gastronomia">Gastronomía</Link></h3>
                         <ul>
-                            <li>Restaurantes</li>
-                            <li>Bares</li>
-                            <li>Heladerías</li>
-                            <li>Cafeterías</li>
-                            <li>Cervecerías</li>
+                            <li><Link className="footer-link" to="/restaurantes">Restaurantes</Link></li>
+                            <li><Link className="footer-link" to="/bares">Bares</Link></li>
+                            <li><Link className="footer-link" to="/heladerias">Heladerías</Link></li>
+                            <li><Link className="footer-link" to="/cafeterias">Cafeterías</Link></li>
+                            <li><Link className="footer-link" to="/cervecerias">Cervecerías</Link></li>
 
                         </ul>
                     </div>

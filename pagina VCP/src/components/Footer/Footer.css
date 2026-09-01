@@ -77,6 +77,17 @@
     color: #5d5d5d;
 }
 
+.footer-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #111;
+    text-decoration: underline;
+}
+
 .footer-column li:hover,
 .footer-business li:hover {
     color: #111;
