@@ -50,7 +50,7 @@
 
 .footer-columns {
     display: grid;
-    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
     gap: 24px;
 }
 
@@ -85,8 +85,12 @@
 .footer-business {
     margin: 32px auto 0;
     max-width: 1180px;
-    border-top: 1px solid #e4e4e4;
-    padding-top: 24px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #2d2d2d;
+    border-radius: 20px;
 }
 
 .footer-bottom {

@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from 'react-router-dom';
+
 import "./Footer.css";
 import facebook from "../../assets/img/facebook-icon.png";
 import instagram from "../../assets/img/instagram-icon.png";
@@ -23,33 +24,45 @@ function Footer() {
                 </div>
 
                 <div className="footer-columns">
+                    
                     <div className="footer-column">
                         <h3>Alojamiento</h3>
                         <ul>
-                            <li>Hoteles</li>
-                            <li>Cabañas y aparts</li>
-                            <li>Hostels</li>
-                            <li>Alquileres temporarios</li>
+                            <li>Hosteleria</li>
+                            <li>Alquileres Temporarios</li>
                             <li>Campings</li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h3>Qué hacer</h3>
+                        <h3>Actividades</h3>
                         <ul>
                             <li>Excursiones</li>
                             <li>Espectáculos</li>
                             <li>Aventura</li>
-                            <li>Con niños</li>
+                            <li>Deportes</li>
+                            <li>para niños</li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h3>Comer</h3>
+                        <h3>Gastronomía</h3>
                         <ul>
-                            <li>Parrillas</li>
-                            <li>Cafés y confiterías</li>
+                            <li>Restaurantes</li>
+                            <li>Bares</li>
+                            <li>Heladerías</li>
+                            <li>Cafeterías</li>
                             <li>Cervecerías</li>
+
+                        </ul>
+                    </div>
+
+                    <div className="footer-column">
+                        <h3>Otros</h3>
+                        <ul>
+                            <li>Servicios</li>
+                            <li>Salud</li>
+                            <li>Transporte</li>
                         </ul>
                     </div>
                 </div>
