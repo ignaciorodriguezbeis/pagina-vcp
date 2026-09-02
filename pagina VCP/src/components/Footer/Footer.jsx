@@ -14,7 +14,7 @@ function Footer() {
                     <div className="brand-logo">
                         <img src={logo} alt="VCP turismo" />
                         <div>
-                            <p className="brand-label">CarlosPaz.com</p>
+                            <p className="brand-label"><Link className="footer-link" to="/">CarlosPaz.com</Link></p>
                         </div>
                     </div>
                     <p className="brand-description">
