@@ -118,6 +118,13 @@ function Navbar() {
                 <ul className="list-container">
                     <li className="list-header">
                         <Link to="/otros">Otros</Link>
+                        <ul>
+                            <li>servicios de salud</li>
+                            <li>servicios de transporte</li>
+                            <li>servicios de seguridad</li>
+                            <li>información</li>
+
+                        </ul>
 
                     </li>
                 </ul>
