@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './hosteleria.css';
@@ -169,6 +170,19 @@ export const hoteles = [
 ];
 
 function Hoteleria() {
+    const [hotelSeleccionado, setHotelSeleccionado] = useState(null);
+
+    useEffect(() => {
+        const cerrarConEscape = (event) => {
+            if (event.key === 'Escape') {
+                setHotelSeleccionado(null);
+            }
+        };
+
+        document.addEventListener('keydown', cerrarConEscape);
+        return () => document.removeEventListener('keydown', cerrarConEscape);
+    }, []);
+
     return (
         <body className='hoteleria'>
             <header style={{ backgroundImage: `url(${hote1})` }}>
@@ -182,8 +196,19 @@ function Hoteleria() {
             <main>
                 <h2>catálogo de hoteles</h2>
                 <section>
-                    {hoteles.map((hotel) => (
-                        <article key={hotel.titulo}>
+                    {hoteles.map((hotel, index) => (
+                        <article
+                            key={`${hotel.titulo}-${index}`}
+                            role="button"
+                            tabIndex="0"
+                            onClick={() => setHotelSeleccionado(hotel)}
+                            onKeyDown={(event) => {
+                                if (event.key === 'Enter' || event.key === ' ') {
+                                    event.preventDefault();
+                                    setHotelSeleccionado(hotel);
+                                }
+                            }}
+                        >
                             <img src={hotel.imagen} alt={hotel.titulo} />
                             <h3>{hotel.titulo}</h3>
                             <p>{hotel.descripcion}</p>
@@ -193,6 +218,35 @@ function Hoteleria() {
                         </article>
                     ))}
                 </section>
+
+                {hotelSeleccionado && (
+                    <div className="hotel-modal" role="presentation" onClick={() => setHotelSeleccionado(null)}>
+                        <section
+                            className="hotel-modal__content"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="hotel-modal-title"
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                className="hotel-modal__close"
+                                onClick={() => setHotelSeleccionado(null)}
+                                aria-label="Cerrar información"
+                            >
+                                &times;
+                            </button>
+                            <img src={hotelSeleccionado.imagen} alt={hotelSeleccionado.titulo} />
+                            <div className="hotel-modal__details">
+                                <h2 id="hotel-modal-title">{hotelSeleccionado.titulo}</h2>
+                                <p>{hotelSeleccionado.descripcion}</p>
+                                <p><strong>Dirección:</strong> {hotelSeleccionado.direccion}</p>
+                                <p><strong>Teléfono:</strong> {hotelSeleccionado.telefono}</p>
+                                <p className="hotel-modal__price"><strong>Precio:</strong> {hotelSeleccionado.precio}</p>
+                            </div>
+                        </section>
+                    </div>
+                )}
 
                 <a className="hostPubli1" href="/publicidad">
                     <div>
