@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './alquileres.css';
@@ -243,6 +244,19 @@ export const alquileres = [
 ];
 
 function Alquileres() {
+  const [alquilerSeleccionado, setAlquilerSeleccionado] = useState(null);
+
+  useEffect(() => {
+    const cerrarConEscape = (event) => {
+      if (event.key === 'Escape') {
+        setAlquilerSeleccionado(null);
+      }
+    };
+
+    document.addEventListener('keydown', cerrarConEscape);
+    return () => document.removeEventListener('keydown', cerrarConEscape);
+  }, []);
+
   return (
     <div className='alquileres'>
       <header style={{ backgroundImage: `url(${alqui1})` }}>
@@ -256,8 +270,20 @@ function Alquileres() {
       <main>
         <h2>alquileres temporarios</h2>
         <section className="alquileres-grid">
-          {alquileres.map((alquiler) => (
-            <article className="alquiler-card" key={alquiler.titulo}>
+          {alquileres.map((alquiler, index) => (
+            <article
+              className="alquiler-card"
+              key={`${alquiler.titulo}-${index}`}
+              role="button"
+              tabIndex="0"
+              onClick={() => setAlquilerSeleccionado(alquiler)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setAlquilerSeleccionado(alquiler);
+                }
+              }}
+            >
               <img src={alquiler.imagen} alt={alquiler.titulo} />
               <h4>{alquiler.clase}</h4>
               <h3>{alquiler.titulo}</h3>
@@ -268,6 +294,36 @@ function Alquileres() {
             </article>
           ))}
         </section>
+
+        {alquilerSeleccionado && (
+          <div className="alquiler-modal" role="presentation" onClick={() => setAlquilerSeleccionado(null)}>
+            <section
+              className="alquiler-modal__content"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="alquiler-modal-title"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                className="alquiler-modal__close"
+                onClick={() => setAlquilerSeleccionado(null)}
+                aria-label="Cerrar información"
+              >
+                &times;
+              </button>
+              <img src={alquilerSeleccionado.imagen} alt={alquilerSeleccionado.titulo} />
+              <div className="alquiler-modal__details">
+                <p className="alquiler-modal__type">{alquilerSeleccionado.clase}</p>
+                <h2 id="alquiler-modal-title">{alquilerSeleccionado.titulo}</h2>
+                <p>{alquilerSeleccionado.descripcion}</p>
+                <p><strong>Dirección:</strong> {alquilerSeleccionado.direccion}</p>
+                <p><strong>Teléfono:</strong> {alquilerSeleccionado.telefono}</p>
+                <p className="alquiler-modal__price"><strong>Precio:</strong> {alquilerSeleccionado.precio}</p>
+              </div>
+            </section>
+          </div>
+        )}
 
         <a className="alquiPubli1" href="/publicidad">
           <div>

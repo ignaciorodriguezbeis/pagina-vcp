@@ -24,7 +24,6 @@ import Cervecerias from './components/Gastronomia/cervecerias';
 
 import Login from './components/Navbar/Login/login';
 
-import './App.css';
 
 function App() {
   return (
