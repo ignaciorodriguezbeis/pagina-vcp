@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './campings.css';
@@ -88,6 +89,19 @@ export const campings = [
 ];
 
 function Campings() {
+  const [campingSeleccionado, setCampingSeleccionado] = useState(null);
+
+  useEffect(() => {
+    const cerrarConEscape = (event) => {
+      if (event.key === 'Escape') {
+        setCampingSeleccionado(null);
+      }
+    };
+
+    document.addEventListener('keydown', cerrarConEscape);
+    return () => document.removeEventListener('keydown', cerrarConEscape);
+  }, []);
+
   return (
     <div className='campings'>
       <header style={{ backgroundImage: `url(${camp1})` }}>
@@ -101,8 +115,20 @@ function Campings() {
       <main>
         <h2>campings recomendados</h2>
         <section className="campings-grid">
-          {campings.map((camping) => (
-            <article className="camping-card" key={camping.titulo}>
+          {campings.map((camping, index) => (
+            <article
+              className="camping-card"
+              key={`${camping.titulo}-${index}`}
+              role="button"
+              tabIndex="0"
+              onClick={() => setCampingSeleccionado(camping)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setCampingSeleccionado(camping);
+                }
+              }}
+            >
               <img src={camping.imagen} alt={camping.titulo} />
               <h3>{camping.titulo}</h3>
               <p>{camping.descripcion}</p>
@@ -112,6 +138,35 @@ function Campings() {
             </article>
           ))}
         </section>
+
+        {campingSeleccionado && (
+          <div className="camping-modal" role="presentation" onClick={() => setCampingSeleccionado(null)}>
+            <section
+              className="camping-modal__content"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="camping-modal-title"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                className="camping-modal__close"
+                onClick={() => setCampingSeleccionado(null)}
+                aria-label="Cerrar información"
+              >
+                &times;
+              </button>
+              <img src={campingSeleccionado.imagen} alt={campingSeleccionado.titulo} />
+              <div className="camping-modal__details">
+                <h2 id="camping-modal-title">{campingSeleccionado.titulo}</h2>
+                <p>{campingSeleccionado.descripcion}</p>
+                <p><strong>Dirección:</strong> {campingSeleccionado.direccion}</p>
+                <p><strong>Teléfono:</strong> {campingSeleccionado.telefono}</p>
+                <p className="camping-modal__price"><strong>Precio:</strong> {campingSeleccionado.precio}</p>
+              </div>
+            </section>
+          </div>
+        )}
 
         <a className="campPubli1" href="/publicidad">
           <div>

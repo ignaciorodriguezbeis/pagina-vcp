@@ -92,6 +92,11 @@
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.315);
 }
 
+.campings .camping-card:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
 .campings .camping-card img {
   width: 100%;
   height: 200px;
@@ -124,6 +129,78 @@
   font-size: 14px;
   font-weight: 700;
   padding-bottom: 12px;
+}
+
+.campings .camping-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.campings .camping-modal__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(260px, 1.1fr);
+  width: min(760px, 100%);
+  max-height: min(620px, 90vh);
+  overflow: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.campings .camping-modal__content > img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.campings .camping-modal__details {
+  padding: 40px 32px 28px;
+  color: #1f2937;
+}
+
+.campings .camping-modal__details h2 {
+  margin: 8px 0 18px;
+  color: #111827;
+  font-size: 28px;
+}
+
+.campings .camping-modal__details p {
+  padding: 0;
+  margin: 0 0 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.campings .camping-modal__price {
+  color: #1d4ed8 !important;
+  font-size: 17px;
+}
+
+.campings .camping-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f2937;
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.campings .camping-modal__close:hover {
+  background: #e5e7eb;
 }
 
 .campings .campPubli1,
@@ -206,5 +283,19 @@
   .campings .campPubli1,
   .campings .campPubli2 {
     grid-column: 1 / 7;
+  }
+
+  .campings .camping-modal__content {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+  }
+
+  .campings .camping-modal__content > img {
+    height: 220px;
+    min-height: 0;
+  }
+
+  .campings .camping-modal__details {
+    padding: 24px 20px;
   }
 }
