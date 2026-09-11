@@ -75,20 +75,27 @@ function Navbar() {
                         <Link to="./actividades">Actividades</Link>
                         <ul>
                             <li>
-                                <Link to="/excursion">excursiones</Link>
+                                <Link to="/espectaculos">Espectáculos</Link>
                             </li>
                             <li>
-                                <Link to="/espectaculos">espectáculos</Link>
+                                <Link to="/excursion">Excursiones</Link>
                             </li>
                             <li>
-                                <Link to="/aventura">aventura</Link>
+                                <Link to="/tours">Tours</Link>
                             </li>
                             <li>
-                                <Link to="/deportes">deportes</Link>
+                                <Link to="/paseos">Paseos</Link>
+                            </li>
+                            <li>
+                                <Link to="/naturaleza">Naturaleza</Link>
+                            </li>
+                            <li>
+                                <Link to="/deportes">Deportes</Link>
                             </li>
                             <li>
                                 <Link to="/infantil">infantiles</Link>
                             </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -117,12 +124,20 @@ function Navbar() {
                 </ul>
                 <ul className="list-container">
                     <li className="list-header">
-                        <Link to="/otros">Otros</Link>
+                        <Link to="/agenda">Agenda</Link>
                         <ul>
-                            <li>servicios de salud</li>
-                            <li>servicios de transporte</li>
-                            <li>servicios de seguridad</li>
-                            <li>información</li>
+                            <li>
+                                <Link to="/agenda">Eventos</Link>
+                            </li>
+                            <li>
+                                <Link to="/agenda">Festivales</Link>
+                            </li>
+                            <li>
+                                <Link to="/agenda"></Link>
+                            </li>
+                            <li>
+                                <Link to="/agenda">Información</Link>
+                            </li>
 
                         </ul>
 
