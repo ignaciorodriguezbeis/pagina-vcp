@@ -45,13 +45,14 @@ function Navbar() {
     };
 
     return (
-        <nav >
-            <section>
-                <div>
-                    <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
-                    <Link to="/" className="logoname"><span>VCP</span> turismo</Link>
-                </div>
-            </section>
+        <nav className="main-nav">
+            <div className="nav-brand">
+                <Link to="/" className="logo-link" aria-label="Inicio">
+                    <img src={logo} alt="Logo" className="logo" />
+                </Link>
+                <Link to="/" className="logoname">CarlosPaz<span>.com</span></Link>
+            </div>
+
             <div className="navbar">
                 <ul className="list-container">
                     <li className="list-header">
@@ -133,7 +134,7 @@ function Navbar() {
                                 <Link to="/agenda">Festivales</Link>
                             </li>
                             <li>
-                                <Link to="/agenda"></Link>
+                                <Link to="/agenda">competencias</Link>
                             </li>
                             <li>
                                 <Link to="/agenda">Información</Link>
