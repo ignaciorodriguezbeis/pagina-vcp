@@ -1,6 +1,5 @@
 
 section {
-    background: #dde2e9;
     border-radius:20px ;
 }
 
@@ -13,7 +12,7 @@ section {
     padding: 60px 20px;
     background-size: cover;
     background-position: center;
-    color: #ffffff;
+    color: #E0E5F4;
     position: relative;
 }
 
