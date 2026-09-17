@@ -9,6 +9,9 @@ import Espectaculos from './components/Actividades/espectaculos';
 import Aventura from './components/Actividades/aventura';
 import Deportes from './components/Actividades/deportes';
 import Infantiles from './components/Actividades/infantiles';
+import Tours from './components/Actividades/tours';
+import Paseos from './components/Actividades/paseos';
+import Naturaleza from './components/Actividades/naturaleza';
 
 import Alojamiento from './components/Alojamientos/alojamiento';
 import Hosteleria from './components/Alojamientos/hosteleria';
@@ -37,6 +40,9 @@ function App() {
         <Route path="/aventura" element={<Aventura />} />
         <Route path="/deportes" element={<Deportes />} />
         <Route path="/infantil" element={<Infantiles />} />
+        <Route path="/tours" element={<Tours />} />
+        <Route path="/paseos" element={<Paseos />} />
+        <Route path="/naturaleza" element={<Naturaleza />} />
 
         <Route path="/alojamientos" element={<Alojamiento />} />
         <Route path="/hosteleria" element={<Hosteleria />} />
