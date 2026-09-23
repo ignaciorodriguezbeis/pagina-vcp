@@ -75,10 +75,13 @@
    margin: 0;
    padding: 0;
    position: relative;
+   z-index: 10;
+   overflow: visible;
 }
 
 .list-header {
    position: relative;
+   z-index: 20;
 }
 
 .list-header>a {
@@ -122,10 +125,12 @@
    pointer-events: none;
    transform: translateY(8px);
    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-   z-index: 25;
+   z-index: 999;
 }
 
-.list-header:hover>ul {
+.list-header:hover>ul,
+.list-header:focus-within>ul,
+.list-header>ul:hover {
    opacity: 1;
    visibility: visible;
    pointer-events: auto;
