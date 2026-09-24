@@ -1,10 +1,10 @@
-import React from "react";
+import { Link } from 'react-router-dom';
+
 import "./Inicio.css"
+
 import inicio1 from '../../assets/img/embudo.png';
-import inicio2 from '../../assets/img/cucu_logo.jpg';
 import inicio3 from '../../assets/img/costa.png';
 import inicio4 from '../../assets/img/puente-urbano.png';
-import inicio5 from '../../assets/img/teatro.png';
 import inicio6 from '../../assets/img/puente-uruguai.png';
 import inicio7 from '../../assets/img/VCPinicioportal.jpg';
 
@@ -34,25 +34,25 @@ function Inicio() {
                         <img src={inicio1} />
                         <h4>donde alojarte</h4>
                         <p>Hoteles, cabañas, hostels y campings</p>
-                        <button>Ver más</button>
+                        <Link className="card-link" to="/alojamientos">Ver más</Link>
                     </div>
                     <div className="card">
                         <img src={inicio6} />
                         <h4>que hacer</h4>
                         <p>Excursiones, espectáculos y aventura</p>
-                        <button>Ver más</button>
+                        <Link className="card-link" to="/actividades">Ver más</Link>
                     </div>
                     <div className="card">
                         <img src={inicio3} />
                         <h4>donde comer</h4>
                         <p>Parrillas, cafés y cervecerías</p>
-                        <button>Ver más</button>
+                        <Link className="card-link" to="/gastronomia">Ver más</Link>
                     </div>
                     <div className="card">
                         <img src={inicio4} />
                         <h4>espectáculos</h4>
                         <p>Descuentos verificados de la temporada</p>
-                        <button>Ver más</button>
+                        <Link className="card-link" to="/espectaculos">Ver más</Link>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@ function Inicio() {
 
                 <div className="servs">
                     <div>
-                        <h2>servisios destacados</h2>
+                        <h2>servicios destacados</h2>
                         <button>Ver Ofertas</button>
                     </div>
                     <p>Los espacios destacados corresponden a comercios anunciantes de CarlosPaz.com. </p>
