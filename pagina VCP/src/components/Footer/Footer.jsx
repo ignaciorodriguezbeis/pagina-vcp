@@ -60,9 +60,9 @@ function Footer() {
                     <div className="footer-column">
                         <h3>Otros</h3>
                         <ul>
-                            <li>Servicios</li>
-                            <li>Salud</li>
-                            <li>Transporte</li>
+                            <li><Link className="footer-link" to="/servicios">Servicios</Link></li>
+                            <li><Link className="footer-link" to="/servicios">Salud</Link></li>
+                            <li><Link className="footer-link" to="/servicios">Transporte</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -96,4 +96,3 @@ function Footer() {
 }
 
 export default Footer;
-

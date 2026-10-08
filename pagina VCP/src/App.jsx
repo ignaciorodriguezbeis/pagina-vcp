@@ -24,6 +24,7 @@ import Bares from './components/Gastronomia/bares';
 import Heladerias from './components/Gastronomia/heladerias';
 import Cafeterias from './components/Gastronomia/cafeterias';
 import Cervecerias from './components/Gastronomia/cervecerias';
+import Servicios from './components/servicios/servicios';
 
 import Login from './components/Navbar/Login/login';
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/heladerias" element={<Heladerias />} />
         <Route path="/cafeterias" element={<Cafeterias />} />
         <Route path="/cervecerias" element={<Cervecerias />} />
+        <Route path="/servicios" element={<Servicios />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Inicio />} />

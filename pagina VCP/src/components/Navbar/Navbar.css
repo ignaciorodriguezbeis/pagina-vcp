@@ -97,6 +97,24 @@
    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.nav-direct-link {
+   display: inline-flex;
+   align-items: center;
+   padding: 10px 12px;
+   color: #f0f6ff;
+   text-decoration: none;
+   font-size: clamp(1rem, 1.4vw, 1.45rem);
+   font-weight: 600;
+   border-radius: 8px;
+   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-direct-link:hover,
+.nav-direct-link:focus-visible {
+   background: rgba(255, 255, 255, 0.08);
+   color: #ffffff;
+}
+
 .list-header:hover>a,
 .list-header:focus-within>a {
    background: rgba(255, 255, 255, 0.08);

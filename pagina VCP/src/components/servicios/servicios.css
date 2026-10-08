@@ -1,0 +1,122 @@
+.servicios-page {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 70vh;
+    padding: clamp(24px, 5vw, 56px);
+}
+
+.servicios-header {
+    max-width: 760px;
+}
+
+.servicios-eyebrow {
+    margin: 0 0 10px;
+    color: #0f766e;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.servicios-header h1 {
+    margin: 0;
+    color: #173746;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.servicios-header > p:last-child {
+    margin: 12px 0 0;
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.servicios-aviso {
+    padding: 16px 20px;
+    border-left: 4px solid #f59e0b;
+    border-radius: 10px;
+    background: #fff8e8;
+    color: #493b20;
+    line-height: 1.6;
+}
+
+.servicios-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.servicios-grupo__encabezado h2 {
+    margin: 0;
+    color: #173746;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+.servicios-grupo__encabezado p {
+    margin: 6px 0 0;
+    color: #5b6570;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: 16px;
+}
+
+.servicio-card {
+    display: flex;
+    min-height: 155px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px;
+    border: 1px solid #d5dce8;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(23, 55, 70, 0.06);
+}
+
+.servicio-card h3 {
+    margin: 0;
+    color: #173746;
+    font-size: 1.15rem;
+}
+
+.servicio-card p {
+    margin: 8px 0 0;
+    color: #5b6570;
+    line-height: 1.5;
+}
+
+.servicio-link {
+    align-self: flex-start;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: #0b77d1;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.servicio-link:hover,
+.servicio-link:focus-visible {
+    transform: translateY(-1px);
+    background: #075fa9;
+}
+
+.servicio-link--llamar {
+    background: #b42318;
+}
+
+.servicio-link--llamar:hover,
+.servicio-link--llamar:focus-visible {
+    background: #8f1b13;
+}
+
+@media (max-width: 560px) {
+    .servicios-page {
+        padding: 24px 16px;
+    }
+}

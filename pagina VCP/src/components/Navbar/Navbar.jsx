@@ -144,6 +144,7 @@ function Navbar() {
 
                     </li>
                 </ul>
+                <Link className="nav-direct-link" to="/servicios">Servicios</Link>
             </div>
 
             <div className="login-container">
@@ -205,4 +206,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
