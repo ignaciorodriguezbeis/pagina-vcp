@@ -71,11 +71,11 @@ function Servicios() {
                                     <h3>{servicio.nombre}</h3>
                                     <p>{servicio.detalle || `Lugares disponibles en Villa Carlos Paz`}</p>
                                     <p>
-                                        <strong>{grupo.titulo === 'Emergencias' ? 'Teléfono:' : 'Teléfono de ejemplo:'}</strong>{' '}
+                                        <strong>{grupo.titulo === 'Emergencias' ? 'Teléfono:' : 'Teléfono:'}</strong>{' '}
                                         {servicio.telefono || 'Consultar con el establecimiento'}
                                     </p>
                                     <p>
-                                        <strong>{grupo.titulo === 'Emergencias' ? 'Cobertura:' : 'Dirección de ejemplo:'}</strong>{' '}
+                                        <strong>{grupo.titulo === 'Emergencias' ? 'Cobertura:' : 'Dirección:'}</strong>{' '}
                                         {servicio.direccion ? (
                                             servicio.direccion
                                         ) : (
