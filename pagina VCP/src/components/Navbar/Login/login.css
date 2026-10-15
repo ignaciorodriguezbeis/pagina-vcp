@@ -22,6 +22,16 @@
     text-transform: uppercase;
 }
 
+.login-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.login-breadcrumb a:hover,
+.login-breadcrumb a:focus-visible {
+    text-decoration: underline;
+}
+
 .login-hero h1 {
     font-size: clamp(2rem, 3.5vw, 3.5rem);
     margin: 0 0 16px;
@@ -95,6 +105,8 @@
 }
 
 .plan-card ul {
+    display: grid;
+    gap: 12px;
     list-style: none;
     padding: 0;
     margin: 0 0 26px;
@@ -104,7 +116,6 @@
 .plan-card li {
     position: relative;
     padding-left: 28px;
-    margin-bottom: 12px;
 }
 
 .plan-card li::before {
@@ -183,6 +194,7 @@
 
 .login-form input,
 .login-form textarea {
+    box-sizing: border-box;
     width: 100%;
     border: 1px solid #cbd5e1;
     border-radius: 16px;

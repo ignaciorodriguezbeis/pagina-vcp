@@ -14,7 +14,7 @@ function Login() {
         <div className="login-page">
             <section className="login-hero">
                 <div className="login-hero__content">
-                    <p className="login-breadcrumb">Inicio &gt; Anunciar</p>
+                    <p className="login-breadcrumb"><a href="/">Inicio</a> &gt; Anunciar</p>
                     <h1>Llegá a miles de turistas que planifican su viaje a Carlos Paz</h1>
                     <p>Sumá tu hotel, cabaña, excursión o restaurante a la guía de turismo de referencia de la ciudad. Elegí cómo querés destacarte.</p>
                 </div>
