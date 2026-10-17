@@ -5,11 +5,15 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const passwordIsValid = Array.from(password).length >= 5
+        && /\p{L}/u.test(password)
+        && /\d/.test(password);
+    const passwordIsInvalid = password !== '' && !passwordIsValid;
     const passwordsDoNotMatch = confirmPassword !== '' && password !== confirmPassword;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password !== confirmPassword) {
+        if (!passwordIsValid || password !== confirmPassword) {
             return;
         }
         // Handle login logic here
@@ -116,8 +120,15 @@ function Login() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     autoComplete="new-password"
+                                    aria-invalid={passwordIsInvalid}
+                                    aria-describedby={passwordIsInvalid ? 'password-requirements' : undefined}
                                     required
                                 />
+                                {passwordIsInvalid && (
+                                    <small id="password-requirements" className="login-form__error" role="alert">
+                                        La contraseña debe tener al menos 5 caracteres, una letra y un número.
+                                    </small>
+                                )}
                             </label>
                             <label>
                                 Confirmar contraseña

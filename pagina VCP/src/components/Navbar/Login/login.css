@@ -209,6 +209,10 @@
     min-height: 140px;
 }
 
+.login-form input[aria-invalid='true'] {
+    border-color: #dc2626;
+}
+
 .login-form__error {
     color: #dc2626;
 }
