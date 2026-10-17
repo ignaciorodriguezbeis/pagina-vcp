@@ -209,6 +209,10 @@
     min-height: 140px;
 }
 
+.login-form__error {
+    color: #dc2626;
+}
+
 .login-contact__submit {
     width: fit-content;
     padding: 16px 32px;

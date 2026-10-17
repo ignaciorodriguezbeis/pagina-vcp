@@ -4,9 +4,14 @@ import './login.css';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const passwordsDoNotMatch = confirmPassword !== '' && password !== confirmPassword;
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (password !== confirmPassword) {
+            return;
+        }
         // Handle login logic here
     };
 
@@ -102,6 +107,37 @@ function Login() {
                                 />
                             </label>
                         </div>
+                        <div className="login-form__row">
+                            <label>
+                                Crear contraseña
+                                <input
+                                    type="password"
+                                    placeholder="Creá una contraseña"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    autoComplete="new-password"
+                                    required
+                                />
+                            </label>
+                            <label>
+                                Confirmar contraseña
+                                <input
+                                    type="password"
+                                    placeholder="Repetí la contraseña"
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    autoComplete="new-password"
+                                    aria-invalid={passwordsDoNotMatch}
+                                    aria-describedby={passwordsDoNotMatch ? 'password-mismatch' : undefined}
+                                    required
+                                />
+                            </label>
+                        </div>
+                        {passwordsDoNotMatch && (
+                            <small id="password-mismatch" className="login-form__error" role="alert">
+                                Las contraseñas no coinciden.
+                            </small>
+                        )}
                         <label className="login-form__message">
                             Mensaje
                             <textarea placeholder="Contanos sobre tu negocio y qué plan te interesa" />
