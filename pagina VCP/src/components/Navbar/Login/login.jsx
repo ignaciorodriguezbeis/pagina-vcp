@@ -12,6 +12,7 @@ function Login() {
     const showPasswordRequirements = passwordTouched || password !== '';
     const passwordIsInvalid = showPasswordRequirements && !passwordIsValid;
     const passwordsDoNotMatch = confirmPassword !== '' && password !== confirmPassword;
+    const passwordIsAccepted = passwordIsValid && confirmPassword !== '' && password === confirmPassword;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -145,11 +146,16 @@ function Login() {
                                     aria-describedby={passwordsDoNotMatch ? 'password-mismatch' : undefined}
                                     required
                                 />
+                                {passwordsDoNotMatch && (
+                                    <small id="password-mismatch" className="login-form__error" role="alert">
+                                        Las contraseñas no coinciden.
+                                    </small>
+                                )}
                             </label>
                         </div>
-                        {passwordsDoNotMatch && (
-                            <small id="password-mismatch" className="login-form__error" role="alert">
-                                Las contraseñas no coinciden.
+                        {passwordIsAccepted && (
+                            <small className="login-form__success" role="status">
+                                Contraseña aceptada.
                             </small>
                         )}
                         <label className="login-form__message">
