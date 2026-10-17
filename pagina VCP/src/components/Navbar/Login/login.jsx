@@ -5,10 +5,12 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [passwordTouched, setPasswordTouched] = useState(false);
     const passwordIsValid = Array.from(password).length >= 5
         && /\p{L}/u.test(password)
         && /\d/.test(password);
-    const passwordIsInvalid = password !== '' && !passwordIsValid;
+    const showPasswordRequirements = passwordTouched || password !== '';
+    const passwordIsInvalid = showPasswordRequirements && !passwordIsValid;
     const passwordsDoNotMatch = confirmPassword !== '' && password !== confirmPassword;
 
     const handleSubmit = (e) => {
@@ -119,6 +121,7 @@ function Login() {
                                     placeholder="Creá una contraseña"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
+                                    onBlur={() => setPasswordTouched(true)}
                                     autoComplete="new-password"
                                     aria-invalid={passwordIsInvalid}
                                     aria-describedby={passwordIsInvalid ? 'password-requirements' : undefined}
@@ -126,7 +129,7 @@ function Login() {
                                 />
                                 {passwordIsInvalid && (
                                     <small id="password-requirements" className="login-form__error" role="alert">
-                                        La contraseña debe tener al menos 5 caracteres, una letra y un número.
+                                        Para aceptar la contraseña, debe tener al menos 5 caracteres, una letra mayúscula o minúscula y al menos un número.
                                     </small>
                                 )}
                             </label>
