@@ -5,6 +5,8 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [passwordTouched, setPasswordTouched] = useState(false);
     const passwordIsValid = Array.from(password).length >= 5
         && /\p{L}/u.test(password)
@@ -117,17 +119,32 @@ function Login() {
                         <div className="login-form__row">
                             <label>
                                 Crear contraseña
-                                <input
-                                    type="password"
-                                    placeholder="Creá una contraseña"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    onBlur={() => setPasswordTouched(true)}
-                                    autoComplete="new-password"
-                                    aria-invalid={passwordIsInvalid}
-                                    aria-describedby={passwordIsInvalid ? 'password-requirements' : undefined}
-                                    required
-                                />
+                                <span className="login-form__password-input">
+                                    <input
+                                        type={showPassword ? 'text' : 'password'}
+                                        placeholder="Creá una contraseña"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        onBlur={() => setPasswordTouched(true)}
+                                        autoComplete="new-password"
+                                        aria-invalid={passwordIsInvalid}
+                                        aria-describedby={passwordIsInvalid ? 'password-requirements' : undefined}
+                                        required
+                                    />
+                                    <button
+                                        className="login-form__password-toggle"
+                                        type="button"
+                                        onClick={() => setShowPassword((isVisible) => !isVisible)}
+                                        aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+                                        aria-pressed={showPassword}
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                            {showPassword && <path d="m4 4 16 16" />}
+                                        </svg>
+                                    </button>
+                                </span>
                                 {passwordIsInvalid && (
                                     <small id="password-requirements" className="login-form__error" role="alert">
                                         Para aceptar la contraseña, debe tener al menos 5 caracteres, una letra mayúscula o minúscula y al menos un número.
@@ -136,16 +153,31 @@ function Login() {
                             </label>
                             <label>
                                 Confirmar contraseña
-                                <input
-                                    type="password"
-                                    placeholder="Repetí la contraseña"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    autoComplete="new-password"
-                                    aria-invalid={passwordsDoNotMatch}
-                                    aria-describedby={passwordsDoNotMatch ? 'password-mismatch' : undefined}
-                                    required
-                                />
+                                <span className="login-form__password-input">
+                                    <input
+                                        type={showConfirmPassword ? 'text' : 'password'}
+                                        placeholder="Repetí la contraseña"
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        autoComplete="new-password"
+                                        aria-invalid={passwordsDoNotMatch}
+                                        aria-describedby={passwordsDoNotMatch ? 'password-mismatch' : undefined}
+                                        required
+                                    />
+                                    <button
+                                        className="login-form__password-toggle"
+                                        type="button"
+                                        onClick={() => setShowConfirmPassword((isVisible) => !isVisible)}
+                                        aria-label={showConfirmPassword ? 'Ocultar confirmación de contraseña' : 'Mostrar confirmación de contraseña'}
+                                        aria-pressed={showConfirmPassword}
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                            {showConfirmPassword && <path d="m4 4 16 16" />}
+                                        </svg>
+                                    </button>
+                                </span>
                                 {passwordsDoNotMatch && (
                                     <small id="password-mismatch" className="login-form__error" role="alert">
                                         Las contraseñas no coinciden.
