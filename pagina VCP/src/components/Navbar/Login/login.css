@@ -193,6 +193,7 @@
 }
 
 .login-form input,
+.login-form select,
 .login-form textarea {
     box-sizing: border-box;
     width: 100%;
@@ -203,6 +204,58 @@
     color: #0f172a;
     font-size: 1rem;
     resize: vertical;
+}
+
+.login-form select {
+    cursor: pointer;
+}
+
+.login-form__field-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.login-form__phone-list {
+    display: grid;
+    gap: 12px;
+}
+
+.login-form__phone-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-form__phone-button {
+    display: grid;
+    flex: 0 0 52px;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border: 1px solid #0f766e;
+    border-radius: 14px;
+    background: #0f766e;
+    color: #ffffff;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.login-form__phone-button:hover:not(:disabled) {
+    filter: brightness(0.95);
+}
+
+.login-form__phone-button:disabled {
+    border-color: #94a3b8;
+    background: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.login-form__phone-button--remove {
+    border-color: #dc2626;
+    background: #dc2626;
 }
 
 .login-form__password-input {
@@ -253,11 +306,13 @@
     min-height: 140px;
 }
 
-.login-form input[aria-invalid='true'] {
+.login-form input[aria-invalid='true'],
+.login-form select[aria-invalid='true'] {
     border-color: #dc2626;
 }
 
 .login-form--submitted input:invalid,
+.login-form--submitted select:invalid,
 .login-form--submitted textarea:invalid {
     border-color: #dc2626;
 }

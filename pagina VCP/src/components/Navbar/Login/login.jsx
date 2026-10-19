@@ -3,6 +3,7 @@ import './login.css';
 
 function Login() {
     const [email, setEmail] = useState('');
+    const [phoneNumbers, setPhoneNumbers] = useState(['']);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +35,24 @@ function Login() {
 
     const handleRequiredFieldInput = (e) => {
         e.currentTarget.setCustomValidity(e.currentTarget.value.trim() ? '' : 'Completá este campo.');
+    };
+
+    const handlePhoneChange = (index, value) => {
+        setPhoneNumbers((currentPhones) => currentPhones.map(
+            (phone, phoneIndex) => phoneIndex === index ? value : phone,
+        ));
+    };
+
+    const addPhoneNumber = () => {
+        setPhoneNumbers((currentPhones) => (
+            currentPhones.length < 4 ? [...currentPhones, ''] : currentPhones
+        ));
+    };
+
+    const removeLastPhoneNumber = () => {
+        setPhoneNumbers((currentPhones) => (
+            currentPhones.length > 1 ? currentPhones.slice(0, -1) : currentPhones
+        ));
     };
 
     return (
@@ -100,22 +119,49 @@ function Login() {
                     >
                         <div className="login-form__row">
                             <label>
-                                Nombre y apellido
+                                Nombre completo
                                 <input
                                     type="text"
-                                    placeholder="Tu nombre"
+                                    placeholder="Tu nombre y apellido"
                                     onInput={handleRequiredFieldInput}
                                     required
                                 />
                             </label>
                             <label>
-                                Negocio
+                                Nombre de usuario
                                 <input
                                     type="text"
-                                    placeholder="Nombre de tu comercio"
+                                    placeholder="Elegí un nombre de usuario"
                                     onInput={handleRequiredFieldInput}
                                     required
                                 />
+                            </label>
+                        </div>
+                        <div className="login-form__row">
+                            <label>
+                                Edad
+                                <input
+                                    type="number"
+                                    min="1"
+                                    placeholder="Tu edad"
+                                    onInput={handleRequiredFieldInput}
+                                    required
+                                />
+                            </label>
+                            <label>
+                                Género
+                                <select
+                                    defaultValue=""
+                                    onChange={handleRequiredFieldInput}
+                                    required
+                                >
+                                    <option value="" disabled>Seleccioná tu género</option>
+                                    <option value="mujer">Mujer</option>
+                                    <option value="hombre">Hombre</option>
+                                    <option value="no-binario">No binario</option>
+                                    <option value="otro">Otro</option>
+                                    <option value="no-especificar">Prefiero no decirlo</option>
+                                </select>
                             </label>
                         </div>
                         <div className="login-form__row">
@@ -130,15 +176,46 @@ function Login() {
                                     required
                                 />
                             </label>
-                            <label>
-                                Teléfono
-                                <input
-                                    type="tel"
-                                    placeholder="+54 3541 ..."
-                                    onInput={handleRequiredFieldInput}
-                                    required
-                                />
-                            </label>
+                            <div className="login-form__phones">
+                                <span className="login-form__field-label">Número de teléfono</span>
+                                <div className="login-form__phone-list">
+                                    {phoneNumbers.map((phone, index) => (
+                                        <div className="login-form__phone-entry" key={index}>
+                                            <input
+                                                type="tel"
+                                                value={phone}
+                                                placeholder="+54 3541 ..."
+                                                aria-label={index === 0 ? 'Número de teléfono' : `Número de teléfono adicional ${index}`}
+                                                onChange={(e) => handlePhoneChange(index, e.target.value)}
+                                                onInput={handleRequiredFieldInput}
+                                                required
+                                            />
+                                            {index === 0 ? (
+                                                <button
+                                                    className="login-form__phone-button"
+                                                    type="button"
+                                                    onClick={addPhoneNumber}
+                                                    disabled={phoneNumbers.length >= 4}
+                                                    aria-label="Agregar número de teléfono"
+                                                    title={phoneNumbers.length >= 4 ? 'Límite de teléfonos alcanzado' : 'Agregar teléfono'}
+                                                >
+                                                    +
+                                                </button>
+                                            ) : index === phoneNumbers.length - 1 && (
+                                                <button
+                                                    className="login-form__phone-button login-form__phone-button--remove"
+                                                    type="button"
+                                                    onClick={removeLastPhoneNumber}
+                                                    aria-label="Quitar último número adicional"
+                                                    title="Quitar último número"
+                                                >
+                                                    −
+                                                </button>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                         <div className="login-form__row">
                             <label>
@@ -216,15 +293,7 @@ function Login() {
                                 Contraseña aceptada.
                             </small>
                         )}
-                        <label className="login-form__message">
-                            Mensaje
-                            <textarea
-                                placeholder="Contanos sobre tu negocio y qué plan te interesa"
-                                onInput={handleRequiredFieldInput}
-                                required
-                            />
-                        </label>
-                        <button className="login-contact__submit" type="submit">Enviar consulta</button>
+                        <button className="login-contact__submit" type="submit">Enviar</button>
                     </form>
                 </div>
             </section>
