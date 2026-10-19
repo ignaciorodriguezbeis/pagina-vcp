@@ -8,6 +8,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [passwordTouched, setPasswordTouched] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
     const passwordIsValid = Array.from(password).length >= 5
         && /\p{L}/u.test(password)
         && /\d/.test(password);
@@ -18,10 +19,21 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!passwordIsValid || password !== confirmPassword) {
+        setHasSubmitted(true);
+        const requiredFields = Array.from(e.currentTarget.querySelectorAll('[required]'));
+        requiredFields.forEach((field) => {
+            field.setCustomValidity(field.value.trim() ? '' : 'Completá este campo.');
+        });
+
+        const hasInvalidFields = !e.currentTarget.checkValidity();
+        if (hasInvalidFields || !passwordIsValid || password !== confirmPassword) {
             return;
         }
         // Handle login logic here
+    };
+
+    const handleRequiredFieldInput = (e) => {
+        e.currentTarget.setCustomValidity(e.currentTarget.value.trim() ? '' : 'Completá este campo.');
     };
 
     return (
@@ -81,13 +93,19 @@ function Login() {
                 <div className="login-contact__box">
                     <h2>Contactanos</h2>
                     <p>Dejanos tus datos y un asesor te contacta para armar tu campaña.</p>
-                    <form onSubmit={handleSubmit} className="login-form">
+                    <form
+                        onSubmit={handleSubmit}
+                        className={`login-form${hasSubmitted ? ' login-form--submitted' : ''}`}
+                        noValidate
+                    >
                         <div className="login-form__row">
                             <label>
                                 Nombre y apellido
                                 <input
                                     type="text"
                                     placeholder="Tu nombre"
+                                    onInput={handleRequiredFieldInput}
+                                    required
                                 />
                             </label>
                             <label>
@@ -95,6 +113,8 @@ function Login() {
                                 <input
                                     type="text"
                                     placeholder="Nombre de tu comercio"
+                                    onInput={handleRequiredFieldInput}
+                                    required
                                 />
                             </label>
                         </div>
@@ -106,6 +126,8 @@ function Login() {
                                     placeholder="tucorreo@ejemplo.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
+                                    onInput={handleRequiredFieldInput}
+                                    required
                                 />
                             </label>
                             <label>
@@ -113,6 +135,8 @@ function Login() {
                                 <input
                                     type="tel"
                                     placeholder="+54 3541 ..."
+                                    onInput={handleRequiredFieldInput}
+                                    required
                                 />
                             </label>
                         </div>
@@ -129,6 +153,7 @@ function Login() {
                                         autoComplete="new-password"
                                         aria-invalid={passwordIsInvalid}
                                         aria-describedby={passwordIsInvalid ? 'password-requirements' : undefined}
+                                        onInput={handleRequiredFieldInput}
                                         required
                                     />
                                     <button
@@ -162,6 +187,7 @@ function Login() {
                                         autoComplete="new-password"
                                         aria-invalid={passwordsDoNotMatch}
                                         aria-describedby={passwordsDoNotMatch ? 'password-mismatch' : undefined}
+                                        onInput={handleRequiredFieldInput}
                                         required
                                     />
                                     <button
@@ -192,7 +218,11 @@ function Login() {
                         )}
                         <label className="login-form__message">
                             Mensaje
-                            <textarea placeholder="Contanos sobre tu negocio y qué plan te interesa" />
+                            <textarea
+                                placeholder="Contanos sobre tu negocio y qué plan te interesa"
+                                onInput={handleRequiredFieldInput}
+                                required
+                            />
                         </label>
                         <button className="login-contact__submit" type="submit">Enviar consulta</button>
                     </form>

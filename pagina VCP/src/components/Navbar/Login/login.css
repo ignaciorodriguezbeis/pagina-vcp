@@ -257,6 +257,11 @@
     border-color: #dc2626;
 }
 
+.login-form--submitted input:invalid,
+.login-form--submitted textarea:invalid {
+    border-color: #dc2626;
+}
+
 .login-form__error {
     display: block;
     padding: 10px 12px;
