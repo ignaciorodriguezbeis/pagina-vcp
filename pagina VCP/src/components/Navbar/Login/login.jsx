@@ -67,42 +67,45 @@ function Login() {
 
             <section className="login-plans">
                 <article className="plan-card">
-                    <p className="plan-label">Listado destacado</p>
+                    <p className="plan-label">plan basico</p>
                     <h2>$25.000 <span>/ mes</span></h2>
                     <p className="plan-description">Tu negocio aparece con distintivo Destacado al inicio de su categoría.</p>
                     <ul>
-                        <li>Distintivo Destacado en tu categoría</li>
-                        <li>Prioridad sobre listados gratuitos</li>
-                        <li>Teléfono y datos de contacto</li>
-                        <li>Estadísticas de visitas</li>
+                        <il> Publicar 1 alojamiento o negocio.</il>
+                        <il>Crear una ficha con descripción, fotos, ubicación y datos de contacto.</il>
+                        <il>Mostrar precios, horarios y servicios.</il>
+                        <il>Recibir consultas de potenciales clientes.</il>
+                        <il>Editar y administrar su publicación desde un panel personal.</il>
                     </ul>
                     <button type="button">Quiero este plan</button>
                 </article>
 
                 <article className="plan-card plan-card--featured">
-                    <span className="plan-pill">Más elegido</span>
+                    <span className="plan-pill">plan de plus</span>
                     <p className="plan-label">Anunciante Premium</p>
                     <h2>$60.000 <span>/ mes</span></h2>
                     <p className="plan-description">Listado destacado más un espacio publicitario fijo en las páginas más vistas.</p>
                     <ul>
-                        <li>Todo lo del plan Destacado</li>
-                        <li>Banner en la home y tu categoría</li>
-                        <li>Espacio en la barra lateral</li>
-                        <li>Prioridad en resultados de ofertas</li>
-                        <li>Reporte mensual de rendimiento</li>
+                        <li>Publicar hasta 5 alojamientos o negocios.</li>
+                        <li>Todas las funciones del plan Inicial.</li>
+                        <li>Mayor visibilidad en los resultados de búsqueda.</li>
+                        <li>Estadísticas de visitas y consultas.</li>
+                        <li>Promociones y descuentos configurables.</li>
+                        <il>Panel de administración con gestión centralizada.</il>
                     </ul>
                     <button type="button">Quiero este plan</button>
                 </article>
 
                 <article className="plan-card">
-                    <p className="plan-label">Campaña a medida</p>
+                    <p className="plan-label">plan premium</p>
                     <h2>Consultá</h2>
                     <p className="plan-description">Para agencias, complejos y eventos con necesidades específicas de difusión.</p>
                     <ul>
-                        <li>Toma de home por temporada</li>
-                        <li>Contenido patrocinado</li>
-                        <li>Newsletter a suscriptores</li>
-                        <li>Cobertura en redes sociales</li>
+                        <li>Publicaciones ampliadas o ilimitadas, según la política que definas.</li>
+                        <li>Todas las funciones del plan Profesional.</li>
+                        <li>Máxima prioridad de visibilidad, identificada claramente como promoción.</li>
+                        <li>Herramientas para administrar múltiples propiedades.</li>
+                        <il>Soporte prioritario y acceso anticipado a nuevas funciones.</il>
                     </ul>
                     <button type="button">Quiero este plan</button>
                 </article>
