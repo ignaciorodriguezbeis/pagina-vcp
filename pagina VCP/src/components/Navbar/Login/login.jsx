@@ -10,6 +10,7 @@ function Login() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [passwordTouched, setPasswordTouched] = useState(false);
     const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState(null);
     const passwordIsValid = Array.from(password).length >= 5
         && /\p{L}/u.test(password)
         && /\d/.test(password);
@@ -66,22 +67,46 @@ function Login() {
             </section>
 
             <section className="login-plans">
-                <article className="plan-card">
+
+                <article className={`plan-card${selectedPlan === 'visitor' ? ' plan-card--selected' : ''}`}>
+                    <h2>Gratis</h2>
+                    <p className="plan-label">plan visitante</p>
+                    <p className="plan-description">Tu negocio aparece en la categoría correspondiente y en los resultados de búsqueda.</p>
+                    <ul>
+                        <li>Crear una ficha con descripción, fotos, datos de contacto.</li>
+                        <li>mostrar lista de guardados</li>
+                        <li>calificar y comentar</li>
+                    </ul>
+                    <button
+                        type="button"
+                        aria-pressed={selectedPlan === 'visitor'}
+                        onClick={() => setSelectedPlan('visitor')}
+                    >
+                        {selectedPlan === 'visitor' ? 'seleccionado' : 'Quiero este plan'}
+                    </button>
+                </article>
+
+                <article className={`plan-card${selectedPlan === 'basic' ? ' plan-card--selected' : ''}`}>
                     <p className="plan-label">plan basico</p>
                     <h2>$25.000 <span>/ mes</span></h2>
                     <p className="plan-description">Tu negocio aparece con distintivo Destacado al inicio de su categoría.</p>
                     <ul>
-                        <il> Publicar 1 alojamiento o negocio.</il>
-                        <il>Crear una ficha con descripción, fotos, ubicación y datos de contacto.</il>
-                        <il>Mostrar precios, horarios y servicios.</il>
-                        <il>Recibir consultas de potenciales clientes.</il>
-                        <il>Editar y administrar su publicación desde un panel personal.</il>
+                        <li> Publicar 1 alojamiento o negocio.</li>
+                        <li>Crear una ficha con descripción, fotos, ubicación y datos de contacto.</li>
+                        <li>Mostrar precios, horarios y servicios.</li>
+                        <li>Recibir consultas de potenciales clientes.</li>
+                        <li>Editar y administrar su publicación desde un panel personal.</li>
                     </ul>
-                    <button type="button">Quiero este plan</button>
+                    <button
+                        type="button"
+                        aria-pressed={selectedPlan === 'basic'}
+                        onClick={() => setSelectedPlan('basic')}
+                    >
+                        {selectedPlan === 'basic' ? 'seleccionado' : 'Quiero este plan'}
+                    </button>
                 </article>
 
-                <article className="plan-card plan-card--featured">
-                    <span className="plan-pill">plan de plus</span>
+                <article className={`plan-card${selectedPlan === 'advertiser-premium' ? ' plan-card--selected' : ''}`}>
                     <p className="plan-label">Anunciante Premium</p>
                     <h2>$60.000 <span>/ mes</span></h2>
                     <p className="plan-description">Listado destacado más un espacio publicitario fijo en las páginas más vistas.</p>
@@ -93,12 +118,18 @@ function Login() {
                         <li>Promociones y descuentos configurables.</li>
                         <il>Panel de administración con gestión centralizada.</il>
                     </ul>
-                    <button type="button">Quiero este plan</button>
+                    <button
+                        type="button"
+                        aria-pressed={selectedPlan === 'advertiser-premium'}
+                        onClick={() => setSelectedPlan('advertiser-premium')}
+                    >
+                        {selectedPlan === 'advertiser-premium' ? 'seleccionado' : 'Quiero este plan'}
+                    </button>
                 </article>
 
-                <article className="plan-card">
+                <article className={`plan-card${selectedPlan === 'premium' ? ' plan-card--selected' : ''}`}>
                     <p className="plan-label">plan premium</p>
-                    <h2>Consultá</h2>
+                    <h2>$100.000 <span>/ mes</span></h2>
                     <p className="plan-description">Para agencias, complejos y eventos con necesidades específicas de difusión.</p>
                     <ul>
                         <li>Publicaciones ampliadas o ilimitadas, según la política que definas.</li>
@@ -107,7 +138,13 @@ function Login() {
                         <li>Herramientas para administrar múltiples propiedades.</li>
                         <il>Soporte prioritario y acceso anticipado a nuevas funciones.</il>
                     </ul>
-                    <button type="button">Quiero este plan</button>
+                    <button
+                        type="button"
+                        aria-pressed={selectedPlan === 'premium'}
+                        onClick={() => setSelectedPlan('premium')}
+                    >
+                        {selectedPlan === 'premium' ? 'seleccionado' : 'Quiero este plan'}
+                    </button>
                 </article>
             </section>
 
