@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../auth/useAuth';
 import './login.css';
 
 function Login() {
+    const { register } = useAuth();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [phoneNumbers, setPhoneNumbers] = useState(['']);
     const [password, setPassword] = useState('');
@@ -11,6 +15,8 @@ function Login() {
     const [passwordTouched, setPasswordTouched] = useState(false);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [selectedPlan, setSelectedPlan] = useState(null);
+    const [registrationError, setRegistrationError] = useState('');
+    const [isRegistering, setIsRegistering] = useState(false);
     const passwordIsValid = Array.from(password).length >= 5
         && /\p{L}/u.test(password)
         && /\d/.test(password);
@@ -19,23 +25,50 @@ function Login() {
     const passwordsDoNotMatch = confirmPassword !== '' && password !== confirmPassword;
     const passwordIsAccepted = passwordIsValid && confirmPassword !== '' && password === confirmPassword;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const form = e.currentTarget;
         setHasSubmitted(true);
+        setRegistrationError('');
+        const plan = selectedPlan ?? 'visitor';
         if (!selectedPlan) {
-            setSelectedPlan('visitor');
+            setSelectedPlan(plan);
         }
 
-        const requiredFields = Array.from(e.currentTarget.querySelectorAll('[required]'));
+        const requiredFields = Array.from(form.querySelectorAll('[required]'));
         requiredFields.forEach((field) => {
             field.setCustomValidity(field.value.trim() ? '' : 'Completá este campo.');
         });
 
-        const hasInvalidFields = !e.currentTarget.checkValidity();
+        const hasInvalidFields = !form.checkValidity();
         if (hasInvalidFields || !passwordIsValid || password !== confirmPassword) {
             return;
         }
-        // Handle login logic here
+
+        const formData = new FormData(form);
+        const profile = {
+            fullName: formData.get('fullName').trim(),
+            username: formData.get('username').trim(),
+            age: formData.get('age'),
+            gender: formData.get('gender'),
+            email: formData.get('email').trim(),
+            phoneNumbers: formData.getAll('phoneNumbers').map((phone) => phone.trim()),
+            selectedPlan: plan,
+        };
+
+        setIsRegistering(true);
+        try {
+            await register(profile, password);
+            navigate('/perfil');
+        } catch (error) {
+            setRegistrationError(
+                error instanceof Error
+                    ? error.message
+                    : 'No se pudo guardar la cuenta. Intentá nuevamente.',
+            );
+        } finally {
+            setIsRegistering(false);
+        }
     };
 
     const handleRequiredFieldInput = (e) => {
@@ -120,7 +153,7 @@ function Login() {
                         <li>Mayor visibilidad en los resultados de búsqueda.</li>
                         <li>Estadísticas de visitas y consultas.</li>
                         <li>Promociones y descuentos configurables.</li>
-                        <il>Panel de administración con gestión centralizada.</il>
+                        <li>Panel de administración con gestión centralizada.</li>
                     </ul>
                     <button
                         type="button"
@@ -140,7 +173,7 @@ function Login() {
                         <li>Todas las funciones del plan Profesional.</li>
                         <li>Máxima prioridad de visibilidad, identificada claramente como promoción.</li>
                         <li>Herramientas para administrar múltiples propiedades.</li>
-                        <il>Soporte prioritario y acceso anticipado a nuevas funciones.</il>
+                        <li>Soporte prioritario y acceso anticipado a nuevas funciones.</li>
                     </ul>
                     <button
                         type="button"
@@ -154,8 +187,8 @@ function Login() {
 
             <section className="login-contact">
                 <div className="login-contact__box">
-                    <h2>Contactanos</h2>
-                    <p>Dejanos tus datos y un asesor te contacta para armar tu campaña.</p>
+                    <h2>Creá tu perfil</h2>
+                    <p>Completá tus datos para crear tu cuenta y acceder a tu perfil.</p>
                     <form
                         onSubmit={handleSubmit}
                         className={`login-form${hasSubmitted ? ' login-form--submitted' : ''}`}
@@ -166,6 +199,7 @@ function Login() {
                                 Nombre completo
                                 <input
                                     type="text"
+                                    name="fullName"
                                     placeholder="Tu nombre y apellido"
                                     onInput={handleRequiredFieldInput}
                                     required
@@ -175,6 +209,7 @@ function Login() {
                                 Nombre de usuario
                                 <input
                                     type="text"
+                                    name="username"
                                     placeholder="Elegí un nombre de usuario"
                                     onInput={handleRequiredFieldInput}
                                     required
@@ -186,6 +221,7 @@ function Login() {
                                 Edad
                                 <input
                                     type="number"
+                                    name="age"
                                     min="1"
                                     placeholder="Tu edad"
                                     onInput={handleRequiredFieldInput}
@@ -195,6 +231,7 @@ function Login() {
                             <label>
                                 Género
                                 <select
+                                    name="gender"
                                     defaultValue=""
                                     onChange={handleRequiredFieldInput}
                                     required
@@ -213,6 +250,7 @@ function Login() {
                                 Email
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="tucorreo@ejemplo.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -227,6 +265,7 @@ function Login() {
                                         <div className="login-form__phone-entry" key={index}>
                                             <input
                                                 type="tel"
+                                                name="phoneNumbers"
                                                 value={phone}
                                                 placeholder="+54 3541 ..."
                                                 aria-label={index === 0 ? 'Número de teléfono' : `Número de teléfono adicional ${index}`}
@@ -337,7 +376,14 @@ function Login() {
                                 Contraseña aceptada.
                             </small>
                         )}
-                        <button className="login-contact__submit" type="submit">Enviar</button>
+                        {registrationError && (
+                            <small className="login-form__error" role="alert">
+                                {registrationError}
+                            </small>
+                        )}
+                        <button className="login-contact__submit" type="submit" disabled={isRegistering}>
+                            {isRegistering ? 'Creando perfil...' : 'Crear perfil'}
+                        </button>
                     </form>
                 </div>
             </section>

@@ -1,0 +1,132 @@
+import { useEffect, useState } from 'react';
+import { AuthContext } from './context';
+
+const AUTH_STORAGE_KEY = 'pagina-vcp:auth';
+
+function readDatabase() {
+    const storedValue = localStorage.getItem(AUTH_STORAGE_KEY);
+    if (!storedValue) {
+        return { accounts: [], sessionEmail: null };
+    }
+
+    const database = JSON.parse(storedValue);
+    if (!Array.isArray(database.accounts)) {
+        throw new Error('Los datos de las cuentas guardadas no tienen un formato válido.');
+    }
+
+    return database;
+}
+
+function getCurrentUser(database) {
+    if (!database.sessionEmail) {
+        return null;
+    }
+
+    return database.accounts.find(
+        (account) => account.profile.email === database.sessionEmail,
+    )?.profile ?? null;
+}
+
+function toHex(bytes) {
+    return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+function fromHex(hex) {
+    return Uint8Array.from(hex.match(/.{2}/g) ?? [], (byte) => Number.parseInt(byte, 16));
+}
+
+async function hashPassword(password, salt) {
+    if (!globalThis.crypto?.subtle) {
+        throw new Error('Este navegador no permite guardar la cuenta de forma segura. Usá una conexión HTTPS o localhost.');
+    }
+
+    const key = await crypto.subtle.importKey(
+        'raw',
+        new TextEncoder().encode(password),
+        'PBKDF2',
+        false,
+        ['deriveBits'],
+    );
+    const hash = await crypto.subtle.deriveBits(
+        { name: 'PBKDF2', salt, iterations: 120000, hash: 'SHA-256' },
+        key,
+        256,
+    );
+
+    return new Uint8Array(hash);
+}
+
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(() => getCurrentUser(readDatabase()));
+
+    useEffect(() => {
+        const syncUser = () => setUser(getCurrentUser(readDatabase()));
+        window.addEventListener('storage', syncUser);
+        return () => window.removeEventListener('storage', syncUser);
+    }, []);
+
+    const register = async (profile, password) => {
+        const database = readDatabase();
+        const email = profile.email.trim().toLowerCase();
+        if (database.accounts.some((account) => account.profile.email === email)) {
+            throw new Error('Ya existe una cuenta registrada con ese email.');
+        }
+
+        const salt = crypto.getRandomValues(new Uint8Array(16));
+        const passwordHash = await hashPassword(password, salt);
+        const savedProfile = { ...profile, email };
+        const updatedDatabase = {
+            accounts: [
+                ...database.accounts,
+                {
+                    profile: savedProfile,
+                    passwordSalt: toHex(salt),
+                    passwordHash: toHex(passwordHash),
+                },
+            ],
+            sessionEmail: email,
+        };
+
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
+        setUser(savedProfile);
+    };
+
+    const login = async (email, password) => {
+        const database = readDatabase();
+        const normalizedEmail = email.trim().toLowerCase();
+        const account = database.accounts.find(
+            (storedAccount) => storedAccount.profile.email === normalizedEmail,
+        );
+
+        if (!account) {
+            return false;
+        }
+
+        const passwordHash = await hashPassword(password, fromHex(account.passwordSalt));
+        if (toHex(passwordHash) !== account.passwordHash) {
+            return false;
+        }
+
+        localStorage.setItem(
+            AUTH_STORAGE_KEY,
+            JSON.stringify({ ...database, sessionEmail: normalizedEmail }),
+        );
+        setUser(account.profile);
+        return true;
+    };
+
+    const logout = () => {
+        const database = readDatabase();
+        localStorage.setItem(
+            AUTH_STORAGE_KEY,
+            JSON.stringify({ ...database, sessionEmail: null }),
+        );
+        setUser(null);
+    };
+
+    return (
+        <AuthContext.Provider value={{ user, register, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
+}

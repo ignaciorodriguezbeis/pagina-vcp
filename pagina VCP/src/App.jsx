@@ -27,42 +27,47 @@ import Cervecerias from './components/Gastronomia/cervecerias';
 import Servicios from './components/servicios/servicios';
 
 import Login from './components/Navbar/Login/login';
+import Profile from './components/Profile/Profile';
+import { AuthProvider } from './auth/provider';
 
 
 function App() {
   return (
     <HashRouter>
-      <NavBar></NavBar>
-      <Routes>
-        <Route path="/inicio" element={<Inicio />} />
-        <Route path="/actividades" element={<Actividades />} />
-        <Route path="/excursion" element={<Excursion />} />
-        <Route path="/espectaculos" element={<Espectaculos />} />
-        <Route path="/aventura" element={<Aventura />} />
-        <Route path="/deportes" element={<Deportes />} />
-        <Route path="/infantil" element={<Infantiles />} />
-        <Route path="/tours" element={<Tours />} />
-        <Route path="/paseos" element={<Paseos />} />
-        <Route path="/naturaleza" element={<Naturaleza />} />
+      <AuthProvider>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/inicio" element={<Inicio />} />
+          <Route path="/actividades" element={<Actividades />} />
+          <Route path="/excursion" element={<Excursion />} />
+          <Route path="/espectaculos" element={<Espectaculos />} />
+          <Route path="/aventura" element={<Aventura />} />
+          <Route path="/deportes" element={<Deportes />} />
+          <Route path="/infantil" element={<Infantiles />} />
+          <Route path="/tours" element={<Tours />} />
+          <Route path="/paseos" element={<Paseos />} />
+          <Route path="/naturaleza" element={<Naturaleza />} />
 
-        <Route path="/alojamientos" element={<Alojamiento />} />
-        <Route path="/hosteleria" element={<Hosteleria />} />
-        
-        <Route path="/campings" element={<Campings />} />
-        <Route path="/alquileres" element={<Alquileres />} />
-        <Route path="/gastronomia" element={<Gastronomia />} />
-        <Route path="/restaurantes" element={<Restaurantes />} />
-        <Route path="/bares" element={<Bares />} />
-        <Route path="/heladerias" element={<Heladerias />} />
-        <Route path="/cafeterias" element={<Cafeterias />} />
-        <Route path="/cervecerias" element={<Cervecerias />} />
-        <Route path="/servicios" element={<Servicios />} />
+          <Route path="/alojamientos" element={<Alojamiento />} />
+          <Route path="/hosteleria" element={<Hosteleria />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Inicio />} />
+          <Route path="/campings" element={<Campings />} />
+          <Route path="/alquileres" element={<Alquileres />} />
+          <Route path="/gastronomia" element={<Gastronomia />} />
+          <Route path="/restaurantes" element={<Restaurantes />} />
+          <Route path="/bares" element={<Bares />} />
+          <Route path="/heladerias" element={<Heladerias />} />
+          <Route path="/cafeterias" element={<Cafeterias />} />
+          <Route path="/cervecerias" element={<Cervecerias />} />
+          <Route path="/servicios" element={<Servicios />} />
 
-      </Routes>
-      <Footer />
+          <Route path="/login" element={<Login />} />
+          <Route path="/perfil" element={<Profile />} />
+          <Route path="*" element={<Inicio />} />
+
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </HashRouter>
   );
 }

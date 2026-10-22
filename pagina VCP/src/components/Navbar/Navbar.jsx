@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../auth/useAuth';
 import './Navbar.css';
 
 
@@ -26,22 +27,45 @@ import cervecerias from '../Gastronomia/cervecerias.jsx';
 import logo from '../../assets/img/cucu_logo.jpg';
 
 function Navbar() {
+    const { user, login } = useAuth();
+    const navigate = useNavigate();
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [hasLoginError, setHasLoginError] = useState(false);
+    const [loginError, setLoginError] = useState('');
 
-    const handleLoginSubmit = (event) => {
+    const handleLoginSubmit = async (event) => {
         event.preventDefault();
         const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         const isFormValid = isEmailValid && password.trim() !== '';
 
-        setHasLoginError(!isFormValid);
+        setLoginError('');
+        if (!isFormValid) {
+            setLoginError('Ingresá un email y una contraseña válidos.');
+            return;
+        }
+
+        try {
+            const isAuthenticated = await login(email, password);
+            if (!isAuthenticated) {
+                setLoginError('La dirección de email o la contraseña son incorrectas.');
+                return;
+            }
+
+            closeLogin();
+            navigate('/perfil');
+        } catch (error) {
+            setLoginError(
+                error instanceof Error
+                    ? error.message
+                    : 'No se pudo iniciar sesión. Intentá nuevamente.',
+            );
+        }
     };
 
     const closeLogin = () => {
         setIsLoginOpen(false);
-        setHasLoginError(false);
+        setLoginError('');
     };
 
     return (
@@ -148,9 +172,13 @@ function Navbar() {
             </div>
 
             <div className="login-container">
-                <button type="button" className="login" onClick={() => setIsLoginOpen(true)}>
-                    Login
-                </button>
+                {user ? (
+                    <Link to="/perfil" className="login">Perfil</Link>
+                ) : (
+                    <button type="button" className="login" onClick={() => setIsLoginOpen(true)}>
+                        Login
+                    </button>
+                )}
             </div>
 
             {isLoginOpen && (
@@ -174,8 +202,9 @@ function Navbar() {
                                 type="email"
                                 value={email}
                                 onChange={(event) => setEmail(event.target.value)}
-                                className={hasLoginError ? 'login-modal__input--error' : ''}
+                                className={loginError ? 'login-modal__input--error' : ''}
                                 placeholder="tuemail@ejemplo.com"
+                                required
                             />
 
                             <label htmlFor="login-password">Contraseña</label>
@@ -184,13 +213,14 @@ function Navbar() {
                                 type="password"
                                 value={password}
                                 onChange={(event) => setPassword(event.target.value)}
-                                className={hasLoginError ? 'login-modal__input--error' : ''}
+                                className={loginError ? 'login-modal__input--error' : ''}
                                 placeholder="Tu contraseña"
+                                required
                             />
 
-                            {hasLoginError && (
+                            {loginError && (
                                 <small className="login-modal__error" role="alert">
-                                    La dirección de email o la contraseña son incorrectas.
+                                    {loginError}
                                 </small>
                             )}
                             <button type="submit" className="login-modal__submit">Iniciar sesión</button>
