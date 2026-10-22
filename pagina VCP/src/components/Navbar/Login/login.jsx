@@ -22,6 +22,10 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setHasSubmitted(true);
+        if (!selectedPlan) {
+            setSelectedPlan('visitor');
+        }
+
         const requiredFields = Array.from(e.currentTarget.querySelectorAll('[required]'));
         requiredFields.forEach((field) => {
             field.setCustomValidity(field.value.trim() ? '' : 'Completá este campo.');
