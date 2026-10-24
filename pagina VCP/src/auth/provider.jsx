@@ -115,6 +115,34 @@ export function AuthProvider({ children }) {
         return true;
     };
 
+    const updateProfile = (profile) => {
+        const database = readDatabase();
+        const currentEmail = database.sessionEmail;
+        const normalizedEmail = profile.email.trim().toLowerCase();
+        const accountIndex = database.accounts.findIndex(
+            (account) => account.profile.email === currentEmail,
+        );
+
+        if (accountIndex === -1) {
+            throw new Error('No se encontró la cuenta que inició sesión.');
+        }
+
+        if (database.accounts.some(
+            (account, index) => index !== accountIndex && account.profile.email === normalizedEmail,
+        )) {
+            throw new Error('Ya existe una cuenta registrada con ese email.');
+        }
+
+        const savedProfile = { ...database.accounts[accountIndex].profile, ...profile, email: normalizedEmail };
+        const accounts = database.accounts.map((account, index) => (
+            index === accountIndex ? { ...account, profile: savedProfile } : account
+        ));
+        const updatedDatabase = { ...database, accounts, sessionEmail: normalizedEmail };
+
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
+        setUser(savedProfile);
+    };
+
     const logout = () => {
         const database = readDatabase();
         localStorage.setItem(
@@ -125,7 +153,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, register, login, logout }}>
+        <AuthContext.Provider value={{ user, register, login, logout, updateProfile }}>
             {children}
         </AuthContext.Provider>
     );
