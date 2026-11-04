@@ -161,7 +161,11 @@ export function AuthProvider({ children }) {
         const account = database.accounts[accountIndex];
         const ratings = Array.isArray(account.profile.ratings)
             ? account.profile.ratings.filter(
-                (vote) => vote && typeof vote.voterEmail === 'string' && Number.isInteger(vote.rating) && vote.rating >= 1 && vote.rating <= 5,
+                (vote) => vote
+                    && typeof vote.voterEmail === 'string'
+                    && Number.isInteger(vote.rating)
+                    && vote.rating >= 1
+                    && vote.rating <= 5,
             )
             : [];
         const previousVoteIndex = ratings.findIndex((vote) => vote.voterEmail === currentEmail);

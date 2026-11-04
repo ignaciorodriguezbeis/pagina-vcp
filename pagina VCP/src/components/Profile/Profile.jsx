@@ -72,7 +72,11 @@ function Profile() {
 
     const ratings = Array.isArray(user.ratings)
         ? user.ratings.filter(
-            (vote) => vote && Number.isInteger(vote.rating) && vote.rating >= 1 && vote.rating <= 5,
+            (vote) => vote
+                && typeof vote.voterEmail === 'string'
+                && Number.isInteger(vote.rating)
+                && vote.rating >= 1
+                && vote.rating <= 5,
         )
         : [];
     const averageRating = ratings.length
