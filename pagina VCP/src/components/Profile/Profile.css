@@ -104,8 +104,19 @@
     cursor: pointer;
 }
 
-.profile-rating__star--selected,
-.profile-rating__star:hover {
+.profile-rating__star--selected {
+    color: #f7c957;
+}
+
+.profile-rating__stars:has(.profile-rating__star:hover) .profile-rating__star--selected,
+.profile-rating__stars:has(.profile-rating__star:focus) .profile-rating__star--selected {
+    color: #bdc9ce;
+}
+
+.profile-rating__star:hover,
+.profile-rating__star:has(~ .profile-rating__star:hover),
+.profile-rating__star:focus,
+.profile-rating__star:has(~ .profile-rating__star:focus) {
     color: #f7c957;
 }
 
