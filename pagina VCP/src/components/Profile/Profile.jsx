@@ -56,7 +56,7 @@ function readImage(file) {
 }
 
 function Profile() {
-    const { user, logout, updateProfile } = useAuth();
+    const { user, logout, updateProfile, rateProfile } = useAuth();
     const navigate = useNavigate();
     const imageInput = useRef(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -64,11 +64,21 @@ function Profile() {
     const [newProfilePicture, setNewProfilePicture] = useState(null);
     const [error, setError] = useState('');
     const [notice, setNotice] = useState('');
+    const [ratingError, setRatingError] = useState('');
 
     if (!user) {
         return <Navigate to="/login" replace />;
     }
 
+    const ratings = Array.isArray(user.ratings)
+        ? user.ratings.filter(
+            (vote) => vote && Number.isInteger(vote.rating) && vote.rating >= 1 && vote.rating <= 5,
+        )
+        : [];
+    const averageRating = ratings.length
+        ? ratings.reduce((total, vote) => total + vote.rating, 0) / ratings.length
+        : 5;
+    const userRating = ratings.find((vote) => vote.voterEmail === user.email)?.rating;
     const profilePicture = newProfilePicture ?? user.profilePicture ?? defaultAvatar;
     const phone = user.phoneNumbers?.[0]?.replace(/\D/g, '');
     const contactUrl = phone
@@ -168,6 +178,17 @@ function Profile() {
         }
     };
 
+    const handleRating = (rating) => {
+        setRatingError('');
+        setNotice('');
+        try {
+            rateProfile(rating);
+            setNotice('Tu calificación se guardó correctamente.');
+        } catch (ratingSaveError) {
+            setRatingError(ratingSaveError instanceof Error ? ratingSaveError.message : 'No se pudo guardar la calificación.');
+        }
+    };
+
     const handleShare = async () => {
         setNotice('');
         try {
@@ -202,8 +223,29 @@ function Profile() {
                             <h1>{user.fullName}</h1>
                             <div className="profile-hero__meta">
                                 <span>⌖ {user.location || 'Villa Carlos Paz, Córdoba'}</span>
-                                <span><span className="profile-star">★</span> 4.96 · 312 reseñas</span>
+                                <span><span className="profile-star">★</span> {averageRating.toFixed(2)} · {ratings.length} votos</span>
                                 <span>9 años como anfitrión/a</span>
+                            </div>
+                            <div className="profile-rating">
+                                <span>Calificá este perfil</span>
+                                <div className="profile-rating__stars" role="group" aria-label="Calificar perfil del 1 al 5">
+                                    {[1, 2, 3, 4, 5].map((rating) => (
+                                        <button
+                                            className={rating <= (userRating ?? 0) ? 'profile-rating__star profile-rating__star--selected' : 'profile-rating__star'}
+                                            type="button"
+                                            key={rating}
+                                            aria-label={`${rating} ${rating === 1 ? 'estrella' : 'estrellas'}`}
+                                            aria-pressed={userRating === rating}
+                                            onClick={() => handleRating(rating)}
+                                        >
+                                            ★
+                                        </button>
+                                    ))}
+                                </div>
+                                {userRating
+                                    ? <span className="profile-rating__hint">Tu voto: {userRating}. Podés cambiarlo.</span>
+                                    : <span className="profile-rating__hint">Todavía no votaste.</span>}
+                                {ratingError && <p className="profile-message profile-message--error" role="alert">{ratingError}</p>}
                             </div>
                         </div>
                         <div className="profile-hero__actions">
@@ -306,7 +348,7 @@ function Profile() {
                     </section>
 
                     <section className="profile-reviews" aria-labelledby="profile-reviews-title">
-                        <h2 id="profile-reviews-title"><span className="profile-star">★</span> 4.96 · 312 reseñas</h2>
+                        <h2 id="profile-reviews-title"><span className="profile-star">★</span> {averageRating.toFixed(2)} · {ratings.length} votos</h2>
                         <div className="profile-reviews__grid">
                             {guestReviews.map((review) => (
                                 <article className="profile-review" key={review.name}>

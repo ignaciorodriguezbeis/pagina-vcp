@@ -78,6 +78,52 @@
     font-size: 1.2em;
 }
 
+.profile-rating {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 22px;
+    color: #5b6d7f;
+    font-size: 0.9rem;
+}
+
+.profile-rating__stars {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.profile-rating__star {
+    padding: 2px;
+    border: 0;
+    background: transparent;
+    color: #bdc9ce;
+    font: inherit;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.profile-rating__star--selected,
+.profile-rating__star:hover {
+    color: #f7c957;
+}
+
+.profile-rating__star:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid #0876b1;
+    outline-offset: 2px;
+}
+
+.profile-rating__hint {
+    color: #64788b;
+}
+
+.profile-rating .profile-message {
+    flex-basis: 100%;
+    margin: 0;
+}
+
 .profile-hero__actions {
     display: flex;
     flex: 0 0 auto;

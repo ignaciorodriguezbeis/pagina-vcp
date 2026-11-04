@@ -143,6 +143,46 @@ export function AuthProvider({ children }) {
         setUser(savedProfile);
     };
 
+    const rateProfile = (rating) => {
+        if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
+            throw new Error('La calificación debe ser un número entero entre 1 y 5.');
+        }
+
+        const database = readDatabase();
+        const currentEmail = database.sessionEmail;
+        const accountIndex = database.accounts.findIndex(
+            (account) => account.profile.email === currentEmail,
+        );
+
+        if (accountIndex === -1) {
+            throw new Error('No se encontró la cuenta que inició sesión.');
+        }
+
+        const account = database.accounts[accountIndex];
+        const ratings = Array.isArray(account.profile.ratings)
+            ? account.profile.ratings.filter(
+                (vote) => vote && typeof vote.voterEmail === 'string' && Number.isInteger(vote.rating) && vote.rating >= 1 && vote.rating <= 5,
+            )
+            : [];
+        const previousVoteIndex = ratings.findIndex((vote) => vote.voterEmail === currentEmail);
+        const vote = { voterEmail: currentEmail, rating };
+
+        if (previousVoteIndex === -1) {
+            ratings.push(vote);
+        } else {
+            ratings[previousVoteIndex] = vote;
+        }
+
+        const savedProfile = { ...account.profile, ratings };
+        const accounts = database.accounts.map((storedAccount, index) => (
+            index === accountIndex ? { ...storedAccount, profile: savedProfile } : storedAccount
+        ));
+        const updatedDatabase = { ...database, accounts };
+
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
+        setUser(savedProfile);
+    };
+
     const logout = () => {
         const database = readDatabase();
         localStorage.setItem(
@@ -153,7 +193,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, register, login, logout, updateProfile }}>
+        <AuthContext.Provider value={{ user, register, login, logout, updateProfile, rateProfile }}>
             {children}
         </AuthContext.Provider>
     );
