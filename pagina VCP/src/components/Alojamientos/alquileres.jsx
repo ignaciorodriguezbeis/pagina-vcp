@@ -7,6 +7,7 @@ import cabapr1 from '../../assets/img/cabañaeder.webp';
 
 export const alquileres = [
   {
+    id: 'casa-barrio-san-martin',
     clase: 'casa',
     titulo: 'Casa en Barrio San Martín',
     descripcion: 'Casa amplia con patio, parrilla y tres habitaciones para grupos familiares.',
@@ -16,6 +17,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    id: 'departamento-centrico',
     clase: 'departamento',
     titulo: 'Departamento céntrico',
     descripcion: 'Departamento cómodo y bien ubicado para estadías cortas o largas.',
@@ -25,6 +27,7 @@ export const alquileres = [
     imagen: alqui1,
   },
   {
+    id: 'cabana-en-las-sierras',
     clase: 'cabaña',
     titulo: 'Cabaña en las Sierras',
     descripcion: 'Cabaña rústica con vista a las sierras, ideal para escapadas de fin de semana.',

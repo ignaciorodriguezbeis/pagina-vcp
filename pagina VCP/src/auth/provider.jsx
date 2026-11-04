@@ -6,7 +6,7 @@ const AUTH_STORAGE_KEY = 'pagina-vcp:auth';
 function readDatabase() {
     const storedValue = localStorage.getItem(AUTH_STORAGE_KEY);
     if (!storedValue) {
-        return { accounts: [], sessionEmail: null };
+        return { accounts: [], listingRatings: {}, sessionEmail: null };
     }
 
     const database = JSON.parse(storedValue);
@@ -15,6 +15,12 @@ function readDatabase() {
     }
 
     return database;
+}
+
+function getListingRatings(database) {
+    return database.listingRatings && typeof database.listingRatings === 'object'
+        ? database.listingRatings
+        : {};
 }
 
 function getCurrentUser(database) {
@@ -58,11 +64,16 @@ async function hashPassword(password, salt) {
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(() => getCurrentUser(readDatabase()));
+    const [listingRatings, setListingRatings] = useState(() => getListingRatings(readDatabase()));
 
     useEffect(() => {
-        const syncUser = () => setUser(getCurrentUser(readDatabase()));
-        window.addEventListener('storage', syncUser);
-        return () => window.removeEventListener('storage', syncUser);
+        const syncDatabase = () => {
+            const database = readDatabase();
+            setUser(getCurrentUser(database));
+            setListingRatings(getListingRatings(database));
+        };
+        window.addEventListener('storage', syncDatabase);
+        return () => window.removeEventListener('storage', syncDatabase);
     }, []);
 
     const register = async (profile, password) => {
@@ -76,6 +87,7 @@ export function AuthProvider({ children }) {
         const passwordHash = await hashPassword(password, salt);
         const savedProfile = { ...profile, email };
         const updatedDatabase = {
+            ...database,
             accounts: [
                 ...database.accounts,
                 {
@@ -89,6 +101,7 @@ export function AuthProvider({ children }) {
 
         localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
         setUser(savedProfile);
+        setListingRatings(getListingRatings(updatedDatabase));
     };
 
     const login = async (email, password) => {
@@ -112,6 +125,7 @@ export function AuthProvider({ children }) {
             JSON.stringify({ ...database, sessionEmail: normalizedEmail }),
         );
         setUser(account.profile);
+        setListingRatings(getListingRatings(database));
         return true;
     };
 
@@ -141,6 +155,47 @@ export function AuthProvider({ children }) {
 
         localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
         setUser(savedProfile);
+    };
+
+    const rateListing = (listingId, rating) => {
+        if (typeof listingId !== 'string' || !listingId.trim()) {
+            throw new Error('No se pudo identificar el alojamiento.');
+        }
+        if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
+            throw new Error('La calificación debe ser un número entero entre 1 y 5.');
+        }
+
+        const database = readDatabase();
+        const currentEmail = database.sessionEmail;
+        if (!database.accounts.some((account) => account.profile.email === currentEmail)) {
+            throw new Error('No se encontró la cuenta que inició sesión.');
+        }
+
+        const allListingRatings = getListingRatings(database);
+        const ratings = Array.isArray(allListingRatings[listingId])
+            ? allListingRatings[listingId].filter(
+                (vote) => vote
+                    && typeof vote.voterEmail === 'string'
+                    && Number.isInteger(vote.rating)
+                    && vote.rating >= 1
+                    && vote.rating <= 5,
+            )
+            : [];
+        const previousVoteIndex = ratings.findIndex((vote) => vote.voterEmail === currentEmail);
+        const vote = { voterEmail: currentEmail, rating };
+
+        if (previousVoteIndex === -1) {
+            ratings.push(vote);
+        } else {
+            ratings[previousVoteIndex] = vote;
+        }
+
+        const updatedListingRatings = { ...allListingRatings, [listingId]: ratings };
+        localStorage.setItem(
+            AUTH_STORAGE_KEY,
+            JSON.stringify({ ...database, listingRatings: updatedListingRatings }),
+        );
+        setListingRatings(updatedListingRatings);
     };
 
     const rateProfile = (rating) => {
@@ -197,7 +252,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, register, login, logout, updateProfile, rateProfile }}>
+        <AuthContext.Provider value={{ user, listingRatings, register, login, logout, updateProfile, rateProfile, rateListing }}>
             {children}
         </AuthContext.Provider>
     );

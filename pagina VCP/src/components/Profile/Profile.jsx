@@ -56,7 +56,7 @@ function readImage(file) {
 }
 
 function Profile() {
-    const { user, logout, updateProfile, rateProfile } = useAuth();
+    const { user, listingRatings, logout, updateProfile, rateProfile, rateListing } = useAuth();
     const navigate = useNavigate();
     const imageInput = useRef(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -65,6 +65,7 @@ function Profile() {
     const [error, setError] = useState('');
     const [notice, setNotice] = useState('');
     const [ratingError, setRatingError] = useState('');
+    const [listingRatingError, setListingRatingError] = useState('');
 
     if (!user) {
         return <Navigate to="/login" replace />;
@@ -88,7 +89,27 @@ function Profile() {
     const contactUrl = phone
         ? `https://wa.me/${phone}?text=${encodeURIComponent(`Hola ${user.fullName}, vi tu perfil en VCP.`)}`
         : `mailto:${user.email}?subject=${encodeURIComponent('Consulta desde tu perfil VCP')}`;
-    const listings = alquileres.slice(0, 3);
+    const listings = alquileres.slice(0, 3).map((listing) => {
+        const id = listing.id ?? `${listing.clase}:${listing.titulo}:${listing.direccion}`;
+        const votes = Array.isArray(listingRatings?.[id])
+            ? listingRatings[id].filter(
+                (vote) => vote
+                    && typeof vote.voterEmail === 'string'
+                    && Number.isInteger(vote.rating)
+                    && vote.rating >= 1
+                    && vote.rating <= 5,
+            )
+            : [];
+        return {
+            ...listing,
+            id,
+            averageRating: votes.length
+                ? votes.reduce((total, vote) => total + vote.rating, 0) / votes.length
+                : 5,
+            ratingCount: votes.length,
+            userRating: votes.find((vote) => vote.voterEmail === user.email)?.rating,
+        };
+    });
 
     const handleLogout = () => {
         logout();
@@ -190,6 +211,15 @@ function Profile() {
             setNotice('Tu calificación se guardó correctamente.');
         } catch (ratingSaveError) {
             setRatingError(ratingSaveError instanceof Error ? ratingSaveError.message : 'No se pudo guardar la calificación.');
+        }
+    };
+
+    const handleListingRating = (listingId, rating) => {
+        setListingRatingError('');
+        try {
+            rateListing(listingId, rating);
+        } catch (ratingSaveError) {
+            setListingRatingError(ratingSaveError instanceof Error ? ratingSaveError.message : 'No se pudo guardar la calificación.');
         }
     };
 
@@ -337,7 +367,7 @@ function Profile() {
                                         <div className="profile-listing__body">
                                             <div className="profile-listing__type">
                                                 <span>{listing.clase ?? 'ALOJAMIENTO'}</span>
-                                                <span className="profile-star">★</span> {index === 0 ? '4.95' : '4.93'}
+                                                <span className="profile-star">★</span> {listing.averageRating.toFixed(2)} · {listing.ratingCount} votos
                                             </div>
                                             <h3>{listing.titulo}</h3>
                                             <p className="profile-listing__price">{listing.precio}</p>
@@ -345,10 +375,31 @@ function Profile() {
                                             <span className="profile-listing__details">⌂ &nbsp;2 huéspedes &nbsp; · &nbsp; 1 dormitorio</span>
                                         </div>
                                     </Link>
+                                    <div className="profile-listing__rating">
+                                        <span>Calificá este alojamiento</span>
+                                        <div className="profile-rating__stars" role="group" aria-label={`Calificar ${listing.titulo} del 1 al 5`}>
+                                            {[1, 2, 3, 4, 5].map((rating) => (
+                                                <button
+                                                    className={rating <= (listing.userRating ?? 0) ? 'profile-rating__star profile-rating__star--selected' : 'profile-rating__star'}
+                                                    type="button"
+                                                    key={rating}
+                                                    aria-label={`${rating} ${rating === 1 ? 'estrella' : 'estrellas'}`}
+                                                    aria-pressed={listing.userRating === rating}
+                                                    onClick={() => handleListingRating(listing.id, rating)}
+                                                >
+                                                    ★
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <span className="profile-rating__hint">
+                                            {listing.userRating ? `Tu voto: ${listing.userRating}` : 'Todavía no votaste'}
+                                        </span>
+                                    </div>
                                     <a className="profile-listing__contact" href={contactUrl} target="_blank" rel="noreferrer">Consultar alojamiento</a>
                                 </article>
                             ))}
                         </div>
+                        {listingRatingError && <p className="profile-message profile-message--error" role="alert">{listingRatingError}</p>}
                     </section>
 
                     <section className="profile-reviews" aria-labelledby="profile-reviews-title">
