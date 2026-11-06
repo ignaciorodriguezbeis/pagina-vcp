@@ -194,8 +194,7 @@
     gap: 20px;
 }
 
-.profile-section-heading h2,
-.profile-reviews > h2 {
+.profile-section-heading h2 {
     margin: 0;
     color: #14283b;
     font-size: clamp(1.45rem, 3vw, 1.9rem);
@@ -452,7 +451,6 @@
     color: #687b8d;
     line-height: 1.5;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
 }
 
 .profile-listing__details {
@@ -500,11 +498,69 @@
 }
 
 .profile-reviews {
-    margin-top: 76px;
+    margin-top: 32px;
 }
 
+.profile-comment-form {
+    margin-top: 76px;
+    padding: 28px;
+    border: 1px solid #d7e2e8;
+    border-radius: 26px;
+    background: #fff;
+}
+
+.profile-comment-form h2,
 .profile-reviews > h2 {
-    margin-bottom: 24px;
+    margin: 0 0 18px;
+    color: #14283b;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+}
+
+.profile-comment-form form {
+    display: grid;
+    gap: 10px;
+}
+
+.profile-comment-form label {
+    color: #526b7f;
+    font-weight: 600;
+}
+
+.profile-comment-form textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 14px 16px;
+    border: 1px solid #d3e0e7;
+    border-radius: 16px;
+    background: #f9fcfd;
+    color: #14283b;
+    font: inherit;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.profile-comment-form textarea:focus-visible {
+    border-color: #0876b1;
+    outline: 2px solid #0876b133;
+}
+
+.profile-comment-form__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: #64788b;
+    font-size: 0.9rem;
+}
+
+.profile-comment-form .profile-message {
+    margin: 0;
+}
+
+.profile-reviews__empty {
+    margin: 0;
+    color: #64788b;
+    font-size: 1rem;
 }
 
 .profile-reviews__grid {
@@ -731,6 +787,16 @@
 
     .profile-reviews {
         margin-top: 50px;
+    }
+
+    .profile-comment-form {
+        margin-top: 50px;
+        padding: 20px;
+    }
+
+    .profile-comment-form__footer {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .profile-review {

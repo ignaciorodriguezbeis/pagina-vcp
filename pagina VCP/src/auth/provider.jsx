@@ -242,6 +242,43 @@ export function AuthProvider({ children }) {
         setUser(savedProfile);
     };
 
+    const addProfileComment = (text) => {
+        const commentText = typeof text === 'string' ? text.trim() : '';
+        if (!commentText || commentText.length > 500) {
+            throw new Error('El comentario debe tener entre 1 y 500 caracteres.');
+        }
+
+        const database = readDatabase();
+        const currentEmail = database.sessionEmail;
+        const accountIndex = database.accounts.findIndex(
+            (account) => account.profile.email === currentEmail,
+        );
+
+        if (accountIndex === -1) {
+            throw new Error('No se encontró la cuenta que inició sesión.');
+        }
+
+        const account = database.accounts[accountIndex];
+        const comments = Array.isArray(account.profile.comments)
+            ? account.profile.comments
+            : [];
+        const comment = {
+            id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+            authorName: account.profile.fullName,
+            authorLocation: account.profile.location || 'Villa Carlos Paz, Córdoba',
+            text: commentText,
+            createdAt: new Date().toISOString(),
+        };
+        const savedProfile = { ...account.profile, comments: [...comments, comment] };
+        const accounts = database.accounts.map((storedAccount, index) => (
+            index === accountIndex ? { ...storedAccount, profile: savedProfile } : storedAccount
+        ));
+        const updatedDatabase = { ...database, accounts };
+
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
+        setUser(savedProfile);
+    };
+
     const logout = () => {
         const database = readDatabase();
         localStorage.setItem(
@@ -252,7 +289,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, listingRatings, register, login, logout, updateProfile, rateProfile, rateListing }}>
+        <AuthContext.Provider value={{ user, listingRatings, register, login, logout, updateProfile, rateProfile, rateListing, addProfileComment }}>
             {children}
         </AuthContext.Provider>
     );

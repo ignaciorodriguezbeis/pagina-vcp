@@ -15,37 +15,6 @@ const planLabels = {
     premium: 'Anfitrión premium',
 };
 
-const guestReviews = [
-    {
-        name: 'Martina G.',
-        location: 'Córdoba, Argentina',
-        initial: 'M',
-        text: 'Lucía pensó en todo: un mapa con sus lugares favoritos y recomendaciones para disfrutar la ciudad. ¡Volveremos!',
-        stay: 'Septiembre 2026 · Casa en las Sierras',
-    },
-    {
-        name: 'Thomas R.',
-        location: 'Hamburgo, Alemania',
-        initial: 'T',
-        text: 'La vista desde la habitación es increíble. La comunicación fue rápida y sus recomendaciones hicieron el viaje.',
-        stay: 'Agosto 2026 · Departamento céntrico',
-    },
-    {
-        name: 'Camila y Joaquín',
-        location: 'Santiago, Chile',
-        initial: 'C',
-        text: 'Silencio, naturaleza y el lago a pocos minutos. La cabaña estaba impecable y la anfitriona fue muy cálida.',
-        stay: 'Julio 2026 · Cabaña en las Sierras',
-    },
-    {
-        name: 'Rafael S.',
-        location: 'São Paulo, Brasil',
-        initial: 'R',
-        text: 'Perfecto para la familia. Casa amplia, cocina completa y una anfitriona muy atenta. ¡Lo recomiendo!',
-        stay: 'Junio 2026 · Casa en las Sierras',
-    },
-];
-
 function readImage(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -56,7 +25,7 @@ function readImage(file) {
 }
 
 function Profile() {
-    const { user, listingRatings, logout, updateProfile, rateProfile, rateListing } = useAuth();
+    const { user, listingRatings, logout, updateProfile, rateProfile, rateListing, addProfileComment } = useAuth();
     const navigate = useNavigate();
     const imageInput = useRef(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -66,6 +35,9 @@ function Profile() {
     const [notice, setNotice] = useState('');
     const [ratingError, setRatingError] = useState('');
     const [listingRatingError, setListingRatingError] = useState('');
+    const [commentText, setCommentText] = useState('');
+    const [commentError, setCommentError] = useState('');
+    const [commentNotice, setCommentNotice] = useState('');
 
     if (!user) {
         return <Navigate to="/login" replace />;
@@ -84,6 +56,14 @@ function Profile() {
         ? ratings.reduce((total, vote) => total + vote.rating, 0) / ratings.length
         : 5;
     const userRating = ratings.find((vote) => vote.voterEmail === user.email)?.rating;
+    const comments = Array.isArray(user.comments)
+        ? user.comments.filter(
+            (comment) => comment
+                && typeof comment.id === 'string'
+                && typeof comment.authorName === 'string'
+                && typeof comment.text === 'string',
+        )
+        : [];
     const profilePicture = newProfilePicture ?? user.profilePicture ?? defaultAvatar;
     const phone = user.phoneNumbers?.[0]?.replace(/\D/g, '');
     const contactUrl = phone
@@ -220,6 +200,20 @@ function Profile() {
             rateListing(listingId, rating);
         } catch (ratingSaveError) {
             setListingRatingError(ratingSaveError instanceof Error ? ratingSaveError.message : 'No se pudo guardar la calificación.');
+        }
+    };
+
+    const handleCommentSubmit = (event) => {
+        event.preventDefault();
+        setCommentError('');
+        setCommentNotice('');
+
+        try {
+            addProfileComment(commentText);
+            setCommentText('');
+            setCommentNotice('Tu comentario se publicó correctamente.');
+        } catch (commentSaveError) {
+            setCommentError(commentSaveError instanceof Error ? commentSaveError.message : 'No se pudo publicar el comentario.');
         }
     };
 
@@ -402,20 +396,51 @@ function Profile() {
                         {listingRatingError && <p className="profile-message profile-message--error" role="alert">{listingRatingError}</p>}
                     </section>
 
+                    <section className="profile-comment-form" aria-labelledby="profile-comment-title">
+                        <h2 id="profile-comment-title">Dejá tu comentario</h2>
+                        <form onSubmit={handleCommentSubmit}>
+                            <label htmlFor="profile-comment">Tu comentario</label>
+                            <textarea
+                                id="profile-comment"
+                                value={commentText}
+                                onChange={(event) => setCommentText(event.target.value)}
+                                rows="4"
+                                maxLength="500"
+                                placeholder="Escribí tu comentario..."
+                                required
+                            />
+                            <div className="profile-comment-form__footer">
+                                <span>{commentText.length}/500</span>
+                                <button className="profile-button profile-button--primary" type="submit">Publicar comentario</button>
+                            </div>
+                            {commentError && <p className="profile-message profile-message--error" role="alert">{commentError}</p>}
+                            {commentNotice && <p className="profile-message" role="status">{commentNotice}</p>}
+                        </form>
+                    </section>
+
                     <section className="profile-reviews" aria-labelledby="profile-reviews-title">
-                        <h2 id="profile-reviews-title"><span className="profile-star">★</span> {averageRating.toFixed(2)} · {ratings.length} votos</h2>
+                        <h2 id="profile-reviews-title">Comentarios</h2>
+                        {comments.length > 0 ? (
                         <div className="profile-reviews__grid">
-                            {guestReviews.map((review) => (
-                                <article className="profile-review" key={review.name}>
+                            {comments.map((comment) => (
+                                <article className="profile-review" key={comment.id}>
                                     <header>
-                                        <span className="profile-review__avatar">{review.initial}</span>
-                                        <div><h3>{review.name}</h3><p>{review.location}</p></div>
+                                        <span className="profile-review__avatar">{comment.authorName.charAt(0).toUpperCase()}</span>
+                                        <div>
+                                            <h3>{comment.authorName}</h3>
+                                            <p>{comment.authorLocation || 'Villa Carlos Paz, Córdoba'}</p>
+                                        </div>
                                     </header>
-                                    <p className="profile-review__text">“{review.text}”</p>
-                                    <p className="profile-review__stay">{review.stay}</p>
+                                    <p className="profile-review__text">“{comment.text}”</p>
+                                    {comment.createdAt && (
+                                        <p className="profile-review__stay">
+                                            {new Date(comment.createdAt).toLocaleDateString('es-AR')}
+                                        </p>
+                                    )}
                                 </article>
                             ))}
                         </div>
+                        ) : <p className="profile-reviews__empty">Todavía no hay comentarios.</p>}
                     </section>
 
                     <div className="profile-account-actions">
