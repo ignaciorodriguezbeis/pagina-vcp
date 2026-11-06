@@ -14,7 +14,7 @@
 .profile-hero__cover {
     display: block;
     width: 100%;
-    height: clamp(250px, 30vw, 400px);
+    height: clamp(230px, 30vw, 300px);
     border-radius: 30px;
     object-fit: cover;
     object-position: center 52%;
@@ -27,6 +27,8 @@
     gap: 30px;
     min-height: 150px;
     padding: 0 42px;
+    margin-bottom: 32px;
+    margin-top: 30px;
 }
 
 .profile-hero__avatar {
@@ -502,8 +504,11 @@
 }
 
 .profile-comment-form {
+    width: min(1200px, 90%);
     margin-top: 76px;
-    padding: 28px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 36px;
     border: 1px solid #d7e2e8;
     border-radius: 26px;
     background: #fff;
@@ -514,6 +519,10 @@
     margin: 0 0 18px;
     color: #14283b;
     font-size: clamp(1.3rem, 3vw, 1.7rem);
+}
+
+.profile-comment-form h2 {
+    text-align: center;
 }
 
 .profile-comment-form form {
@@ -527,8 +536,9 @@
 }
 
 .profile-comment-form textarea {
-    width: 100%;
-    min-height: 120px;
+    width: min(100%, 90%);
+    min-height: 96px;
+    justify-self: center;
     padding: 14px 16px;
     border: 1px solid #d3e0e7;
     border-radius: 16px;
@@ -571,25 +581,24 @@
 
 .profile-review {
     display: flex;
-    min-height: 265px;
     flex-direction: column;
-    padding: 24px;
+    padding: 18px;
     border: 1px solid #d7e2e8;
-    border-radius: 26px;
+    border-radius: 20px;
     background: #fff;
 }
 
 .profile-review header {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .profile-review__avatar {
     display: grid;
-    width: 50px;
-    height: 50px;
-    flex: 0 0 50px;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
     place-items: center;
     border-radius: 50%;
     background: #0067a8;
@@ -615,14 +624,14 @@
 }
 
 .profile-review__text {
-    margin: 20px 0;
+    margin: 14px 0;
     color: #1d3043;
-    font-size: 1.06rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .profile-review__stay {
-    margin: auto 0 0;
+    margin: 0;
     font-size: 0.9rem;
 }
 
@@ -800,7 +809,6 @@
     }
 
     .profile-review {
-        min-height: 235px;
         padding: 20px;
     }
 }
