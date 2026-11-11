@@ -318,7 +318,11 @@ function Profile() {
                                     type="button"
                                     onClick={() => {
                                         setIsChangingPlan(false);
-                                        isEditing ? handleCancel() : handleEdit();
+                                        if (isEditing) {
+                                            handleCancel();
+                                        } else {
+                                            handleEdit();
+                                        }
                                     }}
                                 >
                                     {isEditing ? 'Cancelar edición' : 'Editar perfil'}
@@ -329,8 +333,7 @@ function Profile() {
                                     aria-expanded={isChangingPlan}
                                     aria-controls="profile-plan-options"
                                     onClick={() => {
-                                        setIsEditing(false);
-                                        setFormData(null);
+                                        if (isEditing) handleCancel();
                                         setIsChangingPlan((current) => !current);
                                         setPlanError('');
                                         setPlanNotice('');
@@ -345,7 +348,7 @@ function Profile() {
                             <div className="profile-plan-picker" id="profile-plan-options">
                                 <div>
                                     <h3>Cambiar nivel de suscripción</h3>
-                                    <p>Elegí el nivel que querés mostrar en tu perfil.</p>
+                                    <p>Elegí el nivel de suscripción que querés usar.</p>
                                 </div>
                                 <div className="profile-plan-picker__options" role="group" aria-label="Niveles de suscripción">
                                     {Object.entries(planLabels).map(([plan, label]) => (
@@ -366,16 +369,14 @@ function Profile() {
                             </div>
                         )}
 
-                        <div className="profile-facts">
-                            <div><span>◷ &nbsp;Tasa de respuesta</span><strong>100%</strong></div>
-                            <div><span>◷ &nbsp;Responde en</span><strong>menos de 1 hora</strong></div>
-                            <div><span>文 &nbsp;Idiomas</span><strong>Español, Inglés</strong></div>
-                        </div>
+
 
                         <div className="profile-verifications">
                             <span>✓ &nbsp;Perfil de {user.username}</span>
+                            <div><span>文 &nbsp;Idiomas</span><strong>Español, Inglés</strong></div>
                             <span className="profile-chip">Miembro {planLabels[user.selectedPlan] ?? 'VCP'}</span>
                             <span className="profile-chip">{user.email}</span>
+                            
                         </div>
 
                         {notice && <p className="profile-message" role="status">{notice}</p>}
@@ -486,25 +487,25 @@ function Profile() {
                     <section className="profile-reviews" aria-labelledby="profile-reviews-title">
                         <h2 id="profile-reviews-title">Comentarios</h2>
                         {comments.length > 0 ? (
-                        <div className="profile-reviews__grid">
-                            {comments.map((comment) => (
-                                <article className="profile-review" key={comment.id}>
-                                    <header>
-                                        <span className="profile-review__avatar">{comment.authorName.charAt(0).toUpperCase()}</span>
-                                        <div>
-                                            <h3>{comment.authorName}</h3>
-                                            <p>{comment.authorLocation || 'Villa Carlos Paz, Córdoba'}</p>
-                                        </div>
-                                    </header>
-                                    <p className="profile-review__text">“{comment.text}”</p>
-                                    {comment.createdAt && (
-                                        <p className="profile-review__stay">
-                                            {new Date(comment.createdAt).toLocaleDateString('es-AR')}
-                                        </p>
-                                    )}
-                                </article>
-                            ))}
-                        </div>
+                            <div className="profile-reviews__grid">
+                                {comments.map((comment) => (
+                                    <article className="profile-review" key={comment.id}>
+                                        <header>
+                                            <span className="profile-review__avatar">{comment.authorName.charAt(0).toUpperCase()}</span>
+                                            <div>
+                                                <h3>{comment.authorName}</h3>
+                                                <p>{comment.authorLocation || 'Villa Carlos Paz, Córdoba'}</p>
+                                            </div>
+                                        </header>
+                                        <p className="profile-review__text">“{comment.text}”</p>
+                                        {comment.createdAt && (
+                                            <p className="profile-review__stay">
+                                                {new Date(comment.createdAt).toLocaleDateString('es-AR')}
+                                            </p>
+                                        )}
+                                    </article>
+                                ))}
+                            </div>
                         ) : <p className="profile-reviews__empty">Todavía no hay comentarios.</p>}
                     </section>
 
