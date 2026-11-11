@@ -25,7 +25,7 @@ function readImage(file) {
 }
 
 function Profile() {
-    const { user, listingRatings, logout, updateProfile, rateProfile, rateListing, addProfileComment } = useAuth();
+    const { user, listingRatings, logout, updateProfile, updateSubscriptionPlan, rateProfile, rateListing, addProfileComment } = useAuth();
     const navigate = useNavigate();
     const imageInput = useRef(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -38,6 +38,9 @@ function Profile() {
     const [commentText, setCommentText] = useState('');
     const [commentError, setCommentError] = useState('');
     const [commentNotice, setCommentNotice] = useState('');
+    const [isChangingPlan, setIsChangingPlan] = useState(false);
+    const [planError, setPlanError] = useState('');
+    const [planNotice, setPlanNotice] = useState('');
 
     if (!user) {
         return <Navigate to="/login" replace />;
@@ -183,6 +186,19 @@ function Profile() {
         }
     };
 
+    const handlePlanChange = (plan) => {
+        setPlanError('');
+        setPlanNotice('');
+
+        try {
+            updateSubscriptionPlan(plan);
+            setPlanNotice('El nivel de suscripción se actualizó correctamente.');
+            setIsChangingPlan(false);
+        } catch (planChangeError) {
+            setPlanError(planChangeError instanceof Error ? planChangeError.message : 'No se pudo actualizar el nivel de suscripción.');
+        }
+    };
+
     const handleRating = (rating) => {
         setRatingError('');
         setNotice('');
@@ -296,10 +312,59 @@ function Profile() {
                                     {user.bio || 'Me encanta compartir los rincones y experiencias que hacen especial a Villa Carlos Paz.'}
                                 </p>
                             </div>
-                            <button className="profile-edit-link" type="button" onClick={isEditing ? handleCancel : handleEdit}>
-                                {isEditing ? 'Cancelar edición' : 'Editar perfil'}
-                            </button>
+                            <div className="profile-section-actions">
+                                <button
+                                    className="profile-edit-link"
+                                    type="button"
+                                    onClick={() => {
+                                        setIsChangingPlan(false);
+                                        isEditing ? handleCancel() : handleEdit();
+                                    }}
+                                >
+                                    {isEditing ? 'Cancelar edición' : 'Editar perfil'}
+                                </button>
+                                <button
+                                    className="profile-edit-link"
+                                    type="button"
+                                    aria-expanded={isChangingPlan}
+                                    aria-controls="profile-plan-options"
+                                    onClick={() => {
+                                        setIsEditing(false);
+                                        setFormData(null);
+                                        setIsChangingPlan((current) => !current);
+                                        setPlanError('');
+                                        setPlanNotice('');
+                                    }}
+                                >
+                                    {isChangingPlan ? 'Cerrar niveles' : 'Cambiar suscripción'}
+                                </button>
+                            </div>
                         </div>
+
+                        {isChangingPlan && (
+                            <div className="profile-plan-picker" id="profile-plan-options">
+                                <div>
+                                    <h3>Cambiar nivel de suscripción</h3>
+                                    <p>Elegí el nivel que querés mostrar en tu perfil.</p>
+                                </div>
+                                <div className="profile-plan-picker__options" role="group" aria-label="Niveles de suscripción">
+                                    {Object.entries(planLabels).map(([plan, label]) => (
+                                        <button
+                                            className={user.selectedPlan === plan ? 'profile-plan-option profile-plan-option--selected' : 'profile-plan-option'}
+                                            type="button"
+                                            key={plan}
+                                            aria-pressed={user.selectedPlan === plan}
+                                            disabled={user.selectedPlan === plan}
+                                            onClick={() => handlePlanChange(plan)}
+                                        >
+                                            {label}{user.selectedPlan === plan ? ' · Actual' : ''}
+                                        </button>
+                                    ))}
+                                </div>
+                                {planError && <p className="profile-message profile-message--error" role="alert">{planError}</p>}
+                                {planNotice && <p className="profile-message" role="status">{planNotice}</p>}
+                            </div>
+                        )}
 
                         <div className="profile-facts">
                             <div><span>◷ &nbsp;Tasa de respuesta</span><strong>100%</strong></div>

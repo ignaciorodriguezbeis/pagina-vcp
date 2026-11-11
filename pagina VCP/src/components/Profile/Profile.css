@@ -196,6 +196,14 @@
     gap: 20px;
 }
 
+.profile-section-actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
 .profile-section-heading h2 {
     margin: 0;
     color: #14283b;
@@ -230,6 +238,64 @@
 .profile-edit-link:hover,
 .profile-listings .profile-section-heading > a:hover {
     background: #edf5f8;
+}
+
+.profile-plan-picker {
+    display: grid;
+    gap: 14px;
+    margin: 20px 0 28px;
+    padding: 20px;
+    border: 1px solid #d9e4e9;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.profile-plan-picker h3,
+.profile-plan-picker p {
+    margin: 0;
+}
+
+.profile-plan-picker h3 {
+    color: #14283b;
+    font-size: 1.05rem;
+}
+
+.profile-plan-picker > div:first-child p {
+    margin-top: 5px;
+    color: #627588;
+}
+
+.profile-plan-picker__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-plan-option {
+    padding: 9px 14px;
+    border: 1px solid #d5e1e7;
+    border-radius: 20px;
+    background: #fff;
+    color: #145e8d;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.profile-plan-option:hover:not(:disabled) {
+    background: #edf5f8;
+}
+
+.profile-plan-option--selected,
+.profile-plan-option:disabled {
+    border-color: #b7d7e8;
+    background: #e7f2f7;
+    color: #14283b;
+    cursor: default;
+}
+
+.profile-plan-picker .profile-message {
+    margin: 0;
 }
 
 .profile-facts {

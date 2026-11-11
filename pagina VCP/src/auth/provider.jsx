@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AuthContext } from './context';
 
 const AUTH_STORAGE_KEY = 'pagina-vcp:auth';
+const SUBSCRIPTION_PLANS = ['visitor', 'basic', 'advertiser-premium', 'premium'];
 
 function readDatabase() {
     const storedValue = localStorage.getItem(AUTH_STORAGE_KEY);
@@ -157,6 +158,31 @@ export function AuthProvider({ children }) {
         setUser(savedProfile);
     };
 
+    const updateSubscriptionPlan = (plan) => {
+        if (!SUBSCRIPTION_PLANS.includes(plan)) {
+            throw new Error('El nivel de suscripción seleccionado no es válido.');
+        }
+
+        const database = readDatabase();
+        const currentEmail = database.sessionEmail;
+        const accountIndex = database.accounts.findIndex(
+            (account) => account.profile.email === currentEmail,
+        );
+
+        if (accountIndex === -1) {
+            throw new Error('No se encontró la cuenta que inició sesión.');
+        }
+
+        const savedProfile = { ...database.accounts[accountIndex].profile, selectedPlan: plan };
+        const accounts = database.accounts.map((account, index) => (
+            index === accountIndex ? { ...account, profile: savedProfile } : account
+        ));
+        const updatedDatabase = { ...database, accounts };
+
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(updatedDatabase));
+        setUser(savedProfile);
+    };
+
     const rateListing = (listingId, rating) => {
         if (typeof listingId !== 'string' || !listingId.trim()) {
             throw new Error('No se pudo identificar el alojamiento.');
@@ -289,7 +315,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, listingRatings, register, login, logout, updateProfile, rateProfile, rateListing, addProfileComment }}>
+        <AuthContext.Provider value={{ user, listingRatings, register, login, logout, updateProfile, updateSubscriptionPlan, rateProfile, rateListing, addProfileComment }}>
             {children}
         </AuthContext.Provider>
     );
