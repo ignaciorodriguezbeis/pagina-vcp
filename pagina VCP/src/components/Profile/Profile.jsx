@@ -10,9 +10,56 @@ const MAX_IMAGE_SIZE = 2 * 1024 * 1024;
 const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 const planLabels = {
     visitor: 'Visitante',
-    basic: 'Anfitrión',
-    'advertiser-premium': 'Anfitrión destacado',
-    premium: 'Anfitrión premium',
+    basic: 'Plan Básico',
+    'advertiser-premium': 'Plan Plus',
+    premium: 'Plan Premium',
+};
+const visitorBenefits = [
+    'Ficha de negocio con descripción, fotos y datos de contacto.',
+    'Lista de alojamientos guardados.',
+    'Calificar y comentar.',
+];
+const basicBenefits = [
+    ...visitorBenefits,
+    'Publicar 1 alojamiento o negocio.',
+    'Agregar ubicación, precios, horarios y servicios.',
+    'Recibir consultas y administrar la publicación desde el perfil.',
+    'Distintivo Destacado al inicio de la categoría.',
+];
+const plusBenefits = [
+    ...basicBenefits,
+    'Publicar hasta 5 alojamientos o negocios.',
+    'Mayor visibilidad y espacio publicitario fijo en páginas destacadas.',
+    'Estadísticas de visitas y consultas.',
+    'Configurar promociones y descuentos.',
+    'Administrar varias publicaciones desde un panel centralizado.',
+];
+const planDetails = {
+    visitor: {
+        capacity: '1 ficha de negocio',
+        description: 'Tu negocio aparece en su categoría y en los resultados de búsqueda.',
+        benefits: visitorBenefits,
+    },
+    basic: {
+        capacity: '1 alojamiento o negocio',
+        description: 'Tu publicación aparece destacada al inicio de su categoría.',
+        benefits: basicBenefits,
+    },
+    'advertiser-premium': {
+        capacity: 'Hasta 5 alojamientos o negocios',
+        description: 'Sumá visibilidad, estadísticas y promociones para tus publicaciones.',
+        benefits: plusBenefits,
+    },
+    premium: {
+        capacity: 'Publicaciones ampliadas o ilimitadas',
+        description: 'Para agencias, complejos y eventos con necesidades específicas de difusión.',
+        benefits: [
+            ...plusBenefits,
+            'Máxima prioridad de visibilidad, identificada como promoción.',
+            'Herramientas para administrar múltiples propiedades.',
+            'Soporte prioritario y acceso anticipado a nuevas funciones.',
+        ],
+    },
 };
 
 function readImage(file) {
@@ -46,6 +93,8 @@ function Profile() {
         return <Navigate to="/login" replace />;
     }
 
+    const activePlanId = planDetails[user.selectedPlan] ? user.selectedPlan : 'visitor';
+    const activePlan = planDetails[activePlanId];
     const ratings = Array.isArray(user.ratings)
         ? user.ratings.filter(
             (vote) => vote
@@ -263,7 +312,7 @@ function Profile() {
                     <div className="profile-hero__identity">
                         <img className="profile-hero__avatar" src={profilePicture} alt={`Foto de ${user.fullName}`} />
                         <div className="profile-hero__summary">
-                            <span className="profile-badge">✦ {planLabels[user.selectedPlan] ?? 'Perfil VCP'}</span>
+                            <span className={`profile-badge profile-badge--${activePlanId}`}>✦ {planLabels[activePlanId]}</span>
                             <h1>{user.fullName}</h1>
                             <div className="profile-hero__meta">
                                 <span>⌖ {user.location || 'Villa Carlos Paz, Córdoba'}</span>
@@ -369,12 +418,50 @@ function Profile() {
                             </div>
                         )}
 
+                        <section
+                            className={`profile-plan-summary profile-plan-summary--${activePlanId}`}
+                            aria-labelledby="profile-plan-summary-title"
+                        >
+                            <div className="profile-plan-summary__heading">
+                                <div>
+                                    <p className="profile-plan-summary__eyebrow">Beneficios y permisos de tu plan</p>
+                                    <h2 id="profile-plan-summary-title">{planLabels[activePlanId]}</h2>
+                                    <p>{activePlan.description}</p>
+                                </div>
+                                <span className="profile-plan-summary__status">Plan actual</span>
+                            </div>
+                            <p className="profile-plan-summary__capacity">
+                                <span>Publicaciones incluidas</span>
+                                <strong>{activePlan.capacity}</strong>
+                            </p>
+                            {activePlanId === 'premium' && (
+                                <p className="profile-plan-summary__note">
+                                    El límite de publicaciones depende de la política vigente.
+                                </p>
+                            )}
+                            <ul className="profile-plan-summary__benefits">
+                                {activePlan.benefits.map((benefit) => (
+                                    <li key={benefit}>{benefit}</li>
+                                ))}
+                            </ul>
+                            <button
+                                className="profile-edit-link"
+                                type="button"
+                                onClick={() => {
+                                    setIsChangingPlan(true);
+                                    setPlanError('');
+                                    setPlanNotice('');
+                                }}
+                            >
+                                Ver otros planes
+                            </button>
+                        </section>
 
 
                         <div className="profile-verifications">
                             <span>✓ &nbsp;Perfil de {user.username}</span>
                             <div><span>文 &nbsp;Idiomas</span><strong>Español, Inglés</strong></div>
-                            <span className="profile-chip">Miembro {planLabels[user.selectedPlan] ?? 'VCP'}</span>
+                            <span className="profile-chip">Miembro {planLabels[activePlanId]}</span>
                             <span className="profile-chip">{user.email}</span>
                             
                         </div>

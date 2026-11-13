@@ -144,7 +144,7 @@ function Login() {
                 </article>
 
                 <article className={`plan-card${selectedPlan === 'advertiser-premium' ? ' plan-card--selected' : ''}`}>
-                    <p className="plan-label">Anunciante Premium</p>
+                    <p className="plan-label">plan plus</p>
                     <h2>$60.000 <span>/ mes</span></h2>
                     <p className="plan-description">Listado destacado más un espacio publicitario fijo en las páginas más vistas.</p>
                     <ul>
