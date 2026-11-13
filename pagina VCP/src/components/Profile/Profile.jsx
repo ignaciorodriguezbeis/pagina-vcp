@@ -34,6 +34,13 @@ const plusBenefits = [
     'Configurar promociones y descuentos.',
     'Administrar varias publicaciones desde un panel centralizado.',
 ];
+const premiumBenefits = [
+    'Publicaciones ampliadas o ilimitadas, según la política que definas.',
+    'Todas las funciones del plan Profesional.',
+    'Máxima prioridad de visibilidad, identificada claramente como promoción.',
+    'Herramientas para administrar múltiples propiedades.',
+    'Soporte prioritario y acceso anticipado a nuevas funciones.',
+];
 const planDetails = {
     visitor: {
         capacity: '1 ficha de negocio',
@@ -51,14 +58,9 @@ const planDetails = {
         benefits: plusBenefits,
     },
     premium: {
-        capacity: 'Publicaciones ampliadas o ilimitadas',
+        capacity: 'Publicaciones ampliadas o ilimitadas, según la política que definas.',
         description: 'Para agencias, complejos y eventos con necesidades específicas de difusión.',
-        benefits: [
-            ...plusBenefits,
-            'Máxima prioridad de visibilidad, identificada como promoción.',
-            'Herramientas para administrar múltiples propiedades.',
-            'Soporte prioritario y acceso anticipado a nuevas funciones.',
-        ],
+        benefits: premiumBenefits,
     },
 };
 
@@ -434,11 +436,6 @@ function Profile() {
                                 <span>Publicaciones incluidas</span>
                                 <strong>{activePlan.capacity}</strong>
                             </p>
-                            {activePlanId === 'premium' && (
-                                <p className="profile-plan-summary__note">
-                                    El límite de publicaciones depende de la política vigente.
-                                </p>
-                            )}
                             <ul className="profile-plan-summary__benefits">
                                 {activePlan.benefits.map((benefit) => (
                                     <li key={benefit}>{benefit}</li>
