@@ -571,6 +571,7 @@ function Profile() {
                             aria-expanded={isChangingPlan}
                             aria-controls="profile-plan-options"
                             onClick={() => {
+                                if (isEditing) handleCancel();
                                 setIsChangingPlan((current) => !current);
                                 setPlanError('');
                                 setPlanNotice('');
