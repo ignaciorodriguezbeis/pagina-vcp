@@ -378,6 +378,20 @@ function Profile() {
                                 >
                                     {isEditing ? 'Cancelar edición' : 'Editar perfil'}
                                 </button>
+                                <button
+                                    className="profile-edit-link"
+                                    type="button"
+                                    aria-expanded={isChangingPlan}
+                                    aria-controls="profile-plan-options"
+                                    onClick={() => {
+                                        if (isEditing) handleCancel();
+                                        setIsChangingPlan((current) => !current);
+                                        setPlanError('');
+                                        setPlanNotice('');
+                                    }}
+                                >
+                                    {isChangingPlan ? 'Cerrar niveles' : 'Ver otros planes'}
+                                </button>
                             </div>
                         </div>
 
@@ -565,20 +579,6 @@ function Profile() {
                                 <li key={benefit}>{benefit}</li>
                             ))}
                         </ul>
-                        <button
-                            className="profile-edit-link"
-                            type="button"
-                            aria-expanded={isChangingPlan}
-                            aria-controls="profile-plan-options"
-                            onClick={() => {
-                                if (isEditing) handleCancel();
-                                setIsChangingPlan((current) => !current);
-                                setPlanError('');
-                                setPlanNotice('');
-                            }}
-                        >
-                            {isChangingPlan ? 'Cerrar niveles' : 'Ver otros planes'}
-                        </button>
                     </section>
 
                     <div className="profile-account-actions">
