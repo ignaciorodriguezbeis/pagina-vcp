@@ -378,82 +378,8 @@ function Profile() {
                                 >
                                     {isEditing ? 'Cancelar edición' : 'Editar perfil'}
                                 </button>
-                                <button
-                                    className="profile-edit-link"
-                                    type="button"
-                                    aria-expanded={isChangingPlan}
-                                    aria-controls="profile-plan-options"
-                                    onClick={() => {
-                                        if (isEditing) handleCancel();
-                                        setIsChangingPlan((current) => !current);
-                                        setPlanError('');
-                                        setPlanNotice('');
-                                    }}
-                                >
-                                    {isChangingPlan ? 'Cerrar niveles' : 'Cambiar suscripción'}
-                                </button>
                             </div>
                         </div>
-
-                        {isChangingPlan && (
-                            <div className="profile-plan-picker" id="profile-plan-options">
-                                <div>
-                                    <h3>Cambiar nivel de suscripción</h3>
-                                    <p>Elegí el nivel de suscripción que querés usar.</p>
-                                </div>
-                                <div className="profile-plan-picker__options" role="group" aria-label="Niveles de suscripción">
-                                    {Object.entries(planLabels).map(([plan, label]) => (
-                                        <button
-                                            className={user.selectedPlan === plan ? 'profile-plan-option profile-plan-option--selected' : 'profile-plan-option'}
-                                            type="button"
-                                            key={plan}
-                                            aria-pressed={user.selectedPlan === plan}
-                                            disabled={user.selectedPlan === plan}
-                                            onClick={() => handlePlanChange(plan)}
-                                        >
-                                            {label}{user.selectedPlan === plan ? ' · Actual' : ''}
-                                        </button>
-                                    ))}
-                                </div>
-                                {planError && <p className="profile-message profile-message--error" role="alert">{planError}</p>}
-                                {planNotice && <p className="profile-message" role="status">{planNotice}</p>}
-                            </div>
-                        )}
-
-                        <section
-                            className={`profile-plan-summary profile-plan-summary--${activePlanId}`}
-                            aria-labelledby="profile-plan-summary-title"
-                        >
-                            <div className="profile-plan-summary__heading">
-                                <div>
-                                    <p className="profile-plan-summary__eyebrow">Beneficios y permisos de tu plan</p>
-                                    <h2 id="profile-plan-summary-title">{planLabels[activePlanId]}</h2>
-                                    <p>{activePlan.description}</p>
-                                </div>
-                                <span className="profile-plan-summary__status">Plan actual</span>
-                            </div>
-                            <p className="profile-plan-summary__capacity">
-                                <span>Publicaciones incluidas</span>
-                                <strong>{activePlan.capacity}</strong>
-                            </p>
-                            <ul className="profile-plan-summary__benefits">
-                                {activePlan.benefits.map((benefit) => (
-                                    <li key={benefit}>{benefit}</li>
-                                ))}
-                            </ul>
-                            <button
-                                className="profile-edit-link"
-                                type="button"
-                                onClick={() => {
-                                    setIsChangingPlan(true);
-                                    setPlanError('');
-                                    setPlanNotice('');
-                                }}
-                            >
-                                Ver otros planes
-                            </button>
-                        </section>
-
 
                         <div className="profile-verifications">
                             <span>✓ &nbsp;Perfil de {user.username}</span>
@@ -591,6 +517,67 @@ function Profile() {
                                 ))}
                             </div>
                         ) : <p className="profile-reviews__empty">Todavía no hay comentarios.</p>}
+                    </section>
+
+                    {isChangingPlan && (
+                        <div className="profile-plan-picker" id="profile-plan-options">
+                            <div>
+                                <h3>Cambiar nivel de suscripción</h3>
+                                <p>Elegí el nivel de suscripción que querés usar.</p>
+                            </div>
+                            <div className="profile-plan-picker__options" role="group" aria-label="Niveles de suscripción">
+                                {Object.entries(planLabels).map(([plan, label]) => (
+                                    <button
+                                        className={user.selectedPlan === plan ? 'profile-plan-option profile-plan-option--selected' : 'profile-plan-option'}
+                                        type="button"
+                                        key={plan}
+                                        aria-pressed={user.selectedPlan === plan}
+                                        disabled={user.selectedPlan === plan}
+                                        onClick={() => handlePlanChange(plan)}
+                                    >
+                                        {label}{user.selectedPlan === plan ? ' · Actual' : ''}
+                                    </button>
+                                ))}
+                            </div>
+                            {planError && <p className="profile-message profile-message--error" role="alert">{planError}</p>}
+                            {planNotice && <p className="profile-message" role="status">{planNotice}</p>}
+                        </div>
+                    )}
+
+                    <section
+                        className={`profile-plan-summary profile-plan-summary--${activePlanId}`}
+                        aria-labelledby="profile-plan-summary-title"
+                    >
+                        <div className="profile-plan-summary__heading">
+                            <div>
+                                <p className="profile-plan-summary__eyebrow">Beneficios y permisos de tu plan</p>
+                                <h2 id="profile-plan-summary-title">{planLabels[activePlanId]}</h2>
+                                <p>{activePlan.description}</p>
+                            </div>
+                            <span className="profile-plan-summary__status">Plan actual</span>
+                        </div>
+                        <p className="profile-plan-summary__capacity">
+                            <span>Publicaciones incluidas</span>
+                            <strong>{activePlan.capacity}</strong>
+                        </p>
+                        <ul className="profile-plan-summary__benefits">
+                            {activePlan.benefits.map((benefit) => (
+                                <li key={benefit}>{benefit}</li>
+                            ))}
+                        </ul>
+                        <button
+                            className="profile-edit-link"
+                            type="button"
+                            aria-expanded={isChangingPlan}
+                            aria-controls="profile-plan-options"
+                            onClick={() => {
+                                setIsChangingPlan((current) => !current);
+                                setPlanError('');
+                                setPlanNotice('');
+                            }}
+                        >
+                            {isChangingPlan ? 'Cerrar niveles' : 'Ver otros planes'}
+                        </button>
                     </section>
 
                     <div className="profile-account-actions">
